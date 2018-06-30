@@ -395,6 +395,329 @@ class E2E(torch.nn.Module):
         return att_ws
 
 
+class E2EDomain(torch.nn.Module):
+    def __init__(self, idim, odim, args):
+        super(E2EDomain, self).__init__()
+        self.etype = args.etype
+        self.verbose = args.verbose
+        self.char_list = args.char_list
+        self.outdir = args.outdir
+        self.mtlalpha = args.mtlalpha
+
+        # below means the last number becomes eos/sos ID
+        # note that sos/eos IDs are identical
+        self.sos = odim - 1
+        self.eos = odim - 1
+
+        # subsample info
+        # +1 means input (+1) and layers outputs (args.elayer)
+        subsample = np.ones(args.elayers + 1, dtype=np.int)
+        if args.etype == 'blstmp':
+            ss = args.subsample.split("_")
+            for j in range(min(args.elayers + 1, len(ss))):
+                subsample[j] = int(ss[j])
+        else:
+            logging.warning(
+                'Subsampling is not performed for vgg*. It is performed in max pooling layers at CNN.')
+        logging.info('subsample: ' + ' '.join([str(x) for x in subsample]))
+        self.subsample = subsample
+
+        daconfig_list = args.daconfig.split('_')
+        logging.info("the length of daconfig list " + str(len(daconfig_list)))
+        logging.info("daconfig list " + str(daconfig_list))
+        self.da_dim = int(daconfig_list[0])
+
+        # label smoothing info
+        if args.lsm_type:
+            logging.info("Use label smoothing with " + args.lsm_type)
+            labeldist = label_smoothing_dist(odim, args.lsm_type, transcript=args.train_json)
+        else:
+            labeldist = None
+
+        # encoder
+        self.enc = EncoderDomain(args.etype, idim, args.elayers, args.eunits, args.eprojs,
+                           self.subsample, args.dropout_rate, args.datype, args.daconfig)
+        # ctc
+        self.ctc = CTC(odim, args.eprojs, args.dropout_rate)
+        # attention
+        if args.atype == 'noatt':
+            self.att = NoAtt()
+        elif args.atype == 'dot':
+            self.att = AttDot(args.eprojs, args.dunits, args.adim)
+        elif args.atype == 'add':
+            self.att = AttAdd(args.eprojs, args.dunits, args.adim)
+        elif args.atype == 'location':
+            self.att = AttLoc(args.eprojs, args.dunits,
+                              args.adim, args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'location2d':
+            self.att = AttLoc2D(args.eprojs, args.dunits,
+                                args.adim, args.awin, args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'location_recurrent':
+            self.att = AttLocRec(args.eprojs, args.dunits,
+                                 args.adim, args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'coverage':
+            self.att = AttCov(args.eprojs, args.dunits, args.adim)
+        elif args.atype == 'coverage_location':
+            self.att = AttCovLoc(args.eprojs, args.dunits, args.adim,
+                                 args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'multi_head_dot':
+            self.att = AttMultiHeadDot(args.eprojs, args.dunits,
+                                       args.aheads, args.adim, args.adim)
+        elif args.atype == 'multi_head_add':
+            self.att = AttMultiHeadAdd(args.eprojs, args.dunits,
+                                       args.aheads, args.adim, args.adim)
+        elif args.atype == 'multi_head_loc':
+            self.att = AttMultiHeadLoc(args.eprojs, args.dunits,
+                                       args.aheads, args.adim, args.adim,
+                                       args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'multi_head_multi_res_loc':
+            self.att = AttMultiHeadMultiResLoc(args.eprojs, args.dunits,
+                                               args.aheads, args.adim, args.adim,
+                                               args.aconv_chans, args.aconv_filts)
+        else:
+            logging.error(
+                "Error: need to specify an appropriate attention archtecture")
+            sys.exit()
+        # decoder
+        self.dec = Decoder(args.eprojs, odim, args.dlayers, args.dunits,
+                           self.sos, self.eos, self.att, self.verbose, self.char_list,
+                           labeldist, args.lsm_weight)
+
+        # weight initialization
+        self.init_like_chainer()
+        # additional forget-bias init in encoder ?
+        # for m in self.modules():
+        #     if isinstance(m, torch.nn.LSTM):
+        #         for name, p in m.named_parameters():
+        #             if "bias_ih" in name:
+        #                 set_forget_bias_to_one(p)
+
+    def init_like_chainer(self):
+        """Initialize weight like chainer
+
+        chainer basically uses LeCun way: W ~ Normal(0, fan_in ** -0.5), b = 0
+        pytorch basically uses W, b ~ Uniform(-fan_in**-0.5, fan_in**-0.5)
+
+        however, there are two exceptions as far as I know.
+        - EmbedID.W ~ Normal(0, 1)
+        - LSTM.upward.b[forget_gate_range] = 1 (but not used in NStepLSTM)
+        """
+        lecun_normal_init_parameters(self)
+
+        # exceptions
+        # embed weight ~ Normal(0, 1)
+        self.dec.embed.weight.data.normal_(0, 1)
+        # forget-bias = 1.0
+        # https://discuss.pytorch.org/t/set-forget-gate-bias-of-lstm/1745
+        for l in six.moves.range(len(self.dec.decoder)):
+            set_forget_bias_to_one(self.dec.decoder[l].bias_ih)
+
+    # x[i]: ('utt_id', {'ilen':'xxx',...}})
+    def forward(self, data):
+        '''E2E forward
+
+        :param data:
+        :return:
+        '''
+
+        # utt list of frame x dim
+        xs = [d[1]['feat'] for d in data]
+        # remove 0-output-length utterances
+        tids = [d[1]['output'][0]['tokenid'].split() for d in data]
+        filtered_index = filter(lambda i: len(tids[i]) > 0, range(len(xs)))
+        sorted_index = sorted(filtered_index, key=lambda i: -len(xs[i]))
+        if len(sorted_index) != len(xs):
+            logging.warning('Target sequences include empty tokenid (batch %d -> %d).' % (
+                len(xs), len(sorted_index)))
+        xs = [xs[i] for i in sorted_index]
+        # utt list of olen
+        ys = [np.fromiter(map(int, tids[i]), dtype=np.int64)
+              for i in sorted_index]
+        if self.training:
+            ys = [to_cuda(self, Variable(torch.from_numpy(y))) for y in ys]
+        else:
+            ys = [to_cuda(self, Variable(torch.from_numpy(y), volatile=True)) for y in ys]
+
+        # subsample frame
+        xs = [xx[::self.subsample[0], :] for xx in xs]
+        ilens = np.fromiter((xx.shape[0] for xx in xs), dtype=np.int64)
+        if self.training:
+            hs = [to_cuda(self, Variable(torch.from_numpy(xx))) for xx in xs]
+        else:
+            hs = [to_cuda(self, Variable(torch.from_numpy(xx), volatile=True)) for xx in xs]
+
+        dd_vectors = []
+        corpus_list = [d[1]['utt2corpus'] for d in data]
+        logging.info(corpus_list)
+
+        for val in [int(d) for d in corpus_list]:
+            if self.da_dim == 3:
+                if val == 0:
+                    dd_vectors.append(np.array([1.0, 0.0, 0.0], dtype=np.float32))
+                elif val == 1:
+                    dd_vectors.append(np.array([0.0, 1.0, 0.0], dtype=np.float32))
+                elif val == 2:
+                    dd_vectors.append(np.array([0.0, 0.0, 1.0], dtype=np.float32))
+            elif self.da_dim == 7:
+                if val == 0:
+                    dd_vectors.append(np.array([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0], dtype=np.float32))
+                elif val == 1:
+                    dd_vectors.append(np.array([0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0], dtype=np.float32))
+                elif val == 2:
+                    dd_vectors.append(np.array([0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0], dtype=np.float32))
+
+        dialect_array = np.array(dd_vectors)
+        dialect_array = dialect_array.reshape(len(dialect_array), 1, self.da_dim)
+        if self.training:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv))) for dv in dialect_array]
+        else:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv), volatile=True)) for dv in dialect_array]
+
+        logging.info(dialect_array.shape)
+
+        # 1. encoder
+        xpad = pad_list(hs)
+        hpad, hlens = self.enc(xpad, ilens, ds)
+
+        # # 3. CTC loss
+        if self.mtlalpha == 0:
+            loss_ctc = None
+        else:
+            loss_ctc = self.ctc(hpad, hlens, ys)
+
+        # 4. attention loss
+        if self.mtlalpha == 1:
+            loss_att = None
+            acc = None
+        else:
+            loss_att, acc = self.dec(hpad, hlens, ys)
+
+        return loss_ctc, loss_att, acc
+
+    def recognize(self, x, recog_args, char_list, rnnlm=None):
+        '''E2E beam search
+
+        :param x:
+        :param recog_args:
+        :param char_list:
+        :return:
+        '''
+        prev = self.training
+        self.eval()
+        # subsample frame
+        x = x[::self.subsample[0], :]
+        ilen = [x.shape[0]]
+        h = to_cuda(self, Variable(torch.from_numpy(
+            np.array(x, dtype=np.float32)), volatile=True))
+
+        dd_vectors = []
+        if self.da_dim == 3:
+            dd_vectors.append(np.array([1.0, 0.0, 0.0], dtype=np.float32))
+        elif self.da_dim == 7:
+            dd_vectors.append(np.array([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0], dtype=np.float32))
+
+        dialect_array = np.array(dd_vectors)
+        dialect_array = dialect_array.reshape(len(dialect_array), 1, self.da_dim)
+        ds = [to_cuda(self, Variable(torch.from_numpy(dv), volatile=True)) for dv in dialect_array]
+
+        # 1. encoder
+        # make a utt list (1) to use the same interface for encoder
+        h, _ = self.enc(h.unsqueeze(0), ilen, ds)
+
+        # calculate log P(z_t|X) for CTC scores
+        if recog_args.ctc_weight > 0.0:
+            lpz = self.ctc.log_softmax(h).data[0]
+        else:
+            lpz = None
+
+        # 2. decoder
+        # decode the first utterance
+        y = self.dec.recognize_beam(h[0], lpz, recog_args, char_list, rnnlm)
+
+        if prev:
+            self.train()
+        return y
+
+    def calculate_all_attentions(self, data):
+        '''E2E attention calculation
+
+        :param list data: list of dicts of the input (B)
+        :return: attention weights with the following shape,
+            1) multi-head case => attention weights (B, H, Lmax, Tmax),
+            2) other case => attention weights (B, Lmax, Tmax).
+         :rtype: float ndarray
+        '''
+        # utt list of frame x dim
+        xs = [d[1]['feat'] for d in data]
+
+        # remove 0-output-length utterances
+        tids = [d[1]['output'][0]['tokenid'].split() for d in data]
+        filtered_index = filter(lambda i: len(tids[i]) > 0, range(len(xs)))
+        sorted_index = sorted(filtered_index, key=lambda i: -len(xs[i]))
+        if len(sorted_index) != len(xs):
+            logging.warning('Target sequences include empty tokenid (batch %d -> %d).' % (
+                len(xs), len(sorted_index)))
+        xs = [xs[i] for i in sorted_index]
+
+        # utt list of olen
+        ys = [np.fromiter(map(int, tids[i]), dtype=np.int64)
+              for i in sorted_index]
+        ys = [to_cuda(self, Variable(torch.from_numpy(y), volatile=True)) for y in ys]
+
+        # subsample frame
+        xs = [xx[::self.subsample[0], :] for xx in xs]
+        ilens = np.fromiter((xx.shape[0] for xx in xs), dtype=np.int64)
+        hs = [to_cuda(self, Variable(torch.from_numpy(xx), volatile=True)) for xx in xs]
+
+        dd_vectors = []
+        corpus_list = [d[1]['utt2corpus'] for d in data]
+        logging.info(corpus_list)
+
+        for val in [int(d) for d in corpus_list]:
+            if self.da_dim == 3:
+                if val == 0:
+                    dd_vectors.append(np.array([1.0, 0.0, 0.0], dtype=np.float32))
+                elif val == 1:
+                    dd_vectors.append(np.array([0.0, 1.0, 0.0], dtype=np.float32))
+                elif val == 2:
+                    dd_vectors.append(np.array([0.0, 0.0, 1.0], dtype=np.float32))
+            elif self.da_dim == 7:
+                if val == 0:
+                    dd_vectors.append(np.array([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0], dtype=np.float32))
+                elif val == 1:
+                    dd_vectors.append(np.array([0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0], dtype=np.float32))
+                elif val == 2:
+                    dd_vectors.append(np.array([0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0], dtype=np.float32))
+
+        dialect_array = np.array(dd_vectors)
+        dialect_array = dialect_array.reshape(len(dialect_array), 1, self.da_dim)
+        if self.training:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv))) for dv in dialect_array]
+        else:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv), volatile=True)) for dv in dialect_array]
+
+        logging.info(dialect_array.shape)
+
+        dialect_array = np.array(dd_vectors)
+        dialect_array = dialect_array.reshape(len(dialect_array), 1, self.da_dim)
+        if self.training:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv))) for dv in dialect_array]
+        else:
+            ds = [to_cuda(self, Variable(torch.from_numpy(dv), volatile=True)) for dv in dialect_array]
+
+        logging.info(dialect_array.shape)
+
+
+        # encoder
+        xpad = pad_list(hs)
+        hpad, hlens = self.enc(xpad, ilens, ds)
+
+        # decoder
+        att_ws = self.dec.calculate_all_attentions(hpad, hlens, ys)
+
+        return att_ws
+
+
 # ------------- CTC Network --------------------------------------------------------------------------------------------
 class _ChainerLikeCTC(warp_ctc._CTC):
     @staticmethod
@@ -2034,6 +2357,213 @@ class Encoder(torch.nn.Module):
         return xs, ilens
 
 
+class EncoderDomain(torch.nn.Module):
+    '''ENCODERDOMAIN NETWORK CLASS
+
+    This is the example of docstring.
+
+    :param str etype: type of encoder network
+    :param int idim: number of dimensions of encoder network
+    :param int elayers: number of layers of encoder network
+    :param int eunits: number of lstm units of encoder network
+    :param int epojs: number of projection units of encoder network
+    :param str subsample: subsampling number e.g. 1_2_2_2_1
+    :param float dropout: dropout rate
+    :return:
+
+    '''
+
+    def __init__(self, etype, idim, elayers, eunits, eprojs, subsample, dropout, datype, daconfig, in_channel=1):
+        super(EncoderDomain, self).__init__()
+
+
+        daconfig_list=daconfig.split('_')
+        da_dim=int(daconfig_list[0])
+        #Domain adaptation is implemented for BLSTMP encoder only.
+        if etype == 'blstmp':
+            if datype == 'bias':
+                self.enc1 = BLSTMPDomain(idim, elayers, eunits, eprojs, subsample, dropout, da_dim)
+                logging.info('BLSTM with every-layer projection for encoder and the domain adaptation')
+            elif datype == 'bias_embedding':
+                embedding_dim = int(daconfig_list[1])
+                logging.info(str(embedding_dim))
+                self.enc1 = BLSTMPDomainBiasEmbedding(idim, elayers, eunits, eprojs, subsample, dropout,
+                                                      da_dim, embedding_dim)
+                logging.info('BLSTM with every-layer projection for encoder and the domain adaptation, embedding dim :'
+                             + str(embedding_dim))
+            else:
+                logging.error(
+                    "Error: need to specify an appropriate domain adaptation architecture")
+                sys.exit()
+        else:
+            logging.error(
+                "Error: need to specify an appropriate encoder architecture")
+            sys.exit()
+
+        self.etype = etype
+        self.datype = datype
+
+    def forward(self, xs, ilens, ds):
+        '''Encoder forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+        if self.datype == 'bias':
+            xs, ilens = self.enc1(xs, ilens, ds)
+        elif self.datype == 'bias_embedding':
+            xs, ilens = self.enc1(xs, ilens, ds)
+        elif self.datype == 'fhl':
+            xs, ilens = self.enc1(xs, ilens, ds)
+        elif self.datype == 'cat':
+            xs, ilens = self.enc1(xs, ilens, ds)
+        elif self.datype == 'gate':
+            xs, ilens = self.enc1(xs, ilens, ds)
+        else:
+            logging.error(
+                "Error: need to specify an appropriate encoder archtecture")
+            sys.exit()
+
+        return xs, ilens
+
+
+class BLSTMPDomainBiasEmbedding(torch.nn.Module):
+    def __init__(self, idim, elayers, cdim, hdim, subsample, dropout, dadim, embeddingdim):
+        super(BLSTMPDomainBiasEmbedding, self).__init__()
+        for i in six.moves.range(elayers):
+            if i == 0:
+                inputdim = idim + embeddingdim
+            else:
+                inputdim = hdim + embeddingdim
+            setattr(self, "bilstm%d" % i, torch.nn.LSTM(inputdim, cdim, dropout=dropout,
+                                                        num_layers=1, bidirectional=True, batch_first=True))
+            # bottleneck layer to merge
+            setattr(self, "bt%d" % i, torch.nn.Linear(2 * cdim, hdim))
+
+        setattr(self, "embedding", torch.nn.Linear(dadim, embeddingdim))
+
+        self.elayers = elayers
+        self.cdim = cdim
+        self.subsample = subsample
+        self.dadim = dadim
+        self.embeddingdim = embeddingdim
+
+    def forward(self, xpad, ilens, ds):
+        '''BLSTMPDomainBiasEmbedding forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+
+        #Generate the embeddings
+        embedding_layer = getattr(self, 'embedding')
+        #embedding_vectors = embedding_layer((ds.contiguous().view(-1, ds.size(2))))
+        #ds_embedding = torch.sigmoid(embedding_vectors.view(ds.size(0), ds.size(1), -1))
+        ds_embedding = [embed for embed in torch.sigmoid(embedding_layer(torch.stack(ds)))]
+
+        for layer in six.moves.range(self.elayers):
+
+            xpad_new=[]
+            for i, xs in enumerate(xpad):
+                dv = ds_embedding[i].expand(ilens[0], self.embeddingdim) #TODO ilens
+                xpad_new.append(torch.cat((xpad[i], dv), 1))
+
+            #ds = ds.expand(len(xpad),ilens[0],self.dadim)
+            #xpad = torch.cat(xpad, ds, 2)
+            logging.info(self.__class__.__name__ + 'xpad_new lengths [0][0]: ' + str(len(xpad_new[0][0])))
+            xpad_new = pad_list(xpad_new)
+
+            xpack = pack_padded_sequence(xpad_new, ilens, batch_first=True)
+            logging.info(self.__class__.__name__ + 'xpack lengths [0][0]: ' + str(len(xpack[0][0])))
+            bilstm = getattr(self, 'bilstm' + str(layer))
+            bilstm.flatten_parameters()
+            ys, (hy, cy) = bilstm(xpack)
+            # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+            ypad, ilens = pad_packed_sequence(ys, batch_first=True)
+            sub = self.subsample[layer + 1]
+            if sub > 1:
+                ypad = ypad[:, ::sub]
+                ilens = [(i + 1) // sub for i in ilens]
+            # (sum _utt frame_utt) x dim
+            projected = getattr(self, 'bt' + str(layer)
+                                )(ypad.contiguous().view(-1, ypad.size(2)))
+            xpad = torch.tanh(projected.view(ypad.size(0), ypad.size(1), -1))
+            del hy, cy
+
+        return xpad, ilens
+
+
+class BLSTMPDomain(torch.nn.Module):
+    def __init__(self, idim, elayers, cdim, hdim, subsample, dropout, dadim):
+        super(BLSTMPDomain, self).__init__()
+        for i in six.moves.range(elayers):
+            if i == 0:
+                inputdim = idim + dadim
+            else:
+                inputdim = hdim + dadim
+            setattr(self, "bilstm%d" % i, torch.nn.LSTM(inputdim, cdim, dropout=dropout,
+                                                        num_layers=1, bidirectional=True, batch_first=True))
+            # bottleneck layer to merge
+            setattr(self, "bt%d" % i, torch.nn.Linear(2 * cdim, hdim))
+
+        self.elayers = elayers
+        self.cdim = cdim
+        self.subsample = subsample
+        self.dadim=dadim
+
+    def forward(self, xpad, ilens, ds):
+        '''BLSTMP forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+
+        # Increase the ilens from the dialectdim
+        #ilens = (np.array(ilens) + self.dialectdim).tolist()
+
+        logging.info(self.__class__.__name__ + ' input lengths: ' + str(ilens))
+        logging.info(self.__class__.__name__ + ' xpad lengths: ' + str(len(xpad)))
+        logging.info(self.__class__.__name__ + ' xpad lengths [0]: ' + str(len(xpad[0])))
+        logging.info(self.__class__.__name__ + ' xpad lengths [0][0]: ' + str(len(xpad[0][0])))
+        # logging.info(self.__class__.__name__ + ' input lengths: ' + str(ilens))
+        for layer in six.moves.range(self.elayers):
+
+
+
+            xpad_new=[]
+            for i, xs in enumerate(xpad):
+                dv = ds[i].expand(ilens[0],self.dadim) #TODO ilens
+                xpad_new.append(torch.cat((xpad[i],dv),1))
+
+            #ds = ds.expand(len(xpad),ilens[0],self.dadim)
+            #xpad = torch.cat(xpad, ds, 2)
+            logging.info(self.__class__.__name__ + 'xpad_new lengths [0][0]: ' + str(len(xpad_new[0][0])))
+            xpad_new = pad_list(xpad_new)
+
+            xpack = pack_padded_sequence(xpad_new, ilens, batch_first=True)
+            logging.info(self.__class__.__name__ + 'xpack lengths [0][0]: ' + str(len(xpack[0][0])))
+            bilstm = getattr(self, 'bilstm' + str(layer))
+            bilstm.flatten_parameters()
+            ys, (hy, cy) = bilstm(xpack)
+            # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+            ypad, ilens = pad_packed_sequence(ys, batch_first=True)
+            sub = self.subsample[layer + 1]
+            if sub > 1:
+                ypad = ypad[:, ::sub]
+                ilens = [(i + 1) // sub for i in ilens]
+            # (sum _utt frame_utt) x dim
+            projected = getattr(self, 'bt' + str(layer)
+                                )(ypad.contiguous().view(-1, ypad.size(2)))
+            xpad = torch.tanh(projected.view(ypad.size(0), ypad.size(1), -1))
+            del hy, cy
+
+        return xpad, ilens
+
+
+
 class BLSTMP(torch.nn.Module):
     def __init__(self, idim, elayers, cdim, hdim, subsample, dropout):
         super(BLSTMP, self).__init__()
@@ -2058,6 +2588,7 @@ class BLSTMP(torch.nn.Module):
         :param ilens:
         :return:
         '''
+        logging.info(self.__class__.__name__ + ' input lengths: ' + str(ilens))
         # logging.info(self.__class__.__name__ + ' input lengths: ' + str(ilens))
         for layer in six.moves.range(self.elayers):
             xpack = pack_padded_sequence(xpad, ilens, batch_first=True)

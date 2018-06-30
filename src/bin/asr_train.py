@@ -134,6 +134,13 @@ def main():
                         help='Gradient norm threshold to clip')
     parser.add_argument('--num-save-attention', default=3, type=int,
                         help='Number of samples of attention to be saved')
+    # Domain adaptation related
+    parser.add_argument('--da', default=0, type=int,
+                        help='whether to use domain adaptation in the encoder')
+    parser.add_argument('--datype', default='bias', type=str,
+                        help='domain adaptation type')
+    parser.add_argument('--daconfig', default='3', type=str,
+                        help='Domain adaptation configurations')
     args = parser.parse_args()
 
     # logging info

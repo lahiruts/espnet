@@ -68,6 +68,13 @@ def main():
                         help='Word list to read')
     parser.add_argument('--lm-weight', default=0.1, type=float,
                         help='RNNLM weight.')
+    # Domain adaptation related
+    parser.add_argument('--da', default=0, type=int,
+                        help='whether to use domain adaptation in the encoder')
+    parser.add_argument('--datype', default='bias', type=str,
+                        help='domain adaptation type')
+    parser.add_argument('--daconfig', default='3', type=str,
+                        help='Domain adaptation configurations')
     args = parser.parse_args()
 
     # logging info

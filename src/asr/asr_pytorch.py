@@ -32,6 +32,7 @@ from asr_utils import make_batchset
 from asr_utils import PlotAttentionReport
 from asr_utils import restore_snapshot
 from e2e_asr_attctc_th import E2E
+from e2e_asr_attctc_th import E2EDomain
 from e2e_asr_attctc_th import Loss
 
 # for kaldi io
@@ -219,7 +220,12 @@ def train(args):
         logging.info('Multitask learning mode')
 
     # specify model architecture
-    e2e = E2E(idim, odim, args)
+
+    if args.da:
+        e2e = E2EDomain(idim, odim, args)
+    else:
+        e2e = E2E(idim, odim, args)
+
     model = Loss(e2e, args.mtlalpha)
 
     # write model config
@@ -392,7 +398,11 @@ def recog(args):
 
     # specify model architecture
     logging.info('reading model parameters from' + args.model)
-    e2e = E2E(idim, odim, train_args)
+
+    if args.da:
+        e2e = E2EDomain(idim, odim, train_args)
+    else:
+        e2e = E2E(idim, odim, train_args)
     model = Loss(e2e, train_args.mtlalpha)
 
     def cpu_loader(storage, location):

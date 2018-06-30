@@ -58,7 +58,8 @@ fi
 cat ${feat} > ${tmpdir}/feat.scp
 
 rm -f ${tmpdir}/*.json
-for x in ${dir}/text ${dir}/utt2spk ${tmpdir}/*.scp; do
+#for x in ${dir}/text ${dir}/utt2spk ${tmpdir}/*.scp; do
+for x in ${dir}/text ${dir}/utt2spk ${dir}/utt2corpus ${tmpdir}/*.scp; do
     k=`basename ${x} .scp`
     cat ${x} | scp2json.py --key ${k} > ${tmpdir}/${k}.json
 done
