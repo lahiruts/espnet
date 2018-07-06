@@ -21,6 +21,7 @@ from chainer import reporter
 from torch.autograd import Variable
 from torch.nn.utils.rnn import pack_padded_sequence
 from torch.nn.utils.rnn import pad_packed_sequence
+from torch.nn.parameter import Parameter
 
 from ctc_prefix_score import CTCPrefixScore
 from e2e_asr_common import end_detect
@@ -2391,6 +2392,21 @@ class EncoderDomain(torch.nn.Module):
                                                       da_dim, embedding_dim)
                 logging.info('BLSTM with every-layer projection for encoder and the domain adaptation, embedding dim :'
                              + str(embedding_dim))
+            elif datype == 'gate':
+                self.enc1 = BLSTMPDomainBiasGate(idim, elayers, eunits, eprojs, subsample, dropout,
+                                                      da_dim)
+                logging.info('BLSTM with every-layer projection for encoder and the domain adaptation with gates')
+            elif datype == 'fhl':
+                fhl_bases = int(daconfig_list[1])
+                fhl_layer = int(daconfig_list[2])
+                self.enc1 = BLSTMPDomainFHL(idim, elayers, eunits, eprojs, subsample, dropout,
+                                                      da_dim, fhl_bases, fhl_layer)
+                logging.info('BLSTM with every-layer projection for encoder and the domain adaptation with FHL')
+            elif datype == 'cat':
+                cat_layer = int(daconfig_list[1])
+                self.enc1 = BLSTMPDomainCAT(idim, elayers, eunits, eprojs, subsample, dropout,
+                                                      da_dim, cat_layer)
+                logging.info('BLSTM with every-layer projection for encoder and the domain adaptation with CAT')
             else:
                 logging.error(
                     "Error: need to specify an appropriate domain adaptation architecture")
@@ -2426,6 +2442,302 @@ class EncoderDomain(torch.nn.Module):
             sys.exit()
 
         return xs, ilens
+
+
+class BLSTMPDomainCAT(torch.nn.Module):
+    def __init__(self, idim, elayers, cdim, hdim, subsample, dropout, dadim, cat_layer):
+        super(BLSTMPDomainCAT, self).__init__()
+        for i in six.moves.range(elayers):
+            if i == 0:
+                inputdim = idim
+            else:
+                inputdim = hdim
+            setattr(self, "bilstm%d" % i, torch.nn.LSTM(inputdim, cdim, dropout=dropout,
+                                                        num_layers=1, bidirectional=True, batch_first=True))
+            # bottleneck layer to merge
+            setattr(self, "bt%d" % i, torch.nn.Linear(2 * cdim, hdim))
+            if i == cat_layer  or cat_layer == -1:
+                for j in six.moves.range(dadim):
+                    setattr(self, "cat%d" % j, torch.nn.Linear(2 * cdim, hdim))
+
+        self.elayers = elayers
+        self.cdim = cdim
+        self.subsample = subsample
+        self.dadim = dadim
+        self.cat_layer = cat_layer
+
+    def forward(self, xpad, ilens, ds):
+        '''BLSTMPDomainBiasEmbedding forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+
+        #Generate the embeddings
+
+        for layer in six.moves.range(self.elayers):
+            xpack = pack_padded_sequence(xpad, ilens, batch_first=True)
+            logging.info(self.__class__.__name__ + ' xpack lengths [0][0]: ' + str(len(xpack[0][0])))
+            bilstm = getattr(self, 'bilstm' + str(layer))
+            bilstm.flatten_parameters()
+            ys, (hy, cy) = bilstm(xpack)
+            # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+            ypad, ilens = pad_packed_sequence(ys, batch_first=True)
+            sub = self.subsample[layer + 1]
+            if sub > 1:
+                ypad = ypad[:, ::sub]
+                ilens = [(i + 1) // sub for i in ilens]
+            # (sum _utt frame_utt) x dim
+            ypad = ypad.contiguous()
+            projected = getattr(self, 'bt' + str(layer))(ypad)
+            logging.info(self.__class__.__name__ + ' projected: ' + str(projected.shape))
+
+            if layer == self.cat_layer or self.cat_layer == -1:
+                for j in range(self.dadim):
+                    logging.info(self.__class__.__name__ + ' coef: ')
+                    coef = ((torch.stack(ds))[:, :, j]).contiguous().view(ypad.size(0), 1, 1)
+                    logging.info(self.__class__.__name__ + ' coef: ' + str(coef.shape))
+                    projected += coef * getattr(self, 'cat' + str(j))(ypad)
+                    logging.info(self.__class__.__name__ + ' coef projected: ' + str(projected.shape))
+
+            xpad = torch.tanh(projected)
+            del hy, cy
+
+        return xpad, ilens
+
+
+class FHLLayer(torch.nn.Module):
+    def __init__(self, idim, hdim, fhl_bases):
+        super(FHLLayer, self).__init__()
+
+        stdv = 1. / math.sqrt(hdim)
+
+        w1 = Parameter(torch.Tensor(fhl_bases, hdim))
+        w2 = Parameter(torch.Tensor(idim, fhl_bases))
+
+        w1.data.uniform_(-stdv, stdv)
+        w2.data.uniform_(-stdv, stdv)
+
+        self.hdim = hdim
+        self.idim = idim
+        self.fhl_bases = fhl_bases
+        self.w1 = w1
+        self.w2 = w2
+
+    def forward(self, input, ds):
+        '''BLSTMPDomainBiasEmbedding forward
+
+        :param input:
+        :param ds:
+        :return:
+        '''
+
+        logging.info('idim' + str(self.hdim))
+        logging.info('fhl_bases' + str(self.fhl_bases))
+        logging.info('fhllayer forward')
+        logging.info(input.shape)
+        logging.info(ds.shape)
+
+        ds_expand = ds.expand(input.size(0), input.size(1), self.fhl_bases)
+        logging.info(ds_expand.shape)
+        tt1 = torch.matmul(input, self.w2)
+        logging.info(tt1.shape)
+        tt2 = ds_expand * tt1
+        logging.info(tt2.shape)
+        tt3 = torch.matmul(tt2, self.w1)
+        logging.info(tt3.shape)
+
+        return tt3
+
+
+class BLSTMPDomainFHL(torch.nn.Module):
+    def __init__(self, idim, elayers, cdim, hdim, subsample, dropout, dadim, fhl_bases, fhl_layer=-1):
+        super(BLSTMPDomainFHL, self).__init__()
+        for i in six.moves.range(elayers):
+            if i == 0:
+                inputdim = idim
+            else:
+                inputdim = hdim
+            setattr(self, "bilstm%d" % i, torch.nn.LSTM(inputdim, cdim, dropout=dropout,
+                                                            num_layers=1, bidirectional=True, batch_first=True))
+            # bottleneck layer to merge
+            setattr(self, "bt%d" % i, torch.nn.Linear(2 * cdim, hdim))
+            if fhl_layer == i or fhl_layer == -1:
+                setattr(self, "fhl%d" % i, FHLLayer(2 * cdim, hdim, fhl_bases))
+
+        setattr(self, "embedding", torch.nn.Linear(dadim, fhl_bases))
+
+        self.elayers = elayers
+        self.cdim = cdim
+        self.subsample = subsample
+        self.dadim = dadim
+        self.fhl_bases = fhl_bases
+        self.fhl_layer = fhl_layer
+
+    def forward(self, xpad, ilens, ds):
+        '''BLSTMPDomainBiasEmbedding forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+
+        # Generate the embeddings
+        embedding_layer = getattr(self, 'embedding')
+        ds_embedding = torch.sigmoid(embedding_layer(torch.stack(ds)))
+
+        for layer in six.moves.range(self.elayers):
+            xpack = pack_padded_sequence(xpad, ilens, batch_first=True)
+            logging.info(self.__class__.__name__ + ' xpack lengths [0][0]: ' + str(len(xpack[0][0])))
+            bilstm = getattr(self, 'bilstm' + str(layer))
+            bilstm.flatten_parameters()
+            ys, (hy, cy) = bilstm(xpack)
+            # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+            ypad, ilens = pad_packed_sequence(ys, batch_first=True)
+            sub = self.subsample[layer + 1]
+            if sub > 1:
+                ypad = ypad[:, ::sub]
+                ilens = [(i + 1) // sub for i in ilens]
+            # (sum _utt frame_utt) x dim
+            ypad = ypad.contiguous()
+            projected = getattr(self, 'bt' + str(layer))(ypad)
+            logging.info(self.__class__.__name__ + ' projected: ' + str(projected.shape))
+
+            if layer == self.fhl_layer or self.fhl_layer == -1:
+                logging.info(self.__class__.__name__ + ' fhl is needed: ')
+                projected += getattr(self, 'fhl' + str(layer))(ypad, ds_embedding)
+                logging.info(self.__class__.__name__ + ' fhl is added ')
+
+            xpad = torch.tanh(projected)
+            del hy, cy
+
+        return xpad, ilens
+
+
+class GateLayer(torch.nn.Module):
+    def __init__(self, hdim, dadim):
+        super(GateLayer, self).__init__()
+        setattr(self, "linear1", torch.nn.Linear(hdim, hdim, bias=False))
+        setattr(self, "linear2", torch.nn.Linear(dadim, hdim))
+
+        self.hdim = hdim
+        self.dadim = dadim
+
+    def forward(self, input, da_vector):
+        '''BLSTMPDomainBiasEmbedding forward
+
+        :param input:
+        :param da_vector:
+        :return:
+        '''
+        logging.info('idim' + str(self.hdim))
+        logging.info('dadim' + str(self.dadim))
+        logging.info('gatelayer forward')
+        logging.info(input.shape)
+        logging.info(da_vector.shape)
+
+        #linear2 = getattr(self, 'linear2')(da_vector.contiguous().view(-1, da_vector.size(1)))
+        linear2 = getattr(self, 'linear2')(da_vector)
+        logging.info('linear2 called')
+
+        #linear1 = getattr(self, 'linear1')(input.contiguous().view(-1, input.size(2)))
+        linear1 = getattr(self, 'linear1')(input)
+
+        logging.info('linear1 called')
+        linear = linear1 + linear2
+        #linear = linear1 + linear2.view(da_vector.size(0), 1,
+                                        #da_vector.size(1)).expand(da_vector.size(0),
+                                                                  #input.size(1), da_vector.size(1))
+        logging.info('added')
+        #return linear
+
+        return torch.sigmoid(linear)
+
+
+class BLSTMPDomainBiasGate(torch.nn.Module):
+    def __init__(self, idim, elayers, cdim, hdim, subsample, dropout, dadim):
+        super(BLSTMPDomainBiasGate, self).__init__()
+        for i in six.moves.range(elayers):
+            if i == 0:
+                inputdim = idim
+            else:
+                inputdim = hdim + dadim
+            setattr(self, "bilstm%d" % i, torch.nn.LSTM(inputdim, cdim, dropout=dropout,
+                                                        num_layers=1, bidirectional=True, batch_first=True))
+            # bottleneck layer to merge
+            setattr(self, "bt%d" % i, torch.nn.Linear(2 * cdim, hdim))
+            #if i != 0:
+            setattr(self, "gate%d" % i, GateLayer(hdim, dadim))
+
+        self.elayers = elayers
+        self.cdim = cdim
+        self.subsample = subsample
+        self.dadim = dadim
+
+    def forward(self, xpad, ilens, ds):
+        '''BLSTMPDomainBiasGate forward
+
+        :param xs:
+        :param ilens:
+        :return:
+        '''
+
+        #Generate the embeddings
+
+        for layer in six.moves.range(self.elayers):
+            #if layer != 0:
+            #    logging.info('calling gate layer')
+            #    gate = getattr(self, 'gate' + str(layer))(torch.stack(xpad), torch.stack(ds))
+            #    logging.info('gate layer was called successfully')
+            #    xpad = [xx for xx in gate * torch.stack(xpad)]
+
+            #logging.info('new xpad is created')
+            #xpad_new = []
+            #for i, xs in enumerate(xpad):
+            #    dv = ds[i].expand(ilens[0], self.dadim) #TODO ilens
+            #    xpad_new.append(torch.cat((xpad[i], dv), 1))
+
+            #logging.info(self.__class__.__name__ + 'xpad_new lengths [0][0]: ' + str(len(xpad_new[0][0])))
+            #xpad_new = pad_list(xpad_new)
+            logging.info(self.__class__.__name__ + ' starting layer' + str(layer))
+            xpack = pack_padded_sequence(xpad, ilens, batch_first=True)
+            logging.info(self.__class__.__name__ + ' xpack lengths [0][0]: ' + str(len(xpack[0][0])))
+            bilstm = getattr(self, 'bilstm' + str(layer))
+            bilstm.flatten_parameters()
+            ys, (hy, cy) = bilstm(xpack)
+            # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+            ypad, ilens = pad_packed_sequence(ys, batch_first=True)
+            sub = self.subsample[layer + 1]
+            if sub > 1:
+                ypad = ypad[:, ::sub]
+                ilens = [(i + 1) // sub for i in ilens]
+            # (sum _utt frame_utt) x dim
+            projected = getattr(self, 'bt' + str(layer)
+                                )(ypad.contiguous().view(-1, ypad.size(2)))
+            xpad = torch.tanh(projected.view(ypad.size(0), ypad.size(1), -1))
+
+
+            logging.info('calling gate layer')
+            gate = getattr(self, 'gate' + str(layer))(torch.stack(xpad), torch.stack(ds))
+            logging.info('gate layer was called successfully')
+            xpad = [xx for xx in gate * torch.stack(xpad)]
+
+            if layer + 1 != self.elayers:
+                logging.info('new xpad is created')
+                xpad_new = []
+                for i, xs in enumerate(xpad):
+                    dv = ds[i].expand(ilens[0], self.dadim) #TODO ilens
+                    xpad_new.append(torch.cat((xpad[i], dv), 1))
+
+                logging.info(self.__class__.__name__ + ' xpad_new lengths [0][0]: ' + str(len(xpad_new[0][0])))
+                xpad = pad_list(xpad_new)
+            else:
+                xpad = pad_list(xpad)
+
+            del hy, cy
+            logging.info(self.__class__.__name__ + ' finishing layer' + str(layer))
+        return xpad, ilens
 
 
 class BLSTMPDomainBiasEmbedding(torch.nn.Module):
