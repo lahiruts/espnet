@@ -1,0 +1,368 @@
+# paste-feats --length-tolerance=2 "ark:extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- | compute-fbank-feats  --verbose=2 --config=conf/fbank.conf ark:- ark:- |" "ark,s,cs:extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- | compute-kaldi-pitch-feats --verbose=2 --config=conf/pitch.conf ark:- ark:- | process-kaldi-pitch-feats  ark:- ark:- |" ark:- | copy-feats --compress=true ark:- ark,scp:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/fbank//raw_fbank_pitch_smartone_kaldi.10.ark,/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/fbank//raw_fbank_pitch_smartone_kaldi.10.scp 
+# Started at Wed Jul 11 12:00:01 HKT 2018
+#
+paste-feats --length-tolerance=2 'ark:extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- | compute-fbank-feats  --verbose=2 --config=conf/fbank.conf ark:- ark:- |' 'ark,s,cs:extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- | compute-kaldi-pitch-feats --verbose=2 --config=conf/pitch.conf ark:- ark:- | process-kaldi-pitch-feats  ark:- ark:- |' ark:- 
+copy-feats --compress=true ark:- ark,scp:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/fbank//raw_fbank_pitch_smartone_kaldi.10.ark,/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/fbank//raw_fbank_pitch_smartone_kaldi.10.scp 
+extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- 
+compute-fbank-feats --verbose=2 --config=conf/fbank.conf ark:- ark:- 
+sox WARN rate: rate clipped 7 samples; decrease volume?
+sox WARN dither: dither clipped 6 samples; decrease volume?
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_031670-032027
+extract-segments scp,p:smartone_data/smartone_kaldi/wav.scp smartone_data/smartone_kaldi/make_fbank//segments.10 ark:- 
+process-kaldi-pitch-feats ark:- ark:- 
+compute-kaldi-pitch-feats --verbose=2 --config=conf/pitch.conf ark:- ark:- 
+sox WARN rate: rate clipped 7 samples; decrease volume?
+sox WARN dither: dither clipped 5 samples; decrease volume?
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_032027-032410
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_032114-032230
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_032430-032885
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_032885-033085
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_033085-033440
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_033440-033640
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_033640-033840
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_033840-034040
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 10 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034040-034240
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034092-034205
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034215-034370
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034290-034570
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034362-034557
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_034557-035175
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_035175-035505
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_035505-035717
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_035717-035970
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_035970-036150
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 20 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_036150-036510
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_036510-036892
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_036892-037107
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_037107-037462
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_037462-037837
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_037837-038085
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_038085-038260
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_038260-038460
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_038460-038850
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_038850-038980
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 30 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_039050-039457
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_039457-039765
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_039765-040110
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_040110-040427
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_040350-040725
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_040725-041130
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041185-041567
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041495-041572
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041637-041705
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041670-041730
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 40 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041730-041830
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041742-041857
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_041892-042220
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_042249-042660
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_042660-042682
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_042727-043071
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_043108-043319
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_043320-043675
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_043675-044157
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_044357-044557
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 50 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_044600-044655
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_044630-044732
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 50 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_044774-045000
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_044997-045227
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_045227-045539
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_045584-045861
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_045906-046075
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_046075-046285
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_046290-046712
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_046712-047187
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 60 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_047187-047362
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_047362-047562
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_047562-047860
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_048000-048169
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_048224-048315
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_048370-048535
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_048535-048761
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_048812-049085
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049141-049237
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049247-049447
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 70 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049305-049355
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049432-049579
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049633-049662
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_049650-050167
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_050300-050612
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_050462-050560
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_050630-051015
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_050905-051279
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_051279-051452
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_051440-051804
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 80 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_051804-052052
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_051950-052007
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_052047-052347
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_052377-052660
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_052660-053023
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_053066-053407
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_053407-053754
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_053754-053954
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_053954-054041
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_053977-054050
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 90 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_054050-054240
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_054129-054265
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_054295-054626
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_054647-054835
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_054835-055212
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_055212-055535
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_055535-055707
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_055752-055920
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_055815-055920
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_055920-056035
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 100 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_056032-056270
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_056035-056087
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 100 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_056270-056652
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_056652-057097
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057135-057361
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057404-057602
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057437-057504
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057591-057829
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057829-058215
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_057885-057916
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 110 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_058271-058795
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_058797-059060
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_059060-059260
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_059260-059570
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_059570-059865
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_059927-060035
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_059945-060335
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_060335-060504
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_060504-060775
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_060775-061004
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 120 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_061004-061179
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_061179-061445
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_061476-061762
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_061762-062165
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_062250-062447
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_062441-062695
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_062847-063150
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_063150-063302
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_063304-063487
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_063379-063697
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 130 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_063654-063800
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_063737-064000
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_064000-064237
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_064185-064437
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 3_spk_3_064237-064404
+sox WARN rate: rate clipped 228 samples; decrease volume?
+sox WARN dither: dither clipped 202 samples; decrease volume?
+sox WARN rate: rate clipped 228 samples; decrease volume?
+sox WARN dither: dither clipped 199 samples; decrease volume?
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_000102-000382
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_000455-000655
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_000655-001080
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_001080-001217
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_001217-001340
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 140 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_001365-001920
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_001920-002250
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_002410-002862
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_002862-003275
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_003275-003654
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_003757-003902
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_003942-004065
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_004147-004215
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_004215-004730
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_004832-005132
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 150 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_005132-005560
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_005642-005787
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_005675-005777
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 150 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_005817-006025
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_006107-006180
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_006180-006584
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_006584-007131
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_007206-007406
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_007505-007559
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_007565-007922
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 160 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_007902-008137
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_007992-008112
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_008197-008585
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_008640-008840
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_008917-009000
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_009045-009457
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_009587-009644
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_009707-009828
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_009897-009980
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010065-010148
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 170 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010066-010126
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010202-010402
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010399-010497
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010577-010631
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010631-010756
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010781-010944
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_010944-011122
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_011122-011300
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_011379-011591
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_011630-011794
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 180 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_011868-012008
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012057-012301
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012301-012431
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012531-012559
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012612-012693
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012693-012838
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012838-012975
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_012968-013336
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013266-013358
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013391-013412
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 190 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013480-013512
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013512-013628
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013536-013849
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_013876-014038
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_014274-014312
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_014379-014477
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_014477-014624
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_014658-014787
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_014788-014988
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_015044-015312
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 200 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_015344-015515
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_015515-015655
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 200 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_015655-015956
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_015956-016080
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_016161-016194
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_016230-016377
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_016374-016618
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_016726-016926
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_016926-017085
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_017130-017318
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 210 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_017318-017444
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_017472-017721
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_017721-017988
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_017964-018094
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_018130-018322
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_018354-018488
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_018561-018709
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_018733-018971
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_019096-019152
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_019187-019428
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 220 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_019556-019704
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_019704-019946
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_019975-020172
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020172-020309
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020309-020466
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020466-020576
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020475-020572
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020700-020788
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_020788-020902
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_021005-021115
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 230 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_021115-021348
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_021348-021650
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_021650-021751
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_021889-022063
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_022105-022316
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_022316-022439
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_022439-022639
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_022639-022881
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_022981-023119
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_023119-023231
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 240 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_023263-023496
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_023496-023667
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_023689-023816
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_023816-024089
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_024131-024222
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_024223-024437
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_024484-024731
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_024820-024939
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025013-025104
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025069-025280
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 250 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025348-025587
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025594-025699
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025738-025820
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025747-025777
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 250 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_025933-026063
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_026093-026208
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_026208-026543
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_026543-026762
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_026855-027163
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_027229-027417
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 260 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_027475-027700
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_027870-027910
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_027927-028063
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_028147-028189
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_028220-028423
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_028423-028548
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_029893-030004
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_030004-030164
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_030164-030620
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_030620-031160
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 270 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_031281-031545
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_032352-032422
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_032644-032785
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_032785-032957
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_032957-033098
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_033229-033333
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_033338-033382
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_033447-033647
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_033745-033843
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_034017-034195
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 280 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_034311-034467
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_034535-035023
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_035435-035467
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_035505-035663
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_035886-035917
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_036256-036473
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_036705-036772
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_037361-037498
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_037591-037990
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_038109-038212
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 290 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_038277-038461
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_038461-038621
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_038900-039049
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_048271-048471
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_048471-048911
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_049257-049351
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_049551-049842
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_049842-050133
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_050133-050264
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_050264-050524
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:169) Processed 300 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_050791-051151
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_051151-051682
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_051826-051960
+VLOG[2] (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:107) Processed 300 utterances
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_051960-052340
+LOG (extract-segments[5.4.131-ff0da]:main():extract-segments.cc:193) Successfully processed 305 lines out of 305 in the segments file. 
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_052648-052840
+LOG (extract-segments[5.4.131-ff0da]:main():extract-segments.cc:193) Successfully processed 305 lines out of 305 in the segments file. 
+VLOG[2] (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:170) Processed features for key 4_spk_4_052946-053160
+LOG (compute-fbank-feats[5.4.131-ff0da]:main():compute-fbank-feats.cc:173)  Done 305 out of 305 utterances.
+LOG (compute-kaldi-pitch-feats[5.4.131-ff0da]:main():compute-kaldi-pitch-feats.cc:110) Done 305 utterances, 0 with errors.
+LOG (process-kaldi-pitch-feats[5.4.131-ff0da]:main():process-kaldi-pitch-feats.cc:85) Post-processed pitch for 305 utterances.
+LOG (paste-feats[5.4.131-ff0da]:main():paste-feats.cc:158) Done 305 utts, errors on 0
+LOG (copy-feats[5.4.131-ff0da]:main():copy-feats.cc:143) Copied 305 feature matrices.
+# Accounting: time=14 threads=1
+# Ended (code 0) at Wed Jul 11 12:00:15 HKT 2018, elapsed time 14 seconds

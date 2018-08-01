@@ -1,0 +1,1068 @@
+# asr_recog.py --ngpu 0 --backend pytorch --recog-json smartone_data/smartone_kaldi/split32utt/data.10.json --result-label smartone_data/baseline/decode/data.10.json --model smartone_data/baseline/model.acc.best --model-conf smartone_data/baseline/model.conf --beam-size 20 --penalty 0.0 --maxlenratio 0.0 --minlenratio 0.0 --ctc-weight 0.3 
+# Started at Wed Jul 11 13:13:12 HKT 2018
+#
+2018-07-11 13:13:13,040 (asr_recog:110) INFO: python path = /home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/lm/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/asr/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/nets/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/utils/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/bin/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/lm/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/asr/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/nets/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/utils/:/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/../../../src/bin/:
+2018-07-11 13:13:13,040 (asr_recog:115) INFO: set random seed = 1
+2018-07-11 13:13:13,040 (asr_recog:118) INFO: backend = pytorch
+2018-07-11 13:13:13,912 (asr_pytorch:393) INFO: reading a model config file fromsmartone_data/baseline/model.conf
+2018-07-11 13:13:13,944 (asr_pytorch:397) INFO: ARGS: backend: pytorch
+2018-07-11 13:13:13,944 (asr_pytorch:397) INFO: ARGS: beam_size: 20
+2018-07-11 13:13:13,944 (asr_pytorch:397) INFO: ARGS: ctc_weight: 0.3
+2018-07-11 13:13:13,944 (asr_pytorch:397) INFO: ARGS: da: 0
+2018-07-11 13:13:13,944 (asr_pytorch:397) INFO: ARGS: daconfig: 3
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: datype: bias
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: debugmode: 1
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: gpu: None
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: lm_weight: 0.1
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: maxlenratio: 0.0
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: minlenratio: 0.0
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: model: smartone_data/baseline/model.acc.best
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: model_conf: smartone_data/baseline/model.conf
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: nbest: 1
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: ngpu: 0
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: penalty: 0.0
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: recog_feat: None
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: recog_json: smartone_data/smartone_kaldi/split32utt/data.10.json
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: recog_label: None
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: result_label: smartone_data/baseline/decode/data.10.json
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: rnnlm: None
+2018-07-11 13:13:13,945 (asr_pytorch:397) INFO: ARGS: seed: 1
+2018-07-11 13:13:13,946 (asr_pytorch:397) INFO: ARGS: verbose: 1
+2018-07-11 13:13:13,946 (asr_pytorch:397) INFO: ARGS: word_dict: None
+2018-07-11 13:13:13,946 (asr_pytorch:397) INFO: ARGS: word_rnnlm: None
+2018-07-11 13:13:13,946 (asr_pytorch:400) INFO: reading model parameters fromsmartone_data/baseline/model.acc.best
+2018-07-11 13:13:13,946 (e2e_asr_attctc_th:184) INFO: subsample: 1 2 2 1 1
+2018-07-11 13:13:14,079 (e2e_asr_attctc_th:2317) INFO: BLSTM with every-layer projection for encoder
+2018-07-11 13:13:16,837 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [56]
+2018-07-11 13:13:16,948 (e2e_asr_attctc_th:2067) INFO: input lengths: 14
+2018-07-11 13:13:16,949 (e2e_asr_attctc_th:2091) INFO: max output length: 14
+2018-07-11 13:13:16,949 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:17,637 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:13:17,637 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.995964892209
+2018-07-11 13:13:17,637 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.199192978442
+2018-07-11 13:13:17,638 (asr_pytorch:468) INFO: groundtruth[1504-1_spk_1504_1_080246-080304]: 戛昕
+2018-07-11 13:13:17,638 (asr_pytorch:469) INFO: prediction [1504-1_spk_1504_1_080246-080304]: 我明啊<eos>
+2018-07-11 13:13:17,647 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [335]
+2018-07-11 13:13:18,120 (e2e_asr_attctc_th:2067) INFO: input lengths: 84
+2018-07-11 13:13:18,120 (e2e_asr_attctc_th:2091) INFO: max output length: 84
+2018-07-11 13:13:18,121 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:21,903 (e2e_asr_attctc_th:2199) INFO: end detected at 26
+2018-07-11 13:13:21,903 (e2e_asr_attctc_th:2217) INFO: total log probability: -29.5551336706
+2018-07-11 13:13:21,903 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.47775668353
+2018-07-11 13:13:21,905 (asr_pytorch:468) INFO: groundtruth[8_spk_8_027200-027537]: 妍枱俏屏伏旅<unk>啯俏屏伏公俊倔建呈戡耐俏B
+2018-07-11 13:13:21,905 (asr_pytorch:469) INFO: prediction [8_spk_8_027200-027537]: 肥個食係S韆麵啱食佢食完個先使一次食<eos>
+2018-07-11 13:13:21,914 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [385]
+2018-07-11 13:13:22,479 (e2e_asr_attctc_th:2067) INFO: input lengths: 97
+2018-07-11 13:13:22,480 (e2e_asr_attctc_th:2091) INFO: max output length: 97
+2018-07-11 13:13:22,480 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:27,080 (e2e_asr_attctc_th:2199) INFO: end detected at 27
+2018-07-11 13:13:27,080 (e2e_asr_attctc_th:2217) INFO: total log probability: -29.2191444151
+2018-07-11 13:13:27,080 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.46095722076
+2018-07-11 13:13:27,081 (asr_pytorch:468) INFO: groundtruth[8_spk_8_038400-038787]: 限迪朕然睛丕B朕然巫稚側緘兒佬筐戛三陳呈哲倔址坐筐戛三陳
+2018-07-11 13:13:27,082 (asr_pytorch:469) INFO: prediction [8_spk_8_038400-038787]: 我更咁你識手公司做緊先嘅咁大神嘅地嘅<eos>
+2018-07-11 13:13:27,091 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [158]
+2018-07-11 13:13:27,337 (e2e_asr_attctc_th:2067) INFO: input lengths: 40
+2018-07-11 13:13:27,338 (e2e_asr_attctc_th:2091) INFO: max output length: 40
+2018-07-11 13:13:27,338 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:28,359 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:13:28,359 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.91529338062
+2018-07-11 13:13:28,360 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.591529338062
+2018-07-11 13:13:28,360 (asr_pytorch:468) INFO: groundtruth[3_spk_3_005957-006117]: 逸埗街敏賀卉共蚧
+2018-07-11 13:13:28,360 (asr_pytorch:469) INFO: prediction [3_spk_3_005957-006117]: 連埋行聲快十八蚊<eos>
+2018-07-11 13:13:28,368 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:13:28,657 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:13:28,657 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:13:28,657 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:29,718 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:13:29,719 (e2e_asr_attctc_th:2217) INFO: total log probability: -13.2255627421
+2018-07-11 13:13:29,719 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.32255627421
+2018-07-11 13:13:29,720 (asr_pytorch:468) INFO: groundtruth[8_spk_8_016457-016657]: B戛間_MJM由囖
+2018-07-11 13:13:29,720 (asr_pytorch:469) INFO: prediction [8_spk_8_016457-016657]: ELLO室識成粒<eos>
+2018-07-11 13:13:29,732 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [118]
+2018-07-11 13:13:30,000 (e2e_asr_attctc_th:2067) INFO: input lengths: 30
+2018-07-11 13:13:30,000 (e2e_asr_attctc_th:2091) INFO: max output length: 30
+2018-07-11 13:13:30,000 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:31,527 (e2e_asr_attctc_th:2199) INFO: end detected at 16
+2018-07-11 13:13:31,527 (e2e_asr_attctc_th:2217) INFO: total log probability: -7.20314375963
+2018-07-11 13:13:31,527 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.800349306626
+2018-07-11 13:13:31,528 (asr_pytorch:468) INFO: groundtruth[1505-2_spk_1505_2_063836-063955]: 嗷倔HEXE俏然院
+2018-07-11 13:13:31,529 (asr_pytorch:469) INFO: prediction [1505-2_spk_1505_2_063836-063955]: 嗰個呢層有冇啊<eos>
+2018-07-11 13:13:31,537 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [75]
+2018-07-11 13:13:31,673 (e2e_asr_attctc_th:2067) INFO: input lengths: 19
+2018-07-11 13:13:31,674 (e2e_asr_attctc_th:2091) INFO: max output length: 19
+2018-07-11 13:13:31,674 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:32,424 (e2e_asr_attctc_th:2199) INFO: end detected at 11
+2018-07-11 13:13:32,425 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.71175718307
+2018-07-11 13:13:32,425 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.677939295769
+2018-07-11 13:13:32,426 (asr_pytorch:468) INFO: groundtruth[3_spk_3_041495-041572]: 嗶
+2018-07-11 13:13:32,426 (asr_pytorch:469) INFO: prediction [3_spk_3_041495-041572]: 係咪<eos>
+2018-07-11 13:13:32,437 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [180]
+2018-07-11 13:13:32,711 (e2e_asr_attctc_th:2067) INFO: input lengths: 45
+2018-07-11 13:13:32,712 (e2e_asr_attctc_th:2091) INFO: max output length: 45
+2018-07-11 13:13:32,712 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:34,797 (e2e_asr_attctc_th:2199) INFO: end detected at 20
+2018-07-11 13:13:34,798 (e2e_asr_attctc_th:2217) INFO: total log probability: -16.2536363713
+2018-07-11 13:13:34,798 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.08357575809
+2018-07-11 13:13:34,800 (asr_pytorch:468) INFO: groundtruth[3_spk_3_063304-063487]: 咋朕震見聶絨畸戛員
+2018-07-11 13:13:34,800 (asr_pytorch:469) INFO: prediction [3_spk_3_063304-063487]: 咁樣又齣嚟到下山啊睇為你轉<eos>
+2018-07-11 13:13:34,809 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [378]
+2018-07-11 13:13:35,330 (e2e_asr_attctc_th:2067) INFO: input lengths: 95
+2018-07-11 13:13:35,331 (e2e_asr_attctc_th:2091) INFO: max output length: 95
+2018-07-11 13:13:35,331 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:40,397 (e2e_asr_attctc_th:2199) INFO: end detected at 33
+2018-07-11 13:13:40,398 (e2e_asr_attctc_th:2217) INFO: total log probability: -17.637448594
+2018-07-11 13:13:40,398 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.653238836814
+2018-07-11 13:13:40,399 (asr_pytorch:468) INFO: groundtruth[4_spk_4_051960-052340]: 然垣_MJM蛤唪津揉址午㨃喔<unk>震見䦕畸換享尻司件㨃啯喔
+2018-07-11 13:13:40,399 (asr_pytorch:469) INFO: prediction [4_spk_4_051960-052340]: 冇人威翻打唔使揀地區噶喎隻需要咁班大傢就可以嘅嘞喎<eos>
+2018-07-11 13:13:40,406 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [113]
+2018-07-11 13:13:40,596 (e2e_asr_attctc_th:2067) INFO: input lengths: 29
+2018-07-11 13:13:40,596 (e2e_asr_attctc_th:2091) INFO: max output length: 29
+2018-07-11 13:13:40,596 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:42,237 (e2e_asr_attctc_th:2199) INFO: end detected at 16
+2018-07-11 13:13:42,237 (e2e_asr_attctc_th:2217) INFO: total log probability: -7.37630487047
+2018-07-11 13:13:42,237 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.737630487047
+2018-07-11 13:13:42,239 (asr_pytorch:468) INFO: groundtruth[3_spk_3_032114-032230]: 哭司件嘍
+2018-07-11 13:13:42,239 (asr_pytorch:469) INFO: prediction [3_spk_3_032114-032230]: 年後嘅邊呢我話下<eos>
+2018-07-11 13:13:42,247 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:13:42,560 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:13:42,560 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:13:42,560 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:44,500 (e2e_asr_attctc_th:2199) INFO: end detected at 17
+2018-07-11 13:13:44,500 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.01014393568
+2018-07-11 13:13:44,500 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.500845327973
+2018-07-11 13:13:44,502 (asr_pytorch:468) INFO: groundtruth[3_spk_3_007137-007337]: SO嘍誅吔佬宗掙畸吟
+2018-07-11 13:13:44,502 (asr_pytorch:469) INFO: prediction [3_spk_3_007137-007337]: OK嘅話同你安排翻啦<eos>
+2018-07-11 13:13:44,516 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [301]
+2018-07-11 13:13:45,299 (e2e_asr_attctc_th:2067) INFO: input lengths: 76
+2018-07-11 13:13:45,300 (e2e_asr_attctc_th:2091) INFO: max output length: 76
+2018-07-11 13:13:45,300 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:49,139 (e2e_asr_attctc_th:2199) INFO: end detected at 26
+2018-07-11 13:13:49,140 (e2e_asr_attctc_th:2217) INFO: total log probability: -26.8117653131
+2018-07-11 13:13:49,140 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.34058826566
+2018-07-11 13:13:49,141 (asr_pytorch:468) INFO: groundtruth[8_spk_8_029737-030039]: 司脇服宗掙畸帶爽啯吔佬且閊側畸倔檳渵嘍
+2018-07-11 13:13:49,141 (asr_pytorch:469) INFO: prediction [8_spk_8_029737-030039]: 我十六十次不師傅實同你上網讀書檢查嘅<eos>
+2018-07-11 13:13:49,148 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [92]
+2018-07-11 13:13:49,289 (e2e_asr_attctc_th:2067) INFO: input lengths: 23
+2018-07-11 13:13:49,289 (e2e_asr_attctc_th:2091) INFO: max output length: 23
+2018-07-11 13:13:49,289 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:49,946 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:13:49,947 (e2e_asr_attctc_th:2217) INFO: total log probability: -1.81406960264
+2018-07-11 13:13:49,947 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.362813920528
+2018-07-11 13:13:49,948 (asr_pytorch:468) INFO: groundtruth[4_spk_4_049257-049351]: 喇
+2018-07-11 13:13:49,948 (asr_pytorch:469) INFO: prediction [4_spk_4_049257-049351]: 哇已經<eos>
+2018-07-11 13:13:49,955 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [127]
+2018-07-11 13:13:50,144 (e2e_asr_attctc_th:2067) INFO: input lengths: 32
+2018-07-11 13:13:50,144 (e2e_asr_attctc_th:2091) INFO: max output length: 32
+2018-07-11 13:13:50,144 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:50,855 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:13:50,855 (e2e_asr_attctc_th:2217) INFO: total log probability: -1.88918507262
+2018-07-11 13:13:50,855 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.236148134078
+2018-07-11 13:13:50,855 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_050147-050276]: 囹烕唪吔郷閊
+2018-07-11 13:13:50,856 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_050147-050276]: 因為唔同部門<eos>
+2018-07-11 13:13:50,864 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [414]
+2018-07-11 13:13:51,407 (e2e_asr_attctc_th:2067) INFO: input lengths: 104
+2018-07-11 13:13:51,408 (e2e_asr_attctc_th:2091) INFO: max output length: 104
+2018-07-11 13:13:51,408 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:13:56,491 (e2e_asr_attctc_th:2199) INFO: end detected at 31
+2018-07-11 13:13:56,491 (e2e_asr_attctc_th:2217) INFO: total log probability: -18.0686677161
+2018-07-11 13:13:56,491 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.821303078005
+2018-07-11 13:13:56,493 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_083116-083532]: 咋佬尻唪震見冗叄拆晏閙裱享倔何譚咋樺柎啯俏啯
+2018-07-11 13:13:56,493 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_083116-083532]: 你咁遲到就係有時間我傢啊住成咁樣噶啦係啦<eos>
+2018-07-11 13:13:56,508 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [411]
+2018-07-11 13:13:57,085 (e2e_asr_attctc_th:2067) INFO: input lengths: 103
+2018-07-11 13:13:57,085 (e2e_asr_attctc_th:2091) INFO: max output length: 103
+2018-07-11 13:13:57,085 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:00,993 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:00,993 (e2e_asr_attctc_th:2217) INFO: total log probability: -11.1634739549
+2018-07-11 13:14:00,993 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.507430634313
+2018-07-11 13:14:00,994 (asr_pytorch:468) INFO: groundtruth[1504-1_spk_1504_1_017325-017738]: 咋冀寫誅渺鑊緣旅<unk>啯尻掩放服毯輓巴尤尤啯
+2018-07-11 13:14:00,994 (asr_pytorch:469) INFO: prediction [1504-1_spk_1504_1_017325-017738]: 咁又係話講次線方麵啊就會交會比較差少少咯<eos>
+2018-07-11 13:14:01,011 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [510]
+2018-07-11 13:14:01,783 (e2e_asr_attctc_th:2067) INFO: input lengths: 128
+2018-07-11 13:14:01,783 (e2e_asr_attctc_th:2091) INFO: max output length: 128
+2018-07-11 13:14:01,783 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:08,668 (e2e_asr_attctc_th:2199) INFO: end detected at 40
+2018-07-11 13:14:08,668 (e2e_asr_attctc_th:2217) INFO: total log probability: -45.2715732493
+2018-07-11 13:14:08,669 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.33151686027
+2018-07-11 13:14:08,670 (asr_pytorch:468) INFO: groundtruth[8_spk_8_077810-078322]: 咋住俏馭渺篙圓公啯咋堅杉且戛員鄔服朕的尊童嘍卿俏陵革佬三啼妊健適嘍址旅啯
+2018-07-11 13:14:08,670 (asr_pytorch:469) INFO: prediction [8_spk_8_077810-078322]: 點解先心事成內心跟著杯咗我哋都會有嘅但係一件係識食啲好偏遠嘅地方<eos>
+2018-07-11 13:14:08,682 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [433]
+2018-07-11 13:14:09,305 (e2e_asr_attctc_th:2067) INFO: input lengths: 109
+2018-07-11 13:14:09,306 (e2e_asr_attctc_th:2091) INFO: max output length: 109
+2018-07-11 13:14:09,306 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:15,649 (e2e_asr_attctc_th:2199) INFO: end detected at 32
+2018-07-11 13:14:15,649 (e2e_asr_attctc_th:2217) INFO: total log probability: -19.9401915222
+2018-07-11 13:14:15,649 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.79760766089
+2018-07-11 13:14:15,651 (asr_pytorch:468) INFO: groundtruth[9_spk_9_040380-040815]: 咋樺嘍誅尻俏啯佬見俏哭WSVV~妍枱哲三旅<unk>嘍誅
+2018-07-11 13:14:15,651 (asr_pytorch:469) INFO: prediction [9_spk_9_040380-040815]: 咁樣噶話就係啦於要係啊齣邊如果呢一方麵噶啫佢哋<eos>
+2018-07-11 13:14:15,665 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [114]
+2018-07-11 13:14:15,950 (e2e_asr_attctc_th:2067) INFO: input lengths: 29
+2018-07-11 13:14:15,950 (e2e_asr_attctc_th:2091) INFO: max output length: 29
+2018-07-11 13:14:15,951 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:17,687 (e2e_asr_attctc_th:2199) INFO: end detected at 14
+2018-07-11 13:14:17,688 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.77840317506
+2018-07-11 13:14:17,688 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.472300396883
+2018-07-11 13:14:17,690 (asr_pytorch:468) INFO: groundtruth[1501-2_spk_1501_2_090608-090724]: 咋樺鄔SO㨃司
+2018-07-11 13:14:17,690 (asr_pytorch:469) INFO: prediction [1501-2_spk_1501_2_090608-090724]: 咁樣都OK噶<eos>
+2018-07-11 13:14:17,706 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [50]
+2018-07-11 13:14:17,944 (e2e_asr_attctc_th:2067) INFO: input lengths: 13
+2018-07-11 13:14:17,944 (e2e_asr_attctc_th:2091) INFO: max output length: 13
+2018-07-11 13:14:17,945 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:18,635 (e2e_asr_attctc_th:2199) INFO: end detected at 8
+2018-07-11 13:14:18,635 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.640735551715
+2018-07-11 13:14:18,635 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.213578517238
+2018-07-11 13:14:18,637 (asr_pytorch:468) INFO: groundtruth[1502-1_spk_1502_1_000372-000424]: 俏
+2018-07-11 13:14:18,637 (asr_pytorch:469) INFO: prediction [1502-1_spk_1502_1_000372-000424]: 係<eos>
+2018-07-11 13:14:18,652 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:14:19,211 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:14:19,211 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:14:19,211 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:20,938 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:14:20,939 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.10443729162
+2018-07-11 13:14:20,939 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.388054661453
+2018-07-11 13:14:20,941 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_066666-066866]: 戛矮咋戛矮咋
+2018-07-11 13:14:20,941 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_066666-066866]: 我啲咁我知等<eos>
+2018-07-11 13:14:20,956 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [291]
+2018-07-11 13:14:21,593 (e2e_asr_attctc_th:2067) INFO: input lengths: 73
+2018-07-11 13:14:21,594 (e2e_asr_attctc_th:2091) INFO: max output length: 73
+2018-07-11 13:14:21,594 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:23,482 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:14:23,483 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.40254457667
+2018-07-11 13:14:23,483 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.400424096112
+2018-07-11 13:14:23,485 (asr_pytorch:468) INFO: groundtruth[12_spk_12_001246-001539]: 哭咋佰B
+2018-07-11 13:14:23,485 (asr_pytorch:469) INFO: prediction [12_spk_12_001246-001539]: 哦咁佢誒<eos>
+2018-07-11 13:14:23,493 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [112]
+2018-07-11 13:14:23,673 (e2e_asr_attctc_th:2067) INFO: input lengths: 28
+2018-07-11 13:14:23,674 (e2e_asr_attctc_th:2091) INFO: max output length: 28
+2018-07-11 13:14:23,674 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:24,303 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:14:24,303 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.299871938303
+2018-07-11 13:14:24,303 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0749679845758
+2018-07-11 13:14:24,305 (asr_pytorch:468) INFO: groundtruth[1503-2_spk_1503_2_000332-000446]: 俏啖
+2018-07-11 13:14:24,305 (asr_pytorch:469) INFO: prediction [1503-2_spk_1503_2_000332-000446]: 係啊<eos>
+2018-07-11 13:14:24,318 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [204]
+2018-07-11 13:14:24,699 (e2e_asr_attctc_th:2067) INFO: input lengths: 51
+2018-07-11 13:14:24,700 (e2e_asr_attctc_th:2091) INFO: max output length: 51
+2018-07-11 13:14:24,700 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:26,105 (e2e_asr_attctc_th:2199) INFO: end detected at 15
+2018-07-11 13:14:26,106 (e2e_asr_attctc_th:2217) INFO: total log probability: -10.4623074308
+2018-07-11 13:14:26,106 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.16247860342
+2018-07-11 13:14:26,106 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_085046-085252]: 哭換剛嗷倔服桂擢考
+2018-07-11 13:14:26,107 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_085046-085252]: 哦睇錢工會對方<eos>
+2018-07-11 13:14:26,114 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [215]
+2018-07-11 13:14:26,412 (e2e_asr_attctc_th:2067) INFO: input lengths: 54
+2018-07-11 13:14:26,413 (e2e_asr_attctc_th:2091) INFO: max output length: 54
+2018-07-11 13:14:26,413 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:28,181 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:28,181 (e2e_asr_attctc_th:2217) INFO: total log probability: -9.49641199037
+2018-07-11 13:14:28,181 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.633094132692
+2018-07-11 13:14:28,182 (asr_pytorch:468) INFO: groundtruth[12_spk_12_049489-049706]: 宭仇叛昭道誅朕咯啞顔俏喋
+2018-07-11 13:14:28,182 (asr_pytorch:469) INFO: prediction [12_spk_12_049489-049706]: 係人擺咗一個話有咩問題噶啦<eos>
+2018-07-11 13:14:28,191 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [211]
+2018-07-11 13:14:28,470 (e2e_asr_attctc_th:2067) INFO: input lengths: 53
+2018-07-11 13:14:28,471 (e2e_asr_attctc_th:2091) INFO: max output length: 53
+2018-07-11 13:14:28,471 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:30,174 (e2e_asr_attctc_th:2199) INFO: end detected at 17
+2018-07-11 13:14:30,174 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.18609666754
+2018-07-11 13:14:30,174 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.168161282119
+2018-07-11 13:14:30,175 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_042545-042758]: B戛員耗<unk>側刺倔億錯俏
+2018-07-11 13:14:30,175 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_042545-042758]: 誒我哋而傢做到國價錢係<eos>
+2018-07-11 13:14:30,183 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [96]
+2018-07-11 13:14:30,328 (e2e_asr_attctc_th:2067) INFO: input lengths: 24
+2018-07-11 13:14:30,329 (e2e_asr_attctc_th:2091) INFO: max output length: 24
+2018-07-11 13:14:30,329 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:30,924 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:14:30,924 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.169827236794
+2018-07-11 13:14:30,924 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0424568091985
+2018-07-11 13:14:30,926 (asr_pytorch:468) INFO: groundtruth[12_spk_12_017921-018019]: 訢從
+2018-07-11 13:14:30,926 (asr_pytorch:469) INFO: prediction [12_spk_12_017921-018019]: 記得<eos>
+2018-07-11 13:14:30,938 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [48]
+2018-07-11 13:14:31,050 (e2e_asr_attctc_th:2067) INFO: input lengths: 12
+2018-07-11 13:14:31,050 (e2e_asr_attctc_th:2091) INFO: max output length: 12
+2018-07-11 13:14:31,051 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:31,627 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:14:31,628 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.22618169338
+2018-07-11 13:14:31,628 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.806545423344
+2018-07-11 13:14:31,629 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_063674-063724]: B
+2018-07-11 13:14:31,629 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_063674-063724]: 先算<eos>
+2018-07-11 13:14:31,639 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [77]
+2018-07-11 13:14:31,771 (e2e_asr_attctc_th:2067) INFO: input lengths: 20
+2018-07-11 13:14:31,772 (e2e_asr_attctc_th:2091) INFO: max output length: 20
+2018-07-11 13:14:31,772 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:32,385 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:14:32,386 (e2e_asr_attctc_th:2217) INFO: total log probability: -1.15083768964
+2018-07-11 13:14:32,386 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.28770942241
+2018-07-11 13:14:32,387 (asr_pytorch:468) INFO: groundtruth[1503-2_spk_1503_2_026463-026542]: 嗶嗶嗶
+2018-07-11 13:14:32,387 (asr_pytorch:469) INFO: prediction [1503-2_spk_1503_2_026463-026542]: 嗯嗯<eos>
+2018-07-11 13:14:32,395 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [231]
+2018-07-11 13:14:32,722 (e2e_asr_attctc_th:2067) INFO: input lengths: 58
+2018-07-11 13:14:32,722 (e2e_asr_attctc_th:2091) INFO: max output length: 58
+2018-07-11 13:14:32,722 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:33,907 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:33,907 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.61018595472
+2018-07-11 13:14:33,907 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.328198723156
+2018-07-11 13:14:33,908 (asr_pytorch:468) INFO: groundtruth[12_spk_12_023588-023821]: 烕由浦釘呯尻懵誆服
+2018-07-11 13:14:33,908 (asr_pytorch:469) INFO: prediction [12_spk_12_023588-023821]: 係有流量呢人應該會<eos>
+2018-07-11 13:14:33,915 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [100]
+2018-07-11 13:14:34,062 (e2e_asr_attctc_th:2067) INFO: input lengths: 25
+2018-07-11 13:14:34,063 (e2e_asr_attctc_th:2091) INFO: max output length: 25
+2018-07-11 13:14:34,063 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:35,000 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:14:35,000 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.08118127938
+2018-07-11 13:14:35,000 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.513530213231
+2018-07-11 13:14:35,001 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_010470-010572]: 俏啖冏鍋
+2018-07-11 13:14:35,001 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_010470-010572]: 係啊個十<eos>
+2018-07-11 13:14:35,011 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [528]
+2018-07-11 13:14:35,730 (e2e_asr_attctc_th:2067) INFO: input lengths: 132
+2018-07-11 13:14:35,730 (e2e_asr_attctc_th:2091) INFO: max output length: 132
+2018-07-11 13:14:35,730 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:41,310 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:41,311 (e2e_asr_attctc_th:2217) INFO: total log probability: -42.6806722805
+2018-07-11 13:14:41,311 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.2553138906
+2018-07-11 13:14:41,311 (asr_pytorch:468) INFO: groundtruth[8_spk_8_027537-028067]: B扉裴俊啯咋冀寫綪幅呯且綺鄔俏放唪刺訒蚊嘍産臼俏扚霆誅鄔放唪刺訒蚊
+2018-07-11 13:14:41,311 (asr_pytorch:469) INFO: prediction [8_spk_8_027537-028067]: 集入麵咁其實之上一上網食實什唔好信號嘅三姐打電話手都使唔好想鬧熟<eos>
+2018-07-11 13:14:41,320 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [410]
+2018-07-11 13:14:41,938 (e2e_asr_attctc_th:2067) INFO: input lengths: 103
+2018-07-11 13:14:41,939 (e2e_asr_attctc_th:2091) INFO: max output length: 103
+2018-07-11 13:14:41,939 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:45,636 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:45,636 (e2e_asr_attctc_th:2217) INFO: total log probability: -10.5358039364
+2018-07-11 13:14:45,636 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.421432157457
+2018-07-11 13:14:45,637 (asr_pytorch:468) INFO: groundtruth[4_spk_4_009045-009457]: B佬霆誅俏咱諛啞哲倔901665B66588
+2018-07-11 13:14:45,637 (asr_pytorch:469) INFO: prediction [4_spk_4_009045-009457]: 啊你電話係唔係準問呢個九零一六六五誒六六五百百<eos>
+2018-07-11 13:14:45,646 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [167]
+2018-07-11 13:14:45,896 (e2e_asr_attctc_th:2067) INFO: input lengths: 42
+2018-07-11 13:14:45,896 (e2e_asr_attctc_th:2091) INFO: max output length: 42
+2018-07-11 13:14:45,896 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:47,279 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:47,280 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.30356836249
+2018-07-11 13:14:47,280 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.331043720192
+2018-07-11 13:14:47,280 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_074712-074881]: 咋戛員吔井且閊嘍晏倣啯
+2018-07-11 13:14:47,280 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_074712-074881]: 咁我哋從事上本嘅時候咯<eos>
+2018-07-11 13:14:47,288 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [158]
+2018-07-11 13:14:47,505 (e2e_asr_attctc_th:2067) INFO: input lengths: 40
+2018-07-11 13:14:47,505 (e2e_asr_attctc_th:2091) INFO: max output length: 40
+2018-07-11 13:14:47,505 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:48,728 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:48,728 (e2e_asr_attctc_th:2217) INFO: total log probability: -12.4612776339
+2018-07-11 13:14:48,728 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.03843980283
+2018-07-11 13:14:48,729 (asr_pytorch:468) INFO: groundtruth[1502-1_spk_1502_1_067624-067784]: 懵誆卉亙黴兒迫刺叄
+2018-07-11 13:14:48,729 (asr_pytorch:469) INFO: prediction [1502-1_spk_1502_1_067624-067784]: 我都十二點已經打咗佢<eos>
+2018-07-11 13:14:48,737 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [141]
+2018-07-11 13:14:48,934 (e2e_asr_attctc_th:2067) INFO: input lengths: 36
+2018-07-11 13:14:48,935 (e2e_asr_attctc_th:2091) INFO: max output length: 36
+2018-07-11 13:14:48,935 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:49,756 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:14:49,757 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.32409211993
+2018-07-11 13:14:49,757 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.702676902215
+2018-07-11 13:14:49,757 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_042221-042364]: 哏桂遜於嗷啼呈
+2018-07-11 13:14:49,757 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_042221-042364]: 哈跟格斯嗰啲啊<eos>
+2018-07-11 13:14:49,766 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [463]
+2018-07-11 13:14:50,480 (e2e_asr_attctc_th:2067) INFO: input lengths: 116
+2018-07-11 13:14:50,480 (e2e_asr_attctc_th:2091) INFO: max output length: 116
+2018-07-11 13:14:50,480 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:55,532 (e2e_asr_attctc_th:2199) INFO: end detected at 30
+2018-07-11 13:14:55,532 (e2e_asr_attctc_th:2217) INFO: total log probability: -22.2802150641
+2018-07-11 13:14:55,532 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.968705002785
+2018-07-11 13:14:55,533 (asr_pytorch:468) INFO: groundtruth[1505-2_spk_1505_2_056384-056849]: 妍枱106蚧呯倔呯倔TPER俏黴樺樺跨何佬誅咯咯
+2018-07-11 13:14:55,534 (asr_pytorch:469) INFO: prediction [1505-2_spk_1505_2_056384-056849]: 依傢扮嚟咯蚊呢個呢個街係點樣樣都唔知話明啦<eos>
+2018-07-11 13:14:55,545 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [48]
+2018-07-11 13:14:55,667 (e2e_asr_attctc_th:2067) INFO: input lengths: 12
+2018-07-11 13:14:55,668 (e2e_asr_attctc_th:2091) INFO: max output length: 12
+2018-07-11 13:14:55,668 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:56,378 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:14:56,379 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.33629885316
+2018-07-11 13:14:56,379 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.867259770632
+2018-07-11 13:14:56,380 (asr_pytorch:468) INFO: groundtruth[3_spk_3_049305-049355]: 俏
+2018-07-11 13:14:56,380 (asr_pytorch:469) INFO: prediction [3_spk_3_049305-049355]: 誒十蚊<eos>
+2018-07-11 13:14:56,389 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [160]
+2018-07-11 13:14:56,625 (e2e_asr_attctc_th:2067) INFO: input lengths: 40
+2018-07-11 13:14:56,625 (e2e_asr_attctc_th:2091) INFO: max output length: 40
+2018-07-11 13:14:56,625 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:14:58,366 (e2e_asr_attctc_th:2199) INFO: end detected at 18
+2018-07-11 13:14:58,366 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.97229006141
+2018-07-11 13:14:58,366 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.459406927801
+2018-07-11 13:14:58,367 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_085523-085685]: 鄔帖朧司件幹刺潤用佬囖
+2018-07-11 13:14:58,367 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_085523-085685]: 都希望可以講到分曬你咯<eos>
+2018-07-11 13:14:58,376 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [489]
+2018-07-11 13:14:59,048 (e2e_asr_attctc_th:2067) INFO: input lengths: 123
+2018-07-11 13:14:59,048 (e2e_asr_attctc_th:2091) INFO: max output length: 123
+2018-07-11 13:14:59,048 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:03,761 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:15:03,762 (e2e_asr_attctc_th:2217) INFO: total log probability: -27.1762378942
+2018-07-11 13:15:03,762 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.905874596474
+2018-07-11 13:15:03,762 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_081239-081730]: 鄔唪服誅嗄霆誅緣且<unk>攪佬伊作賒斥鄔俏JSV考誅葛閊希叄皂訢考
+2018-07-11 13:15:03,762 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_081239-081730]: 都唔會可以電話算上麵包你入學豬咯因為爽翻來落唔止開心記翻<eos>
+2018-07-11 13:15:03,770 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [63]
+2018-07-11 13:15:03,872 (e2e_asr_attctc_th:2067) INFO: input lengths: 16
+2018-07-11 13:15:03,873 (e2e_asr_attctc_th:2091) INFO: max output length: 16
+2018-07-11 13:15:03,873 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:04,595 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:15:04,596 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.49020628631
+2018-07-11 13:15:04,596 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.698041257262
+2018-07-11 13:15:04,600 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_087934-087999]: 夭榕挖
+2018-07-11 13:15:04,601 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_087934-087999]: 大概剪<eos>
+2018-07-11 13:15:04,616 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [201]
+2018-07-11 13:15:04,941 (e2e_asr_attctc_th:2067) INFO: input lengths: 51
+2018-07-11 13:15:04,942 (e2e_asr_attctc_th:2091) INFO: max output length: 51
+2018-07-11 13:15:04,942 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:06,420 (e2e_asr_attctc_th:2199) INFO: end detected at 15
+2018-07-11 13:15:06,421 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.95356346294
+2018-07-11 13:15:06,421 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.495356346294
+2018-07-11 13:15:06,422 (asr_pytorch:468) INFO: groundtruth[4_spk_4_076587-076790]: SO呈昕呈俏囖
+2018-07-11 13:15:06,422 (asr_pytorch:469) INFO: prediction [4_spk_4_076587-076790]: 咁OK冷明啊係啊<eos>
+2018-07-11 13:15:06,430 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [350]
+2018-07-11 13:15:06,912 (e2e_asr_attctc_th:2067) INFO: input lengths: 88
+2018-07-11 13:15:06,912 (e2e_asr_attctc_th:2091) INFO: max output length: 88
+2018-07-11 13:15:06,912 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:09,085 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:15:09,086 (e2e_asr_attctc_th:2217) INFO: total log probability: -15.4640302304
+2018-07-11 13:15:09,086 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.966501889401
+2018-07-11 13:15:09,086 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_000392-000744]: 啖戛俏WQEVXSRI斌磋速旨存尖姚啖
+2018-07-11 13:15:09,087 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_000392-000744]: 啊我係全間都送啊心氣好條仔啊<eos>
+2018-07-11 13:15:09,100 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:15:09,436 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:15:09,436 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:15:09,437 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:10,664 (e2e_asr_attctc_th:2199) INFO: end detected at 12
+2018-07-11 13:15:10,664 (e2e_asr_attctc_th:2217) INFO: total log probability: -1.95183833316
+2018-07-11 13:15:10,665 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.278834047594
+2018-07-11 13:15:10,665 (asr_pytorch:468) INFO: groundtruth[1501-2_spk_1501_2_028861-029061]: 咋冀寫戛耗<unk>
+2018-07-11 13:15:10,666 (asr_pytorch:469) INFO: prediction [1501-2_spk_1501_2_028861-029061]: 咁係我依傢<eos>
+2018-07-11 13:15:10,674 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [293]
+2018-07-11 13:15:11,199 (e2e_asr_attctc_th:2067) INFO: input lengths: 74
+2018-07-11 13:15:11,199 (e2e_asr_attctc_th:2091) INFO: max output length: 74
+2018-07-11 13:15:11,199 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:14,810 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:15:14,810 (e2e_asr_attctc_th:2217) INFO: total log probability: -23.1052344516
+2018-07-11 13:15:14,810 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.00457541094
+2018-07-11 13:15:14,811 (asr_pytorch:468) INFO: groundtruth[12_spk_12_072052-072347]: 吭前尻服朕1000蚧嘍B放口考嘍
+2018-07-11 13:15:14,811 (asr_pytorch:469) INFO: prediction [12_spk_12_072052-072347]: 唔實覺得大會一韆蚊入香到嘅嘢翻用會收取翻嘅<eos>
+2018-07-11 13:15:14,819 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [305]
+2018-07-11 13:15:15,267 (e2e_asr_attctc_th:2067) INFO: input lengths: 77
+2018-07-11 13:15:15,268 (e2e_asr_attctc_th:2091) INFO: max output length: 77
+2018-07-11 13:15:15,268 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:19,544 (e2e_asr_attctc_th:2199) INFO: end detected at 30
+2018-07-11 13:15:19,545 (e2e_asr_attctc_th:2217) INFO: total log probability: -33.4180983305
+2018-07-11 13:15:19,545 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.51900446957
+2018-07-11 13:15:19,546 (asr_pytorch:468) INFO: groundtruth[8_spk_8_026225-026532]: 咋呯尻扚霆誅呯尻戡耐掩放霆誅啯佰尻歧幅嘍
+2018-07-11 13:15:19,546 (asr_pytorch:469) INFO: prediction [8_spk_8_026225-026532]: 咁LAT就得點實受咗一啲方麵十七嘅就正常<eos>
+2018-07-11 13:15:19,558 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [156]
+2018-07-11 13:15:19,810 (e2e_asr_attctc_th:2067) INFO: input lengths: 39
+2018-07-11 13:15:19,810 (e2e_asr_attctc_th:2091) INFO: max output length: 39
+2018-07-11 13:15:19,810 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:20,555 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:15:20,556 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.12804396637
+2018-07-11 13:15:20,556 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.22560879327
+2018-07-11 13:15:20,556 (asr_pytorch:468) INFO: groundtruth[8_spk_8_062437-062595]: 嗺妊位戛街
+2018-07-11 13:15:20,557 (asr_pytorch:469) INFO: prediction [8_spk_8_062437-062595]: 失失實<eos>
+2018-07-11 13:15:20,566 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [614]
+2018-07-11 13:15:21,392 (e2e_asr_attctc_th:2067) INFO: input lengths: 154
+2018-07-11 13:15:21,392 (e2e_asr_attctc_th:2091) INFO: max output length: 154
+2018-07-11 13:15:21,392 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:28,723 (e2e_asr_attctc_th:2199) INFO: end detected at 40
+2018-07-11 13:15:28,724 (e2e_asr_attctc_th:2217) INFO: total log probability: -29.176202165
+2018-07-11 13:15:28,724 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.858123593087
+2018-07-11 13:15:28,726 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_059804-060420]: 戡耐俏B4K尋45K旨然院且綺啯産臼乖誅16KF旨HEXE旨
+2018-07-11 13:15:28,726 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_059804-060420]: 或者係誒波之中四已經唔知嘅無限上網啦上唔舒服畫十六擊著DATA噶<eos>
+2018-07-11 13:15:28,740 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [101]
+2018-07-11 13:15:28,963 (e2e_asr_attctc_th:2067) INFO: input lengths: 26
+2018-07-11 13:15:28,964 (e2e_asr_attctc_th:2091) INFO: max output length: 26
+2018-07-11 13:15:28,964 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:29,692 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:15:29,693 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.28906965256
+2018-07-11 13:15:29,693 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.822267413139
+2018-07-11 13:15:29,694 (asr_pytorch:468) INFO: groundtruth[1503-2_spk_1503_2_059387-059490]: 嗶嗶嗶
+2018-07-11 13:15:29,694 (asr_pytorch:469) INFO: prediction [1503-2_spk_1503_2_059387-059490]: <SPK/>嗯<eos>
+2018-07-11 13:15:29,702 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [212]
+2018-07-11 13:15:30,011 (e2e_asr_attctc_th:2067) INFO: input lengths: 53
+2018-07-11 13:15:30,011 (e2e_asr_attctc_th:2091) INFO: max output length: 53
+2018-07-11 13:15:30,011 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:32,253 (e2e_asr_attctc_th:2199) INFO: end detected at 20
+2018-07-11 13:15:32,253 (e2e_asr_attctc_th:2217) INFO: total log probability: -13.0543243214
+2018-07-11 13:15:32,253 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.870288288097
+2018-07-11 13:15:32,254 (asr_pytorch:468) INFO: groundtruth[4_spk_4_024223-024437]: 尻䦕畸佬倔帽扁柳詫尻䦕倔2孝
+2018-07-11 13:15:32,255 (asr_pytorch:469) INFO: prediction [4_spk_4_024223-024437]: 就講翻你佢將戶雜相咁不意G<eos>
+2018-07-11 13:15:32,267 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [245]
+2018-07-11 13:15:32,647 (e2e_asr_attctc_th:2067) INFO: input lengths: 62
+2018-07-11 13:15:32,648 (e2e_asr_attctc_th:2091) INFO: max output length: 62
+2018-07-11 13:15:32,648 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:35,392 (e2e_asr_attctc_th:2199) INFO: end detected at 19
+2018-07-11 13:15:35,392 (e2e_asr_attctc_th:2217) INFO: total log probability: -7.97196982428
+2018-07-11 13:15:35,392 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.56942641602
+2018-07-11 13:15:35,393 (asr_pytorch:468) INFO: groundtruth[3_spk_3_051804-052052]: 俏戛矮遛囹烕冀寫謬眯吟
+2018-07-11 13:15:35,394 (asr_pytorch:469) INFO: prediction [3_spk_3_051804-052052]: 係我知道因為佢問題心啦我<eos>
+2018-07-11 13:15:35,409 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:15:36,038 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:15:36,039 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:15:36,039 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:37,395 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:15:37,395 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.81783334166
+2018-07-11 13:15:37,395 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.424203704629
+2018-07-11 13:15:37,397 (asr_pytorch:468) INFO: groundtruth[3_spk_3_009062-009262]: 列鐲斌呯尻囤<unk>
+2018-07-11 13:15:37,397 (asr_pytorch:469) INFO: prediction [3_spk_3_009062-009262]: 分鐘數啦文四先<eos>
+2018-07-11 13:15:37,412 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:15:37,951 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:15:37,952 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:15:37,952 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:40,812 (e2e_asr_attctc_th:2199) INFO: end detected at 22
+2018-07-11 13:15:40,812 (e2e_asr_attctc_th:2217) INFO: total log probability: -19.6731523825
+2018-07-11 13:15:40,812 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.22957202391
+2018-07-11 13:15:40,814 (asr_pytorch:468) INFO: groundtruth[12_spk_12_073347-073547]: B啷啷吔佬少咩吖吔寒磋柎嘢
+2018-07-11 13:15:40,814 (asr_pytorch:469) INFO: prediction [12_spk_12_073347-073547]: 其實咁先同你對咁咪一個密碼啊<eos>
+2018-07-11 13:15:40,822 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:15:41,095 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:15:41,095 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:15:41,095 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:43,331 (e2e_asr_attctc_th:2199) INFO: end detected at 21
+2018-07-11 13:15:43,332 (e2e_asr_attctc_th:2217) INFO: total log probability: -9.05167618394
+2018-07-11 13:15:43,332 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.603445078929
+2018-07-11 13:15:43,333 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_073640-073840]: 宣俏由GVIHMXGEVH㨃臺勞轟B啵
+2018-07-11 13:15:43,333 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_073640-073840]: 定係用佢啲CUT入件同即係<eos>
+2018-07-11 13:15:43,342 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [383]
+2018-07-11 13:15:43,980 (e2e_asr_attctc_th:2067) INFO: input lengths: 96
+2018-07-11 13:15:43,980 (e2e_asr_attctc_th:2091) INFO: max output length: 96
+2018-07-11 13:15:43,981 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:47,176 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:15:47,177 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.86478615506
+2018-07-11 13:15:47,177 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.231656483574
+2018-07-11 13:15:47,177 (asr_pytorch:468) INFO: groundtruth[3_spk_3_057829-058215]: 俏佬倔望募俏歧幅俏囤朔卉亞蚊兒間姓㨃嘢
+2018-07-11 13:15:47,178 (asr_pytorch:469) INFO: prediction [3_spk_3_057829-058215]: 係你個目冇係正常喺四月十五號先開始噶嘛<eos>
+2018-07-11 13:15:47,188 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [366]
+2018-07-11 13:15:47,674 (e2e_asr_attctc_th:2067) INFO: input lengths: 92
+2018-07-11 13:15:47,675 (e2e_asr_attctc_th:2091) INFO: max output length: 92
+2018-07-11 13:15:47,675 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:49,241 (e2e_asr_attctc_th:2199) INFO: end detected at 14
+2018-07-11 13:15:49,242 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.32182008773
+2018-07-11 13:15:49,242 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.702424454192
+2018-07-11 13:15:49,243 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_002648-003016]: 俏唪SO俏俏唪
+2018-07-11 13:15:49,244 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_002648-003016]: 係啊OK佢係嗯<eos>
+2018-07-11 13:15:49,252 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [262]
+2018-07-11 13:15:49,603 (e2e_asr_attctc_th:2067) INFO: input lengths: 66
+2018-07-11 13:15:49,603 (e2e_asr_attctc_th:2091) INFO: max output length: 66
+2018-07-11 13:15:49,603 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:52,518 (e2e_asr_attctc_th:2199) INFO: end detected at 24
+2018-07-11 13:15:52,518 (e2e_asr_attctc_th:2217) INFO: total log probability: -9.38728054846
+2018-07-11 13:15:52,518 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.586705034279
+2018-07-11 13:15:52,520 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_093242-093506]: 佬扚戛佬黴言佬矮遛戛呯嗷RYQFIV旨
+2018-07-11 13:15:52,520 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_093242-093506]: 你打我而傢你知道我呢個諗買呢<eos>
+2018-07-11 13:15:52,529 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [129]
+2018-07-11 13:15:52,844 (e2e_asr_attctc_th:2067) INFO: input lengths: 33
+2018-07-11 13:15:52,845 (e2e_asr_attctc_th:2091) INFO: max output length: 33
+2018-07-11 13:15:52,845 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:54,745 (e2e_asr_attctc_th:2199) INFO: end detected at 16
+2018-07-11 13:15:54,745 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.22516829008
+2018-07-11 13:15:54,745 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.202288026371
+2018-07-11 13:15:54,747 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_085392-085523]: 俏呈啵戛司件側刺嘍釗
+2018-07-11 13:15:54,747 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_085392-085523]: 係啊即係可以做到嘢<eos>
+2018-07-11 13:15:54,755 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [54]
+2018-07-11 13:15:54,858 (e2e_asr_attctc_th:2067) INFO: input lengths: 14
+2018-07-11 13:15:54,858 (e2e_asr_attctc_th:2091) INFO: max output length: 14
+2018-07-11 13:15:54,858 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:55,487 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:15:55,487 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.936090264469
+2018-07-11 13:15:55,487 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.187218052894
+2018-07-11 13:15:55,488 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_017362-017418]: 咋佰尻
+2018-07-11 13:15:55,488 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_017362-017418]: 咁咪就<eos>
+2018-07-11 13:15:55,496 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [93]
+2018-07-11 13:15:55,643 (e2e_asr_attctc_th:2067) INFO: input lengths: 24
+2018-07-11 13:15:55,643 (e2e_asr_attctc_th:2091) INFO: max output length: 24
+2018-07-11 13:15:55,644 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:56,790 (e2e_asr_attctc_th:2199) INFO: end detected at 15
+2018-07-11 13:15:56,790 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.959638834
+2018-07-11 13:15:56,791 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.662182092667
+2018-07-11 13:15:56,792 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_093593-093688]: 妊咋唪扚搭佬兒
+2018-07-11 13:15:56,793 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_093593-093688]: 好緊唔大搞嘅先<eos>
+2018-07-11 13:15:56,801 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [56]
+2018-07-11 13:15:56,899 (e2e_asr_attctc_th:2067) INFO: input lengths: 14
+2018-07-11 13:15:56,900 (e2e_asr_attctc_th:2091) INFO: max output length: 14
+2018-07-11 13:15:56,900 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:15:57,781 (e2e_asr_attctc_th:2199) INFO: end detected at 12
+2018-07-11 13:15:57,781 (e2e_asr_attctc_th:2217) INFO: total log probability: -9.05591869354
+2018-07-11 13:15:57,782 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.29370267051
+2018-07-11 13:15:57,782 (asr_pytorch:468) INFO: groundtruth[4_spk_4_060092-060151]: 俏
+2018-07-11 13:15:57,783 (asr_pytorch:469) INFO: prediction [4_spk_4_060092-060151]: 我以為翻大<eos>
+2018-07-11 13:15:57,791 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [255]
+2018-07-11 13:15:58,159 (e2e_asr_attctc_th:2067) INFO: input lengths: 64
+2018-07-11 13:15:58,159 (e2e_asr_attctc_th:2091) INFO: max output length: 64
+2018-07-11 13:15:58,159 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:02,071 (e2e_asr_attctc_th:2199) INFO: end detected at 34
+2018-07-11 13:16:02,071 (e2e_asr_attctc_th:2217) INFO: total log probability: -32.0017792583
+2018-07-11 13:16:02,071 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.28007117033
+2018-07-11 13:16:02,072 (asr_pytorch:468) INFO: groundtruth[12_spk_12_048352-048609]: 件由從刺喋卿俏戛址服倍嗷YWIVREQITEWW_SVH佬
+2018-07-11 13:16:02,072 (asr_pytorch:469) INFO: prediction [12_spk_12_048352-048609]: 二龍得豆啦即係我哋會俾嗰個YOUSONE拍拖嚟<eos>
+2018-07-11 13:16:02,080 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [51]
+2018-07-11 13:16:02,174 (e2e_asr_attctc_th:2067) INFO: input lengths: 13
+2018-07-11 13:16:02,174 (e2e_asr_attctc_th:2091) INFO: max output length: 13
+2018-07-11 13:16:02,174 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:02,884 (e2e_asr_attctc_th:2199) INFO: end detected at 8
+2018-07-11 13:16:02,885 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.693015645258
+2018-07-11 13:16:02,885 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.173253911315
+2018-07-11 13:16:02,887 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_026137-026189]: 俏啯
+2018-07-11 13:16:02,887 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_026137-026189]: 係咯<eos>
+2018-07-11 13:16:02,902 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:16:03,547 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:16:03,548 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:16:03,549 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:06,521 (e2e_asr_attctc_th:2199) INFO: end detected at 18
+2018-07-11 13:16:06,522 (e2e_asr_attctc_th:2217) INFO: total log probability: -10.2185135293
+2018-07-11 13:16:06,522 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.786039502252
+2018-07-11 13:16:06,523 (asr_pytorch:468) INFO: groundtruth[9_spk_9_048480-048680]: 跨何嘍誅冀寫佰八俊懵誆歧幅
+2018-07-11 13:16:06,523 (asr_pytorch:469) INFO: prediction [9_spk_9_048480-048680]: 跟住過嚟啦佢點應該正常<eos>
+2018-07-11 13:16:06,531 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [101]
+2018-07-11 13:16:06,751 (e2e_asr_attctc_th:2067) INFO: input lengths: 26
+2018-07-11 13:16:06,751 (e2e_asr_attctc_th:2091) INFO: max output length: 26
+2018-07-11 13:16:06,751 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:08,044 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:16:08,045 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.71972146258
+2018-07-11 13:16:08,045 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.589965182822
+2018-07-11 13:16:08,046 (asr_pytorch:468) INFO: groundtruth[9_spk_9_033232-033335]: 俏呈然鍋然鍋
+2018-07-11 13:16:08,047 (asr_pytorch:469) INFO: prediction [9_spk_9_033232-033335]: 啊有冇錯冇著<eos>
+2018-07-11 13:16:08,056 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [501]
+2018-07-11 13:16:08,724 (e2e_asr_attctc_th:2067) INFO: input lengths: 126
+2018-07-11 13:16:08,724 (e2e_asr_attctc_th:2091) INFO: max output length: 126
+2018-07-11 13:16:08,724 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:16,073 (e2e_asr_attctc_th:2199) INFO: end detected at 36
+2018-07-11 13:16:16,074 (e2e_asr_attctc_th:2217) INFO: total log probability: -27.605896051
+2018-07-11 13:16:16,074 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.920196535035
+2018-07-11 13:16:16,075 (asr_pytorch:468) INFO: groundtruth[9_spk_9_010092-010595]: 司脇震見佬叄側三側尋WMQ危抑三抑<unk>畸嚦兒臼司件嘍B筐戛三陳
+2018-07-11 13:16:16,075 (asr_pytorch:469) INFO: prediction [9_spk_9_010092-010595]: 我就唔需要你去做咗做精先啱啱啱啱翻嚟嚟唔可以嘅即係佢話就<eos>
+2018-07-11 13:16:16,083 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [65]
+2018-07-11 13:16:16,201 (e2e_asr_attctc_th:2067) INFO: input lengths: 17
+2018-07-11 13:16:16,202 (e2e_asr_attctc_th:2091) INFO: max output length: 17
+2018-07-11 13:16:16,202 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:17,062 (e2e_asr_attctc_th:2199) INFO: end detected at 12
+2018-07-11 13:16:17,063 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.88429510593
+2018-07-11 13:16:17,063 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.976859021187
+2018-07-11 13:16:17,064 (asr_pytorch:468) INFO: groundtruth[1505-2_spk_1505_2_061395-061462]: 然院佬倔
+2018-07-11 13:16:17,064 (asr_pytorch:469) INFO: prediction [1505-2_spk_1505_2_061395-061462]: 冇啊呢<eos>
+2018-07-11 13:16:17,071 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [114]
+2018-07-11 13:16:17,233 (e2e_asr_attctc_th:2067) INFO: input lengths: 29
+2018-07-11 13:16:17,233 (e2e_asr_attctc_th:2091) INFO: max output length: 29
+2018-07-11 13:16:17,233 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:18,726 (e2e_asr_attctc_th:2199) INFO: end detected at 15
+2018-07-11 13:16:18,726 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.9817311404
+2018-07-11 13:16:18,726 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.29817311404
+2018-07-11 13:16:18,728 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_016487-016603]: 手件戛員盾掩尻耗<unk>
+2018-07-11 13:16:18,728 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_016487-016603]: 所以外直接就而傢<eos>
+2018-07-11 13:16:18,735 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [70]
+2018-07-11 13:16:18,884 (e2e_asr_attctc_th:2067) INFO: input lengths: 18
+2018-07-11 13:16:18,885 (e2e_asr_attctc_th:2091) INFO: max output length: 18
+2018-07-11 13:16:18,885 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:19,419 (e2e_asr_attctc_th:2199) INFO: end detected at 8
+2018-07-11 13:16:19,419 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.414186507463
+2018-07-11 13:16:19,419 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.138062169154
+2018-07-11 13:16:19,421 (asr_pytorch:468) INFO: groundtruth[12_spk_12_057832-057904]: 嗶
+2018-07-11 13:16:19,421 (asr_pytorch:469) INFO: prediction [12_spk_12_057832-057904]: 嗯<eos>
+2018-07-11 13:16:19,429 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [207]
+2018-07-11 13:16:19,772 (e2e_asr_attctc_th:2067) INFO: input lengths: 52
+2018-07-11 13:16:19,774 (e2e_asr_attctc_th:2091) INFO: max output length: 52
+2018-07-11 13:16:19,774 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:21,392 (e2e_asr_attctc_th:2199) INFO: end detected at 18
+2018-07-11 13:16:21,393 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.27462105546
+2018-07-11 13:16:21,393 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.376758646819
+2018-07-11 13:16:21,394 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_012793-013002]: 幺晏佬尻咋貽嘍誅佰尻服俏
+2018-07-11 13:16:21,394 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_012793-013002]: 平時你教緊買噶話去就會係<eos>
+2018-07-11 13:16:21,403 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [173]
+2018-07-11 13:16:21,652 (e2e_asr_attctc_th:2067) INFO: input lengths: 44
+2018-07-11 13:16:21,652 (e2e_asr_attctc_th:2091) INFO: max output length: 44
+2018-07-11 13:16:21,652 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:22,687 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:16:22,687 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.72775985906
+2018-07-11 13:16:22,688 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.525306651007
+2018-07-11 13:16:22,688 (asr_pytorch:468) INFO: groundtruth[9_spk_9_007450-007625]: 3K嘍住俏佰尻
+2018-07-11 13:16:22,689 (asr_pytorch:469) INFO: prediction [9_spk_9_007450-007625]: 跟著噶但係佢就<eos>
+2018-07-11 13:16:22,701 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [146]
+2018-07-11 13:16:22,922 (e2e_asr_attctc_th:2067) INFO: input lengths: 37
+2018-07-11 13:16:22,922 (e2e_asr_attctc_th:2091) INFO: max output length: 37
+2018-07-11 13:16:22,922 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:23,773 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:16:23,773 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.49420546927
+2018-07-11 13:16:23,773 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.356315067038
+2018-07-11 13:16:23,774 (asr_pytorch:468) INFO: groundtruth[1504-1_spk_1504_1_052367-052516]: 咋佬司件NSMR
+2018-07-11 13:16:23,774 (asr_pytorch:469) INFO: prediction [1504-1_spk_1504_1_052367-052516]: 咁咪可以追<eos>
+2018-07-11 13:16:23,782 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:16:24,075 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:16:24,075 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:16:24,075 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:24,576 (e2e_asr_attctc_th:2199) INFO: end detected at 8
+2018-07-11 13:16:24,577 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.66834583506
+2018-07-11 13:16:24,577 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.167086458765
+2018-07-11 13:16:24,578 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_015141-015341]: 俏啖
+2018-07-11 13:16:24,578 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_015141-015341]: 係啊<eos>
+2018-07-11 13:16:24,586 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [204]
+2018-07-11 13:16:24,861 (e2e_asr_attctc_th:2067) INFO: input lengths: 51
+2018-07-11 13:16:24,861 (e2e_asr_attctc_th:2091) INFO: max output length: 51
+2018-07-11 13:16:24,861 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:26,034 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:16:26,034 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.76587394625
+2018-07-11 13:16:26,034 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.443528765096
+2018-07-11 13:16:26,035 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_072237-072443]: 哭啵嚦緘鄔司脇叄旣遏嘍
+2018-07-11 13:16:26,035 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_072237-072443]: 哦真係醒都可能去旅遊嘅<eos>
+2018-07-11 13:16:26,043 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [260]
+2018-07-11 13:16:26,396 (e2e_asr_attctc_th:2067) INFO: input lengths: 65
+2018-07-11 13:16:26,397 (e2e_asr_attctc_th:2091) INFO: max output length: 65
+2018-07-11 13:16:26,397 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:27,922 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:16:27,922 (e2e_asr_attctc_th:2217) INFO: total log probability: -7.04481679783
+2018-07-11 13:16:27,922 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.469654453189
+2018-07-11 13:16:27,923 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_060520-060782]: 尻省疊族俏<unk>贗嗷啼錯咋樺嘍
+2018-07-11 13:16:27,923 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_060520-060782]: 就相當然係迴陣嗰啲錢入養嘅<eos>
+2018-07-11 13:16:27,932 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [295]
+2018-07-11 13:16:28,363 (e2e_asr_attctc_th:2067) INFO: input lengths: 74
+2018-07-11 13:16:28,363 (e2e_asr_attctc_th:2091) INFO: max output length: 74
+2018-07-11 13:16:28,363 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:30,109 (e2e_asr_attctc_th:2199) INFO: end detected at 17
+2018-07-11 13:16:30,110 (e2e_asr_attctc_th:2217) INFO: total log probability: -15.5700404048
+2018-07-11 13:16:30,110 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.73000448942
+2018-07-11 13:16:30,112 (asr_pytorch:468) INFO: groundtruth[8_spk_8_008380-008677]: 俏嗺戛倔霆誅呯B
+2018-07-11 13:16:30,112 (asr_pytorch:469) INFO: prediction [8_spk_8_008380-008677]: 黑時我咁十年乜<eos>
+2018-07-11 13:16:30,128 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [486]
+2018-07-11 13:16:31,293 (e2e_asr_attctc_th:2067) INFO: input lengths: 122
+2018-07-11 13:16:31,293 (e2e_asr_attctc_th:2091) INFO: max output length: 122
+2018-07-11 13:16:31,294 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:36,033 (e2e_asr_attctc_th:2199) INFO: end detected at 28
+2018-07-11 13:16:36,034 (e2e_asr_attctc_th:2217) INFO: total log probability: -12.2635463821
+2018-07-11 13:16:36,034 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.557433926458
+2018-07-11 13:16:36,035 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_071786-072274]: 咋朕考6KF旨HEXE尻4000列鐲兮幻卒<unk>紋旨俏
+2018-07-11 13:16:36,035 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_071786-072274]: 咁有翻屋俾佢四茶就四韆分咗兩年半閤約嘅係<eos>
+2018-07-11 13:16:36,043 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [306]
+2018-07-11 13:16:36,421 (e2e_asr_attctc_th:2067) INFO: input lengths: 77
+2018-07-11 13:16:36,421 (e2e_asr_attctc_th:2091) INFO: max output length: 77
+2018-07-11 13:16:36,421 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:39,119 (e2e_asr_attctc_th:2199) INFO: end detected at 27
+2018-07-11 13:16:39,120 (e2e_asr_attctc_th:2217) INFO: total log probability: -17.3689314062
+2018-07-11 13:16:39,120 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.789496882099
+2018-07-11 13:16:39,121 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_091096-091404]: 佰戛址吔井尻服趕伍JSVQ享倍GWP嗷邕旨
+2018-07-11 13:16:39,121 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_091096-091404]: 佢我哋同事就會起群方教俾CICEL嗰啲嘅<eos>
+2018-07-11 13:16:39,129 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [299]
+2018-07-11 13:16:39,516 (e2e_asr_attctc_th:2067) INFO: input lengths: 75
+2018-07-11 13:16:39,517 (e2e_asr_attctc_th:2091) INFO: max output length: 75
+2018-07-11 13:16:39,517 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:41,977 (e2e_asr_attctc_th:2199) INFO: end detected at 24
+2018-07-11 13:16:41,977 (e2e_asr_attctc_th:2217) INFO: total log probability: -24.2281305669
+2018-07-11 13:16:41,977 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.21140652834
+2018-07-11 13:16:41,978 (asr_pytorch:468) INFO: groundtruth[12_spk_12_060114-060415]: 俏跨佬去杉伍<unk>紋佬去杉伍<unk>紋俏叄刺5朔伍柎嘢
+2018-07-11 13:16:41,979 (asr_pytorch:469) INFO: prediction [12_spk_12_060114-060415]: 真係原本辣藥你原網就係一十五月份噶嘛<eos>
+2018-07-11 13:16:41,986 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [234]
+2018-07-11 13:16:42,318 (e2e_asr_attctc_th:2067) INFO: input lengths: 59
+2018-07-11 13:16:42,318 (e2e_asr_attctc_th:2091) INFO: max output length: 59
+2018-07-11 13:16:42,318 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:44,025 (e2e_asr_attctc_th:2199) INFO: end detected at 20
+2018-07-11 13:16:44,025 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.52323732246
+2018-07-11 13:16:44,026 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.368215821497
+2018-07-11 13:16:44,027 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_101986-102222]: 俏啯冏鍋冏鍋尻塊考佬倔RYQFIV
+2018-07-11 13:16:44,027 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_101986-102222]: 係啊冇錯冇錯就好翻你個諗法<eos>
+2018-07-11 13:16:44,035 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [376]
+2018-07-11 13:16:44,507 (e2e_asr_attctc_th:2067) INFO: input lengths: 94
+2018-07-11 13:16:44,508 (e2e_asr_attctc_th:2091) INFO: max output length: 94
+2018-07-11 13:16:44,508 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:46,873 (e2e_asr_attctc_th:2199) INFO: end detected at 24
+2018-07-11 13:16:46,873 (e2e_asr_attctc_th:2217) INFO: total log probability: -16.5855869055
+2018-07-11 13:16:46,873 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.872925626604
+2018-07-11 13:16:46,874 (asr_pytorch:468) INFO: groundtruth[1505-2_spk_1505_2_036102-036480]: 咋戛宥<unk>睛牙朋久見俏睛咯邕三倔倔RYQFIV
+2018-07-11 13:16:46,874 (asr_pytorch:469) INFO: prediction [1505-2_spk_1505_2_036102-036480]: 咁我真係睇展最主要嚟睇咩呢個個人啊<eos>
+2018-07-11 13:16:46,882 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [208]
+2018-07-11 13:16:47,163 (e2e_asr_attctc_th:2067) INFO: input lengths: 52
+2018-07-11 13:16:47,163 (e2e_asr_attctc_th:2091) INFO: max output length: 52
+2018-07-11 13:16:47,163 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:48,407 (e2e_asr_attctc_th:2199) INFO: end detected at 17
+2018-07-11 13:16:48,407 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.89576126263
+2018-07-11 13:16:48,407 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.574646771885
+2018-07-11 13:16:48,408 (asr_pytorch:468) INFO: groundtruth[8_spk_8_037427-037637]: 俏跨何呯序樟序宰呈
+2018-07-11 13:16:48,408 (asr_pytorch:469) INFO: prediction [8_spk_8_037427-037637]: 啊跟著呢其實佢其實啦<eos>
+2018-07-11 13:16:48,416 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [126]
+2018-07-11 13:16:48,590 (e2e_asr_attctc_th:2067) INFO: input lengths: 32
+2018-07-11 13:16:48,590 (e2e_asr_attctc_th:2091) INFO: max output length: 32
+2018-07-11 13:16:48,590 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:49,194 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:16:49,195 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.79096803488
+2018-07-11 13:16:49,195 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.643440892765
+2018-07-11 13:16:49,195 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_000254-000383]: 諛啞俏咱杖尖姚呈
+2018-07-11 13:16:49,195 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_000254-000383]: 傾明啊你小姐啊<eos>
+2018-07-11 13:16:49,204 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [486]
+2018-07-11 13:16:49,814 (e2e_asr_attctc_th:2067) INFO: input lengths: 122
+2018-07-11 13:16:49,814 (e2e_asr_attctc_th:2091) INFO: max output length: 122
+2018-07-11 13:16:49,814 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:53,884 (e2e_asr_attctc_th:2199) INFO: end detected at 34
+2018-07-11 13:16:53,884 (e2e_asr_attctc_th:2217) INFO: total log probability: -13.949146919
+2018-07-11 13:16:53,885 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.481005066171
+2018-07-11 13:16:53,885 (asr_pytorch:468) INFO: groundtruth[4_spk_4_034535-035023]: 哭昕皅B佬畸夭隊嘍誅佰俏倔刺揉畸俏睛畸佬序夥錯姚俏咱
+2018-07-11 13:16:53,885 (asr_pytorch:469) INFO: prediction [4_spk_4_034535-035023]: 我明白誒你軍大陸個喎佢係嗰度簡單係睇翻你哋記得展噶係咪<eos>
+2018-07-11 13:16:53,893 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [249]
+2018-07-11 13:16:54,209 (e2e_asr_attctc_th:2067) INFO: input lengths: 63
+2018-07-11 13:16:54,209 (e2e_asr_attctc_th:2091) INFO: max output length: 63
+2018-07-11 13:16:54,209 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:16:55,297 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:16:55,298 (e2e_asr_attctc_th:2217) INFO: total log probability: -12.1874609962
+2018-07-11 13:16:55,298 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.01562174968
+2018-07-11 13:16:55,298 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_069741-069992]: 俏啯冏鍋俏啖冏鍋SO
+2018-07-11 13:16:55,298 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_069741-069992]: 係啦落山係啊有個方服<eos>
+2018-07-11 13:16:55,308 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [680]
+2018-07-11 13:16:56,252 (e2e_asr_attctc_th:2067) INFO: input lengths: 170
+2018-07-11 13:16:56,252 (e2e_asr_attctc_th:2091) INFO: max output length: 170
+2018-07-11 13:16:56,252 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:02,943 (e2e_asr_attctc_th:2199) INFO: end detected at 38
+2018-07-11 13:17:02,943 (e2e_asr_attctc_th:2217) INFO: total log probability: -27.891931802
+2018-07-11 13:17:02,943 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.845210054607
+2018-07-11 13:17:02,944 (asr_pytorch:468) INFO: groundtruth[9_spk_9_012980-013662]: 朕然誅邕三啼霆誅咯垣蚊吔啼B佬員啼WMQGEVHB刺㨃
+2018-07-11 13:17:02,944 (asr_pytorch:469) INFO: prediction [9_spk_9_012980-013662]: 因為哇你呢一啲電話咩型號同啲誒你哋啲SIMPART冰區奶團就噶<eos>
+2018-07-11 13:17:02,952 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [152]
+2018-07-11 13:17:03,157 (e2e_asr_attctc_th:2067) INFO: input lengths: 38
+2018-07-11 13:17:03,158 (e2e_asr_attctc_th:2091) INFO: max output length: 38
+2018-07-11 13:17:03,158 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:04,241 (e2e_asr_attctc_th:2199) INFO: end detected at 16
+2018-07-11 13:17:04,241 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.96106855711
+2018-07-11 13:17:04,241 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.451006232465
+2018-07-11 13:17:04,242 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_098238-098392]: B
+2018-07-11 13:17:04,242 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_098238-098392]: 我話你覺得點解打我<eos>
+2018-07-11 13:17:04,250 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [116]
+2018-07-11 13:17:04,405 (e2e_asr_attctc_th:2067) INFO: input lengths: 29
+2018-07-11 13:17:04,405 (e2e_asr_attctc_th:2091) INFO: max output length: 29
+2018-07-11 13:17:04,405 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:05,021 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:05,021 (e2e_asr_attctc_th:2217) INFO: total log probability: -6.7966591008
+2018-07-11 13:17:05,021 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.755184344533
+2018-07-11 13:17:05,022 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_045208-045326]: 世道杖尖姚司件敍忐
+2018-07-11 13:17:05,022 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_045208-045326]: 幫你小想嘅所身<eos>
+2018-07-11 13:17:05,030 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [84]
+2018-07-11 13:17:05,144 (e2e_asr_attctc_th:2067) INFO: input lengths: 21
+2018-07-11 13:17:05,144 (e2e_asr_attctc_th:2091) INFO: max output length: 21
+2018-07-11 13:17:05,144 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:05,808 (e2e_asr_attctc_th:2199) INFO: end detected at 12
+2018-07-11 13:17:05,808 (e2e_asr_attctc_th:2217) INFO: total log probability: -2.198593501
+2018-07-11 13:17:05,808 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.314084785857
+2018-07-11 13:17:05,809 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_089684-089770]: 俏司件敍忐
+2018-07-11 13:17:05,809 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_089684-089770]: 係可以放收<eos>
+2018-07-11 13:17:05,817 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [263]
+2018-07-11 13:17:06,169 (e2e_asr_attctc_th:2067) INFO: input lengths: 66
+2018-07-11 13:17:06,169 (e2e_asr_attctc_th:2091) INFO: max output length: 66
+2018-07-11 13:17:06,169 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:07,762 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:07,762 (e2e_asr_attctc_th:2217) INFO: total log probability: -4.18955611024
+2018-07-11 13:17:07,762 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.26184725689
+2018-07-11 13:17:07,763 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_005339-005604]: 戛員尻服B夢冗逆夥兮KF毯佬嘍
+2018-07-11 13:17:07,763 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_005339-005604]: 我哋就會壓我再送到量嘅俾你嘅<eos>
+2018-07-11 13:17:07,771 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [336]
+2018-07-11 13:17:08,275 (e2e_asr_attctc_th:2067) INFO: input lengths: 84
+2018-07-11 13:17:08,276 (e2e_asr_attctc_th:2091) INFO: max output length: 84
+2018-07-11 13:17:08,276 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:10,085 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:10,085 (e2e_asr_attctc_th:2217) INFO: total log probability: -9.03129814193
+2018-07-11 13:17:10,085 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.531252831878
+2018-07-11 13:17:10,086 (asr_pytorch:468) INFO: groundtruth[4_spk_4_056722-057060]: 佰誅巾綪啦勞住然乒剛然誅竣卿啦勞喔
+2018-07-11 13:17:10,086 (asr_pytorch:469) INFO: prediction [4_spk_4_056722-057060]: 佢已經係動大冇之前冇話啦即係度<eos>
+2018-07-11 13:17:10,093 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [28]
+2018-07-11 13:17:10,147 (e2e_asr_attctc_th:2067) INFO: input lengths: 7
+2018-07-11 13:17:10,147 (e2e_asr_attctc_th:2091) INFO: max output length: 7
+2018-07-11 13:17:10,147 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:10,391 (e2e_asr_attctc_th:2180) INFO: adding <eos> in the last postion in the loop
+2018-07-11 13:17:10,391 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:10,392 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.0271727305371
+2018-07-11 13:17:10,392 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.00905757684571
+2018-07-11 13:17:10,392 (asr_pytorch:468) INFO: groundtruth[9_spk_9_001370-001400]: 俏
+2018-07-11 13:17:10,393 (asr_pytorch:469) INFO: prediction [9_spk_9_001370-001400]: 係<eos>
+2018-07-11 13:17:10,401 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [185]
+2018-07-11 13:17:10,637 (e2e_asr_attctc_th:2067) INFO: input lengths: 47
+2018-07-11 13:17:10,637 (e2e_asr_attctc_th:2091) INFO: max output length: 47
+2018-07-11 13:17:10,637 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:11,503 (e2e_asr_attctc_th:2199) INFO: end detected at 12
+2018-07-11 13:17:11,503 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.944114389247
+2018-07-11 13:17:11,503 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.118014298656
+2018-07-11 13:17:11,504 (asr_pytorch:468) INFO: groundtruth[1501-1_spk_1501_1_011493-011680]: 咋嗷倔呯冀寫
+2018-07-11 13:17:11,504 (asr_pytorch:469) INFO: prediction [1501-1_spk_1501_1_011493-011680]: 咁嗰個呢其實<eos>
+2018-07-11 13:17:11,513 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [384]
+2018-07-11 13:17:12,001 (e2e_asr_attctc_th:2067) INFO: input lengths: 96
+2018-07-11 13:17:12,001 (e2e_asr_attctc_th:2091) INFO: max output length: 96
+2018-07-11 13:17:12,001 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:16,457 (e2e_asr_attctc_th:2199) INFO: end detected at 36
+2018-07-11 13:17:16,457 (e2e_asr_attctc_th:2217) INFO: total log probability: -41.3988184053
+2018-07-11 13:17:16,457 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.33544575501
+2018-07-11 13:17:16,458 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_005546-005932]: 冀寫妊而寫閊希6KF呯三倔TPER呯尻眯俏側唪刺戛址倔公郷朔賀旨
+2018-07-11 13:17:16,459 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_005546-005932]: 考樓啊迴事啦你呢個FRIMED發生實做唔到啊你講啦嗰啲快就<eos>
+2018-07-11 13:17:16,473 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [140]
+2018-07-11 13:17:16,752 (e2e_asr_attctc_th:2067) INFO: input lengths: 35
+2018-07-11 13:17:16,753 (e2e_asr_attctc_th:2091) INFO: max output length: 35
+2018-07-11 13:17:16,753 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:18,310 (e2e_asr_attctc_th:2199) INFO: end detected at 16
+2018-07-11 13:17:18,310 (e2e_asr_attctc_th:2217) INFO: total log probability: -8.65886859968
+2018-07-11 13:17:18,310 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.787169872698
+2018-07-11 13:17:18,311 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_082895-083037]: 31892368嘍
+2018-07-11 13:17:18,312 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_082895-083037]: 三日八九二三六八長<eos>
+2018-07-11 13:17:18,326 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [198]
+2018-07-11 13:17:18,743 (e2e_asr_attctc_th:2067) INFO: input lengths: 50
+2018-07-11 13:17:18,743 (e2e_asr_attctc_th:2091) INFO: max output length: 50
+2018-07-11 13:17:18,744 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:20,090 (e2e_asr_attctc_th:2199) INFO: end detected at 14
+2018-07-11 13:17:20,091 (e2e_asr_attctc_th:2217) INFO: total log probability: -7.13762023672
+2018-07-11 13:17:20,091 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.713762023672
+2018-07-11 13:17:20,091 (asr_pytorch:468) INFO: groundtruth[8_spk_8_019602-019802]: 掩放巴宣俏咯去囹
+2018-07-11 13:17:20,092 (asr_pytorch:469) INFO: prediction [8_spk_8_019602-019802]: 你宿捨成人咩原因<eos>
+2018-07-11 13:17:20,099 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [96]
+2018-07-11 13:17:20,226 (e2e_asr_attctc_th:2067) INFO: input lengths: 24
+2018-07-11 13:17:20,226 (e2e_asr_attctc_th:2091) INFO: max output length: 24
+2018-07-11 13:17:20,226 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:20,786 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:17:20,786 (e2e_asr_attctc_th:2217) INFO: total log probability: -1.12895461172
+2018-07-11 13:17:20,786 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.188159101953
+2018-07-11 13:17:20,787 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_017196-017294]: 俏啯俏啯
+2018-07-11 13:17:20,787 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_017196-017294]: 係啊係啦<eos>
+2018-07-11 13:17:20,795 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [9]
+2018-07-11 13:17:20,821 (e2e_asr_attctc_th:2067) INFO: input lengths: 3
+2018-07-11 13:17:20,822 (e2e_asr_attctc_th:2091) INFO: max output length: 3
+2018-07-11 13:17:20,822 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:20,904 (e2e_asr_attctc_th:2180) INFO: adding <eos> in the last postion in the loop
+2018-07-11 13:17:20,905 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:20,905 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.902154451236
+2018-07-11 13:17:20,905 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.300718150412
+2018-07-11 13:17:20,905 (asr_pytorch:468) INFO: groundtruth[1501-2_spk_1501_2_066832-066843]: 妊
+2018-07-11 13:17:20,906 (asr_pytorch:469) INFO: prediction [1501-2_spk_1501_2_066832-066843]: 哦<eos>
+2018-07-11 13:17:20,917 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [18]
+2018-07-11 13:17:20,970 (e2e_asr_attctc_th:2067) INFO: input lengths: 5
+2018-07-11 13:17:20,971 (e2e_asr_attctc_th:2091) INFO: max output length: 5
+2018-07-11 13:17:20,971 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:21,119 (e2e_asr_attctc_th:2180) INFO: adding <eos> in the last postion in the loop
+2018-07-11 13:17:21,119 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:21,119 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.385735270567
+2018-07-11 13:17:21,119 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.128578423522
+2018-07-11 13:17:21,120 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_079288-079308]: 俏
+2018-07-11 13:17:21,120 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_079288-079308]: 係<eos>
+2018-07-11 13:17:21,128 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [363]
+2018-07-11 13:17:21,586 (e2e_asr_attctc_th:2067) INFO: input lengths: 91
+2018-07-11 13:17:21,587 (e2e_asr_attctc_th:2091) INFO: max output length: 91
+2018-07-11 13:17:21,587 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:24,509 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:24,509 (e2e_asr_attctc_th:2217) INFO: total log probability: -21.5620156508
+2018-07-11 13:17:24,509 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.798593172252
+2018-07-11 13:17:24,510 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_087507-087872]: 俏啯吔埗旨誅呯戛且<unk>石訒裴<unk>啯服寳差戛旨盾緣蚊磋
+2018-07-11 13:17:24,510 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_087507-087872]: 係啦同埋嘅話因為我上麵幾信咪點解會寫咗六嘅食線頭買<eos>
+2018-07-11 13:17:24,519 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [642]
+2018-07-11 13:17:25,382 (e2e_asr_attctc_th:2067) INFO: input lengths: 161
+2018-07-11 13:17:25,383 (e2e_asr_attctc_th:2091) INFO: max output length: 161
+2018-07-11 13:17:25,383 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:31,034 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:31,034 (e2e_asr_attctc_th:2217) INFO: total log probability: -23.8604047757
+2018-07-11 13:17:31,035 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.611805250659
+2018-07-11 13:17:31,035 (asr_pytorch:468) INFO: groundtruth[1504-1_spk_1504_1_091310-091954]: 嗶囹烕<unk>屌寵額歧幅妊夥鄔俏B佰幹佬裳宙帶備幹佬詭詭宙乒得筋亙旬尻見用敖旨
+2018-07-11 13:17:31,035 (asr_pytorch:469) INFO: prediction [1504-1_spk_1504_1_091310-091954]: <SPK/>因為加身風文正常好周都係誒佢幫你裝完之後師傅幫你試試完即係第日就起身效嘅<eos>
+2018-07-11 13:17:31,042 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [48]
+2018-07-11 13:17:31,115 (e2e_asr_attctc_th:2067) INFO: input lengths: 12
+2018-07-11 13:17:31,116 (e2e_asr_attctc_th:2091) INFO: max output length: 12
+2018-07-11 13:17:31,116 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:31,403 (e2e_asr_attctc_th:2199) INFO: end detected at 7
+2018-07-11 13:17:31,404 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.103637553286
+2018-07-11 13:17:31,404 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0345458510953
+2018-07-11 13:17:31,404 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_063855-063905]: 哭
+2018-07-11 13:17:31,405 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_063855-063905]: 哦<eos>
+2018-07-11 13:17:31,412 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [71]
+2018-07-11 13:17:31,511 (e2e_asr_attctc_th:2067) INFO: input lengths: 18
+2018-07-11 13:17:31,511 (e2e_asr_attctc_th:2091) INFO: max output length: 18
+2018-07-11 13:17:31,511 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:31,966 (e2e_asr_attctc_th:2199) INFO: end detected at 10
+2018-07-11 13:17:31,967 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.35281096399
+2018-07-11 13:17:31,967 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.670562192798
+2018-07-11 13:17:31,967 (asr_pytorch:468) INFO: groundtruth[9_spk_9_016197-016269]: 妊唪誆佬
+2018-07-11 13:17:31,968 (asr_pytorch:469) INFO: prediction [9_spk_9_016197-016269]: 咁計你<eos>
+2018-07-11 13:17:31,976 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [414]
+2018-07-11 13:17:32,503 (e2e_asr_attctc_th:2067) INFO: input lengths: 104
+2018-07-11 13:17:32,503 (e2e_asr_attctc_th:2091) INFO: max output length: 104
+2018-07-11 13:17:32,503 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:35,179 (e2e_asr_attctc_th:2199) INFO: end detected at 25
+2018-07-11 13:17:35,179 (e2e_asr_attctc_th:2217) INFO: total log probability: -3.33353182022
+2018-07-11 13:17:35,179 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.166676591011
+2018-07-11 13:17:35,180 (asr_pytorch:468) INFO: groundtruth[1504-2_spk_1504_2_040890-041306]: 戛乒剛朕諦道戛戛嗷倔霆誅呯戛朕諦道俏
+2018-07-11 13:17:35,180 (asr_pytorch:469) INFO: prediction [1504-2_spk_1504_2_040890-041306]: 我之前有諗過我我嗰個電話呢我有諗過係<eos>
+2018-07-11 13:17:35,189 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [102]
+2018-07-11 13:17:35,336 (e2e_asr_attctc_th:2067) INFO: input lengths: 26
+2018-07-11 13:17:35,336 (e2e_asr_attctc_th:2091) INFO: max output length: 26
+2018-07-11 13:17:35,336 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:35,806 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:17:35,806 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.350780555978
+2018-07-11 13:17:35,806 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0876951389946
+2018-07-11 13:17:35,807 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_078203-078307]: 俏啖嗶
+2018-07-11 13:17:35,807 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_078203-078307]: 係啊<eos>
+2018-07-11 13:17:35,815 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [294]
+2018-07-11 13:17:36,212 (e2e_asr_attctc_th:2067) INFO: input lengths: 74
+2018-07-11 13:17:36,213 (e2e_asr_attctc_th:2091) INFO: max output length: 74
+2018-07-11 13:17:36,213 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:38,042 (e2e_asr_attctc_th:2199) INFO: end detected at 21
+2018-07-11 13:17:38,042 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.8636677285
+2018-07-11 13:17:38,042 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.366479233031
+2018-07-11 13:17:38,043 (asr_pytorch:468) INFO: groundtruth[4_spk_4_065054-065351]: 跨何佬摁刺嗷倔可斌擢漳遏嘍間阪
+2018-07-11 13:17:38,043 (asr_pytorch:469) INFO: prediction [4_spk_4_065054-065351]: 跟著你搵到個叫數據漫又嘅開關<eos>
+2018-07-11 13:17:38,051 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [41]
+2018-07-11 13:17:38,112 (e2e_asr_attctc_th:2067) INFO: input lengths: 11
+2018-07-11 13:17:38,112 (e2e_asr_attctc_th:2091) INFO: max output length: 11
+2018-07-11 13:17:38,112 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:38,388 (e2e_asr_attctc_th:2199) INFO: end detected at 7
+2018-07-11 13:17:38,388 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.0365049201064
+2018-07-11 13:17:38,388 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0121683067021
+2018-07-11 13:17:38,389 (asr_pytorch:468) INFO: groundtruth[1502-2_spk_1502_2_039485-039528]: B
+2018-07-11 13:17:38,389 (asr_pytorch:469) INFO: prediction [1502-2_spk_1502_2_039485-039528]: 誒<eos>
+2018-07-11 13:17:38,397 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [390]
+2018-07-11 13:17:38,921 (e2e_asr_attctc_th:2067) INFO: input lengths: 98
+2018-07-11 13:17:38,921 (e2e_asr_attctc_th:2091) INFO: max output length: 98
+2018-07-11 13:17:38,921 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:40,011 (e2e_asr_attctc_th:2199) INFO: end detected at 13
+2018-07-11 13:17:40,011 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.288020380307
+2018-07-11 13:17:40,012 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.0360025475384
+2018-07-11 13:17:40,012 (asr_pytorch:468) INFO: groundtruth[1505-1_spk_1505_1_011228-011620]: 尻俏街緘嗶俏
+2018-07-11 13:17:40,012 (asr_pytorch:469) INFO: prediction [1505-1_spk_1505_1_011228-011620]: 就係行緊嗯係<eos>
+2018-07-11 13:17:40,021 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [298]
+2018-07-11 13:17:40,398 (e2e_asr_attctc_th:2067) INFO: input lengths: 75
+2018-07-11 13:17:40,399 (e2e_asr_attctc_th:2091) INFO: max output length: 75
+2018-07-11 13:17:40,399 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:42,444 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:42,444 (e2e_asr_attctc_th:2217) INFO: total log probability: -12.4864295181
+2018-07-11 13:17:42,444 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.567564978095
+2018-07-11 13:17:42,445 (asr_pytorch:468) INFO: groundtruth[1504-1_spk_1504_1_065202-065502]: 54<unk>戛解從妊抽柎啯耗<unk>JSV迫旨誅尻
+2018-07-11 13:17:42,445 (asr_pytorch:469) INFO: prediction [1504-1_spk_1504_1_065202-065502]: 六唔知我覺得好大嘅啦然之後我哋破翻嘅話就<eos>
+2018-07-11 13:17:42,452 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [190]
+2018-07-11 13:17:42,697 (e2e_asr_attctc_th:2067) INFO: input lengths: 48
+2018-07-11 13:17:42,697 (e2e_asr_attctc_th:2091) INFO: max output length: 48
+2018-07-11 13:17:42,698 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:43,581 (e2e_asr_attctc_th:2206) INFO: no hypothesis. Finish decoding.
+2018-07-11 13:17:43,582 (e2e_asr_attctc_th:2217) INFO: total log probability: -5.29414814245
+2018-07-11 13:17:43,582 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.441179011871
+2018-07-11 13:17:43,582 (asr_pytorch:468) INFO: groundtruth[4_spk_4_052648-052840]: 佬啞仇世妍黴側波啯喇
+2018-07-11 13:17:43,582 (asr_pytorch:469) INFO: prediction [4_spk_4_052648-052840]: 你問人不如點做啊拉喂<eos>
+2018-07-11 13:17:43,591 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [492]
+2018-07-11 13:17:44,203 (e2e_asr_attctc_th:2067) INFO: input lengths: 123
+2018-07-11 13:17:44,204 (e2e_asr_attctc_th:2091) INFO: max output length: 123
+2018-07-11 13:17:44,204 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:48,401 (e2e_asr_attctc_th:2199) INFO: end detected at 38
+2018-07-11 13:17:48,402 (e2e_asr_attctc_th:2217) INFO: total log probability: -32.7857693098
+2018-07-11 13:17:48,402 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.02455529093
+2018-07-11 13:17:48,402 (asr_pytorch:468) INFO: groundtruth[1503-1_spk_1503_1_043038-043532]: 佬唪震見冗舔<unk>嗷邕冗叄享掩迫柎啯男戛址幹男戛址兲各幹佬搭掌旨
+2018-07-11 13:17:48,403 (asr_pytorch:469) INFO: prediction [1503-1_spk_1503_1_043038-043532]: 你知道就係大陸嗰邊係價錢下得啦就話你講你又話你公司講嚟搞掂噶<eos>
+2018-07-11 13:17:48,410 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [51]
+2018-07-11 13:17:48,483 (e2e_asr_attctc_th:2067) INFO: input lengths: 13
+2018-07-11 13:17:48,484 (e2e_asr_attctc_th:2091) INFO: max output length: 13
+2018-07-11 13:17:48,484 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:48,827 (e2e_asr_attctc_th:2199) INFO: end detected at 9
+2018-07-11 13:17:48,827 (e2e_asr_attctc_th:2217) INFO: total log probability: -0.714520305395
+2018-07-11 13:17:48,827 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.178630076349
+2018-07-11 13:17:48,828 (asr_pytorch:468) INFO: groundtruth[9_spk_9_060211-060264]: 俏啯
+2018-07-11 13:17:48,828 (asr_pytorch:469) INFO: prediction [9_spk_9_060211-060264]: 係咪<eos>
+2018-07-11 13:17:48,837 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [423]
+2018-07-11 13:17:49,350 (e2e_asr_attctc_th:2067) INFO: input lengths: 106
+2018-07-11 13:17:49,351 (e2e_asr_attctc_th:2091) INFO: max output length: 106
+2018-07-11 13:17:49,351 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:52,044 (e2e_asr_attctc_th:2199) INFO: end detected at 28
+2018-07-11 13:17:52,044 (e2e_asr_attctc_th:2217) INFO: total log probability: -16.4164744271
+2018-07-11 13:17:52,045 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -0.7137597577
+2018-07-11 13:17:52,045 (asr_pytorch:468) INFO: groundtruth[4_spk_4_000655-001080]: B誅誅咯呈畸夭隊嗷倔漳遏呯兵卉共蚧三旬嗷倔呈
+2018-07-11 13:17:52,045 (asr_pytorch:469) INFO: prediction [4_spk_4_000655-001080]: 誒話話咩翻大陸嗰個萬友呢六百百蚊一日嗰個啊<eos>
+2018-07-11 13:17:52,055 (e2e_asr_attctc_th:2977) INFO: BLSTMP input lengths: [631]
+2018-07-11 13:17:52,828 (e2e_asr_attctc_th:2067) INFO: input lengths: 158
+2018-07-11 13:17:52,829 (e2e_asr_attctc_th:2091) INFO: max output length: 158
+2018-07-11 13:17:52,829 (e2e_asr_attctc_th:2092) INFO: min output length: 0
+2018-07-11 13:17:58,653 (e2e_asr_attctc_th:2199) INFO: end detected at 46
+2018-07-11 13:17:58,653 (e2e_asr_attctc_th:2217) INFO: total log probability: -60.924920205
+2018-07-11 13:17:58,653 (e2e_asr_attctc_th:2218) INFO: normalized log probability: -1.48597366354
+2018-07-11 13:17:58,654 (asr_pytorch:468) INFO: groundtruth[8_spk_8_065016-065650]: 哭咋B疊煉啯假尖姚咋吔佬謬畸啯咋疊煉妍枱佬YTKVEHI咩4K嘍誅呯咋冀寫然諞倔且綺逮庵呈
+2018-07-11 13:17:58,654 (asr_pytorch:469) INFO: prediction [8_spk_8_065016-065650]: 集咁大星上次你食都同你訓一陣真清遠三個先有四次嘅喎實際感其他冇浪個上網速嗰個殺<eos>
+# Accounting: time=286 threads=1
+# Ended (code 0) at Wed Jul 11 13:17:58 HKT 2018, elapsed time 286 seconds
+# Accounting: time=483 threads=1
+# Ended (code 0) at Wed Jul 11 13:19:52 HKT 2018, elapsed time 483 seconds

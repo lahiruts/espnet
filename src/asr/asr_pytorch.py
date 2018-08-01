@@ -501,3 +501,222 @@ def recog(args):
     # TODO(watanabe) fix character coding problems when saving it
     with open(args.result_label, 'wb') as f:
         f.write(json.dumps({'utts': new_json}, indent=4, sort_keys=True).encode('utf_8'))
+
+def edit(args):
+    '''Run recognition'''
+    logging.info('running edit function')
+    # seed setting
+    torch.manual_seed(args.seed)
+
+    # read training config
+    with open(args.model_conf, "rb") as f:
+        logging.info('reading a model config file from' + args.model_conf)
+        idim, odim, train_args = pickle.load(f)
+
+    for key in sorted(vars(args).keys()):
+        logging.info('ARGS: ' + key + ': ' + str(vars(args)[key]))
+
+    # specify model architecture
+    logging.info('reading model parameters from' + args.model)
+
+    if args.da:
+        e2e = E2EDomain(idim, odim, train_args)
+    else:
+        e2e = E2E(idim, odim, train_args)
+    model = Loss(e2e, train_args.mtlalpha)
+
+    def cpu_loader(storage, location):
+        return storage
+
+    def remove_dataparallel(state_dict):
+        from collections import OrderedDict
+        new_state_dict = OrderedDict()
+        for k, v in state_dict.items():
+            if k.startswith("module."):
+                k = k[7:]
+            new_state_dict[k] = v
+        return new_state_dict
+
+    model.load_state_dict(remove_dataparallel(torch.load(args.model, map_location=cpu_loader)))
+
+    reporter = model.reporter
+    ngpu = args.ngpu
+    if ngpu == 1:
+        gpu_id = range(ngpu)
+        logging.info('gpu id: ' + str(gpu_id))
+        model.cuda()
+    elif ngpu > 1:
+        gpu_id = range(ngpu)
+        logging.info('gpu id: ' + str(gpu_id))
+        model = DataParallel(model, device_ids=gpu_id)
+        model.cuda()
+        logging.info('batch size is automatically increased (%d -> %d)' % (
+            args.batch_size, args.batch_size * args.ngpu))
+        args.batch_size *= args.ngpu
+    else:
+        gpu_id = [-1]
+
+    # Setup an optimizer
+    #selected_params = (param for name, param in model.named_parameters() if str(name).__contains__(args.datype))
+    #for name, param in model.named_parameters():
+        #logging.info(args.datype)
+        #logging.info(str(name))
+        #if str(name).__contains__(args.datype):
+            #logging.info(param.shape)
+            #logging.info(name)
+            #selected_params.append(param)
+
+    for name, param in model.named_parameters():
+        if str(name).__contains__(args.datype):
+            if str(name).__contains__('linear1'):
+                param.requires_grad = False
+            else:
+                param.requires_grad = True
+                logging.info(name)
+        #elif str(name).__contains__('embedding'):
+        #    param.requires_grad = True
+        #    logging.info(name)
+        else:
+            param.requires_grad = False
+            #logging.info(name)
+
+    # def select_params(val):
+    #     (name, param) = val
+    #     if str(name).__contains__(args.datype):
+    #         return param
+
+
+    if args.opt == 'adadelta':
+        optimizer = torch.optim.Adadelta(
+            filter(lambda p: p.requires_grad, model.parameters()), rho=0.95, eps=args.eps)
+
+    #elif args.opt == 'adam':
+        #optimizer = torch.optim.Adam(selected_params)
+
+
+    # FIXME: TOO DIRTY HACK
+    setattr(optimizer, "target", reporter)
+    setattr(optimizer, "serialize", lambda s: reporter.serialize(s))
+
+    # read json data
+    with open(args.train_json, 'rb') as f:
+        train_json = json.load(f)['utts']
+    with open(args.valid_json, 'rb') as f:
+        valid_json = json.load(f)['utts']
+
+    # make minibatch list (variable length)
+    train = make_batchset(train_json, args.batch_size,
+                          args.maxlen_in, args.maxlen_out, args.minibatches)
+    valid = make_batchset(valid_json, args.batch_size,
+                          args.maxlen_in, args.maxlen_out, args.minibatches)
+    # hack to make batchsze argument as 1
+    # actual bathsize is included in a list
+    train_iter = chainer.iterators.SerialIterator(train, 1)
+    valid_iter = chainer.iterators.SerialIterator(
+        valid, 1, repeat=False, shuffle=False)
+
+    # Set up a trainer
+    updater = PytorchSeqUpdaterKaldi(
+        model, args.grad_clip, train_iter, optimizer, converter=converter_kaldi, device=gpu_id)
+    trainer = training.Trainer(
+        updater, (args.epochs, 'epoch'), out=args.outdir)
+
+    # Resume from a snapshot
+    #if args.resume:
+    #    chainer.serializers.load_npz(args.resume, trainer)
+    #    if ngpu > 1:
+    #        model.module.load_state_dict(torch.load(args.outdir + '/model.acc.best'))
+    #   else:
+    #        model.load_state_dict(torch.load(args.outdir + '/model.acc.best'))
+    #    model = trainer.updater.model
+
+    # Evaluate the model with the test dataset for each epoch
+    trainer.extend(PytorchSeqEvaluaterKaldi(
+        model, valid_iter, reporter, converter=converter_kaldi, device=gpu_id))
+
+    # Save attention weight each epoch
+    #if args.num_save_attention > 0 and args.mtlalpha != 1.0:
+     #   data = sorted(list(valid_json.items())[:args.num_save_attention],
+    #                  key=lambda x: int(x[1]['input'][0]['shape'][1]), reverse=True)
+    #    data = converter_kaldi([data], device=gpu_id)
+     #   trainer.extend(PlotAttentionReport(model, data, args.outdir + "/att_ws"), trigger=(1, 'epoch'))
+
+    # Take a snapshot for each specified epoch
+    trainer.extend(extensions.snapshot(), trigger=(1, 'epoch'))
+
+    # Make a plot for training and validation values
+    trainer.extend(extensions.PlotReport(['main/loss', 'validation/main/loss',
+                                          'main/loss_ctc', 'validation/main/loss_ctc',
+                                          'main/loss_att', 'validation/main/loss_att'],
+                                         'epoch', file_name='loss.png'))
+    trainer.extend(extensions.PlotReport(['main/acc', 'validation/main/acc'],
+                                         'epoch', file_name='acc.png'))
+
+    mtl_mode = 'mtl'
+    # Save best models
+    def torch_save(path, _):
+        if ngpu > 1:
+            torch.save(model.module.state_dict(), path)
+            torch.save(model.module, path + ".pkl")
+        else:
+            torch.save(model.state_dict(), path)
+            torch.save(model, path + ".pkl")
+
+    trainer.extend(extensions.snapshot_object(model, 'model.loss.best', savefun=torch_save),
+                   trigger=training.triggers.MinValueTrigger('validation/main/loss'))
+    if mtl_mode is not 'ctc':
+        trainer.extend(extensions.snapshot_object(model, 'model.acc.best', savefun=torch_save),
+                       trigger=training.triggers.MaxValueTrigger('validation/main/acc'))
+
+    # epsilon decay in the optimizer
+    def torch_load(path, obj):
+        if ngpu > 1:
+            model.module.load_state_dict(torch.load(path))
+        else:
+            model.load_state_dict(torch.load(path))
+        return obj
+
+    if args.opt == 'adadelta':
+        if args.criterion == 'acc' and mtl_mode is not 'ctc':
+            trainer.extend(restore_snapshot(model, args.outdir + '/model.acc.best', load_fn=torch_load),
+                           trigger=CompareValueTrigger(
+                               'validation/main/acc',
+                               lambda best_value, current_value: best_value > current_value))
+            trainer.extend(adadelta_eps_decay(args.eps_decay),
+                           trigger=CompareValueTrigger(
+                               'validation/main/acc',
+                               lambda best_value, current_value: best_value > current_value))
+        elif args.criterion == 'loss':
+            trainer.extend(restore_snapshot(model, args.outdir + '/model.loss.best', load_fn=torch_load),
+                           trigger=CompareValueTrigger(
+                               'validation/main/loss',
+                               lambda best_value, current_value: best_value < current_value))
+            trainer.extend(adadelta_eps_decay(args.eps_decay),
+                           trigger=CompareValueTrigger(
+                               'validation/main/loss',
+                               lambda best_value, current_value: best_value < current_value))
+
+    # Write a log of evaluation statistics for each epoch
+    trainer.extend(extensions.LogReport(trigger=(100, 'iteration')))
+    report_keys = ['epoch', 'iteration', 'main/loss', 'main/loss_ctc', 'main/loss_att',
+                   'validation/main/loss', 'validation/main/loss_ctc', 'validation/main/loss_att',
+                   'main/acc', 'validation/main/acc', 'elapsed_time']
+    if args.opt == 'adadelta':
+        trainer.extend(extensions.observe_value(
+            'eps', lambda trainer: trainer.updater.get_optimizer('main').param_groups[0]["eps"]),
+            trigger=(100, 'iteration'))
+        report_keys.append('eps')
+    trainer.extend(extensions.PrintReport(
+        report_keys), trigger=(100, 'iteration'))
+
+    trainer.extend(extensions.ProgressBar())
+
+    # Run the training
+    trainer.run()
+
+    #model.load_state_dict(remove_dataparallel(torch.load(args.model, map_location=cpu_loader)))
+    # model.load_state_dict(torch.load(args.model, map_location=cpu_loader))
+    # for name, param in model.named_parameters():
+    #     if str(name).__contains__('fhl'):
+    #         logging.info(param.shape)
+    #         logging.info(name)

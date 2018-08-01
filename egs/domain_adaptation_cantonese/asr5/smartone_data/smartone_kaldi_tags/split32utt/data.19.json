@@ -1,0 +1,2968 @@
+{
+    "utts": {
+        "12_spk_12_010273-010709": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:807702", 
+                    "name": "input1", 
+                    "shape": [
+                        434, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        27, 
+                        5477
+                    ], 
+                    "text": "<D>咁但係其實本身劉小姐啊你每個月大概預計要用幾多數據啊", 
+                    "token": "<D> 咁 但 係 其 實 本 身 劉 小 姐 啊 你 每 個 月 大 概 預 計 要 用 幾 多 數 據 啊", 
+                    "tokenid": "20 699 263 308 439 1305 2213 4556 525 1328 1162 783 277 2473 330 2198 1101 2345 5088 4276 4253 3062 1474 1096 2078 2020 783"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_027208-027505": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:1987138", 
+                    "name": "input1", 
+                    "shape": [
+                        294, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>係啊係啊都係類似下載咁樣咯", 
+                    "token": "<D> 係 啊 係 啊 都 係 類 似 下 載 咁 樣 咯", 
+                    "tokenid": "20 308 783 308 783 4720 308 5112 261 158 4573 699 2383 718"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_033031-033249": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:2484482", 
+                    "name": "input1", 
+                    "shape": [
+                        216, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>大約幾多K倒呢尼咁樣講", 
+                    "token": "<D> 大 約 幾 多 K 倒 呢 尼 咁 樣 講", 
+                    "tokenid": "20 1101 3535 1474 1096 36 333 684 1341 699 2383 4373"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_037487-037762": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:2847504", 
+                    "name": "input1", 
+                    "shape": [
+                        273, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>即除咗呢兩個PLAN之外", 
+                    "token": "<D> 即 除 咗 呢 兩 個 P L A N 之 外", 
+                    "tokenid": "20 595 4971 710 684 431 330 41 37 26 39 182 1095"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_054087-054310": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:4197488", 
+                    "name": "input1", 
+                    "shape": [
+                        221, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>E因為呢我", 
+                    "token": "<D> E 因 為 呢 我", 
+                    "tokenid": "20 30 958 2799 684 1743"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_055323-055558": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:4302791", 
+                    "name": "input1", 
+                    "shape": [
+                        233, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>就係END我份合約", 
+                    "token": "<D> 就 係 E N D 我 份 合 約", 
+                    "tokenid": "20 1336 308 30 39 29 1743 245 1 3535"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_072721-072956": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:5734703", 
+                    "name": "input1", 
+                    "shape": [
+                        233, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>嗯OK咁宜家安排翻OK嘅喇", 
+                    "token": "<D> 嗯 O K 咁 宜 家 安 排 翻 O K 嘅 喇", 
+                    "tokenid": "20 861 40 36 699 1277 1 1268 1887 3709 40 36 871 812"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "12_spk"
+        }, 
+        "1501-1_spk_1501_1_001543-001655": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.1.ark:5961142", 
+                    "name": "input1", 
+                    "shape": [
+                        110, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>因為其實你", 
+                    "token": "<D> 因 為 其 實 你", 
+                    "tokenid": "20 958 2799 439 1305 277"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_003037-003123": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:57408", 
+                    "name": "input1", 
+                    "shape": [
+                        84, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>係想睇返你", 
+                    "token": "<D> 係 想 睇 返 你", 
+                    "tokenid": "20 308 1667 3213 4616 277"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_005401-005598": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:159945", 
+                    "name": "input1", 
+                    "shape": [
+                        195, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>咁其實嗱李小姐如果你話", 
+                    "token": "<D> 咁 其 實 嗱 李 小 姐 如 果 你 話", 
+                    "tokenid": "20 699 439 1305 863 2218 1328 1162 1136 2240 277 4319"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_012235-012350": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:671247", 
+                    "name": "input1", 
+                    "shape": [
+                        113, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>咁就", 
+                    "token": "<D> 咁 就", 
+                    "tokenid": "20 699 1336"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_013075-013275": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:744273", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>就九十五個四咁樣囉", 
+                    "token": "<D> 就 九 十 五 個 四 咁 樣 囉", 
+                    "tokenid": "20 1336 192 574 205 330 956 699 2383 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_015313-015521": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:908947", 
+                    "name": "input1", 
+                    "shape": [
+                        206, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>咁嗰段時間呢你可能就有需要", 
+                    "token": "<D> 咁 嗰 段 時 間 呢 你 可 能 就 有 需 要", 
+                    "tokenid": "20 699 862 2460 2135 4923 684 277 632 3779 1336 2199 5024 4253"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_022163-022363": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:1330162", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>好似九廿七個二", 
+                    "token": "<D> 好 似 九 廿 七 個 二", 
+                    "tokenid": "20 1135 261 192 1516 154 330 203"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_031872-032027": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:1870364", 
+                    "name": "input1", 
+                    "shape": [
+                        154, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>李小姐呢點你可以放心啦", 
+                    "token": "<D> 李 小 姐 呢 點 你 可 以 放 心 啦", 
+                    "tokenid": "20 2218 1328 1162 684 5350 277 632 239 2058 1582 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_033444-033497": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:2005799", 
+                    "name": "input1", 
+                    "shape": [
+                        51, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>", 
+                    "token": "<D> <SPK/>", 
+                    "tokenid": "20 23"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_039171-039218": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:2368566", 
+                    "name": "input1", 
+                    "shape": [
+                        45, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_043075-043275": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:2563521", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>如果我冇記錯就應該冇", 
+                    "token": "<D> 如 果 我 冇 記 錯 就 應 該 冇", 
+                    "tokenid": "20 1136 2240 1743 445 4286 4842 1336 1727 4320 445"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_048380-048418": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:2863962", 
+                    "name": "input1", 
+                    "shape": [
+                        36, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_070713-070738": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.2.ark:4128912", 
+                    "name": "input1", 
+                    "shape": [
+                        23, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>唔", 
+                    "token": "<D> 唔", 
+                    "tokenid": "20 766"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_084682-084867": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:656095", 
+                    "name": "input1", 
+                    "shape": [
+                        183, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>一齊夾返個時間囉", 
+                    "token": "<D> 一 齊 夾 返 個 時 間 囉", 
+                    "tokenid": "20 152 5365 1111 4616 330 2135 4923 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_091201-091394": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:1039236", 
+                    "name": "input1", 
+                    "shape": [
+                        191, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>好咁李小姐我呢邊就", 
+                    "token": "<D> 好 咁 李 小 姐 我 呢 邊 就", 
+                    "tokenid": "20 1135 699 2218 1328 1162 1743 684 4694 1336"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-2_spk_1501_2_005108-005150": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:1405567", 
+                    "name": "input1", 
+                    "shape": [
+                        40, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>係啦", 
+                    "token": "<D> 係 啦", 
+                    "tokenid": "20 308 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_008801-008822": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:1440081", 
+                    "name": "input1", 
+                    "shape": [
+                        19, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_035983-036045": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:1960485", 
+                    "name": "input1", 
+                    "shape": [
+                        60, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>", 
+                    "token": "<D> <SPK/>", 
+                    "tokenid": "20 23"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_041845-042045": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:2090103", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>COUPON鴻福堂", 
+                    "token": "<D> C O U P O N 鴻 福 堂", 
+                    "tokenid": "20 28 40 46 41 40 39 5295 3344 1029"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_052948-053108": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:2311761", 
+                    "name": "input1", 
+                    "shape": [
+                        158, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>係唔好意思OK", 
+                    "token": "<D> 係 唔 好 意 思 O K", 
+                    "tokenid": "20 308 766 1135 1673 1606 40 36"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_056585-056655": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:2382131", 
+                    "name": "input1", 
+                    "shape": [
+                        69, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>好", 
+                    "token": "<D> 好", 
+                    "tokenid": "20 1135"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_065879-065904": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:2555015", 
+                    "name": "input1", 
+                    "shape": [
+                        23, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_071326-071467": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:2691854", 
+                    "name": "input1", 
+                    "shape": [
+                        139, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>五月", 
+                    "token": "<D> 五 月", 
+                    "tokenid": "20 205 2198"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_089115-089195": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.3.ark:3064046", 
+                    "name": "input1", 
+                    "shape": [
+                        78, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>哦好", 
+                    "token": "<D> 哦 好", 
+                    "tokenid": "20 743 1135"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1502-1_spk_1502_1_035409-035474": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:358619", 
+                    "name": "input1", 
+                    "shape": [
+                        63, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>我就咁", 
+                    "token": "<D> 我 就 咁", 
+                    "tokenid": "20 1743 1336 699"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_037394-037514": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:467796", 
+                    "name": "input1", 
+                    "shape": [
+                        118, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>仲有冇其他優惠囉", 
+                    "token": "<D> 仲 有 冇 其 他 優 惠 囉", 
+                    "tokenid": "20 242 2199 445 439 231 408 1663 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_063621-063664": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:638137", 
+                    "name": "input1", 
+                    "shape": [
+                        41, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>粉嶺呀", 
+                    "token": "<D> 粉 嶺 呀", 
+                    "tokenid": "20 3503 1408 672"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_086424-086644": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:804194", 
+                    "name": "input1", 
+                    "shape": [
+                        218, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>等等等等我等埋我等埋食少少野", 
+                    "token": "<D> 等 等 等 等 我 等 埋 我 等 埋 食 少 少 野", 
+                    "tokenid": "20 3448 3448 3448 3448 1743 3448 1014 1743 3448 1014 5129 1330 1330 4767"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_087926-088000": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:878774", 
+                    "name": "input1", 
+                    "shape": [
+                        72, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>七月囉", 
+                    "token": "<D> 七 月 囉", 
+                    "tokenid": "20 154 2198 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-2_spk_1502_2_000486-000546": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1003193", 
+                    "name": "input1", 
+                    "shape": [
+                        58, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>係你好", 
+                    "token": "<D> 係 你 好", 
+                    "tokenid": "20 308 277 1135"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_003776-004017": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1237324", 
+                    "name": "input1", 
+                    "shape": [
+                        239, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>咁佢呢就門市做緊三百一十六", 
+                    "token": "<D> 咁 佢 呢 就 門 市 做 緊 三 百 一 十 六", 
+                    "tokenid": "20 699 279 684 1336 4914 1433 358 3599 156 3156 152 574 434"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_004628-004739": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1307920", 
+                    "name": "input1", 
+                    "shape": [
+                        109, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>合約期內兩年半", 
+                    "token": "<D> 合 約 期 內 兩 年 半", 
+                    "tokenid": "20 1 3535 2207 429 431 1467 579"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_009297-009315": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1671268", 
+                    "name": "input1", 
+                    "shape": [
+                        16, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_010268-010316": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1686307", 
+                    "name": "input1", 
+                    "shape": [
+                        46, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_011382-011531": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1767135", 
+                    "name": "input1", 
+                    "shape": [
+                        147, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>打返上嚟去因為", 
+                    "token": "<D> 打 返 上 嚟 去 因 為", 
+                    "tokenid": "20 1767 4616 157 933 607 958 2799"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_013002-013180": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:1906554", 
+                    "name": "input1", 
+                    "shape": [
+                        176, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>唯返都成一百蚊一GB", 
+                    "token": "<D> <SPK/> 唯 返 都 成 一 百 蚊 一 G B", 
+                    "tokenid": "20 23 773 4616 4720 1742 152 3156 4092 152 32 27"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_015055-015090": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:2053081", 
+                    "name": "input1", 
+                    "shape": [
+                        33, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>係啦", 
+                    "token": "<D> 係 啦", 
+                    "tokenid": "20 308 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_017099-017196": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:2215378", 
+                    "name": "input1", 
+                    "shape": [
+                        95, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>十六GB咁樣囉", 
+                    "token": "<D> 十 六 G B 咁 樣 囉", 
+                    "tokenid": "20 574 434 32 27 699 2383 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_022208-022244": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:2396195", 
+                    "name": "input1", 
+                    "shape": [
+                        34, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_026435-026639": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.4.ark:2530214", 
+                    "name": "input1", 
+                    "shape": [
+                        202, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>因為其實我哋而家做返啦其實", 
+                    "token": "<D> 因 為 其 實 我 哋 而 家 做 返 啦 其 實", 
+                    "tokenid": "20 958 2799 439 1305 1743 735 3716 1 358 4616 794 439 1305"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_044248-044377": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:219223", 
+                    "name": "input1", 
+                    "shape": [
+                        127, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>我都我哋都想㗎", 
+                    "token": "<D> 我 都 我 哋 都 想 㗎", 
+                    "tokenid": "20 1743 4720 1743 735 4720 1667 142"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_056415-056650": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:1143477", 
+                    "name": "input1", 
+                    "shape": [
+                        233, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        17, 
+                        5477
+                    ], 
+                    "text": "<D>因為其實我哋而家做緊啲4G計劃呢", 
+                    "token": "<D> 因 為 其 實 我 哋 而 家 做 緊 啲 4 G 計 劃 呢", 
+                    "tokenid": "20 958 2799 439 1305 1743 735 3716 1 358 3599 800 12 32 4276 521 684"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_059164-059299": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:1335859", 
+                    "name": "input1", 
+                    "shape": [
+                        133, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>舊台嗰邊而家用緊邊個台㗎", 
+                    "token": "<D> 舊 台 嗰 邊 而 家 用 緊 邊 個 台 㗎", 
+                    "tokenid": "20 3859 1 862 4694 3716 1 3062 3599 4694 330 1 142"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_066482-066577": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:1745440", 
+                    "name": "input1", 
+                    "shape": [
+                        93, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>咁你大概係", 
+                    "token": "<D> <SPK/> 咁 你 大 概 係", 
+                    "tokenid": "20 23 699 277 1101 2345 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_086164-086331": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:3206078", 
+                    "name": "input1", 
+                    "shape": [
+                        165, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>麻煩你咁多謝你電話先", 
+                    "token": "<D> 麻 煩 你 咁 多 謝 你 電 話 先", 
+                    "tokenid": "20 5336 2836 277 699 1096 4374 277 5023 4319 420"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_090453-090774": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:3473358", 
+                    "name": "input1", 
+                    "shape": [
+                        319, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        26, 
+                        5477
+                    ], 
+                    "text": "<D>而喺手續方面你都亦都唔需要再打上HOTLINE㗎啦", 
+                    "token": "<D> 而 喺 手 續 方 面 你 都 亦 都 唔 需 要 再 打 上 H O T L I N E 㗎 啦", 
+                    "tokenid": "20 3716 837 1764 3651 2097 1 277 4720 214 4720 766 5024 4253 448 1767 157 33 40 45 37 34 39 30 142 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1503-1_spk_1503_1_000000-000392": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.5.ark:3790189", 
+                    "name": "input1", 
+                    "shape": [
+                        390, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>係HELLO啊徐小姐係咪", 
+                    "token": "<D> 係 H E L L O 啊 徐 小 姐 係 咪", 
+                    "tokenid": "20 308 33 30 37 37 40 783 1564 1328 1162 308 715"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_053410-054174": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:3392523", 
+                    "name": "input1", 
+                    "shape": [
+                        762, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        47, 
+                        5477
+                    ], 
+                    "text": "<D>呢個號碼62236551呢個NUMBER呢都係喺對台嗰邊係用啊徐小姐你自己個名去做登記架係咪", 
+                    "token": "<D> 呢 個 號 碼 6 2 2 3 6 5 5 1 呢 個 N U M B E R 呢 都 係 喺 對 台 嗰 邊 係 用 啊 徐 小 姐 你 自 己 個 名 去 做 登 記 架 係 咪", 
+                    "tokenid": "20 684 330 4088 3301 14 10 10 11 14 13 13 9 684 330 39 46 38 27 30 43 684 4720 308 837 1326 1 862 4694 308 3062 783 1564 1328 1162 277 3847 1426 330 645 607 358 3153 4286 2246 308 715"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_086239-086892": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:5969150", 
+                    "name": "input1", 
+                    "shape": [
+                        651, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        46, 
+                        5477
+                    ], 
+                    "text": "<D>咁我就幫你聽日約下晝既時間過去咁你一陣間呢記得收ERSEND返睇返我SEND比你嗰個短訊啦", 
+                    "token": "<D> 咁 我 就 幫 你 聽 日 約 下 晝 既 時 間 過 去 咁 你 一 陣 間 呢 記 得 收 E R S E N D 返 睇 返 我 S E N D 比 你 嗰 個 短 訊 啦", 
+                    "tokenid": "20 699 1743 1336 1465 277 3741 2106 3535 158 2143 2104 2135 4923 4661 607 699 277 152 4970 4923 684 4286 1567 2054 30 43 44 30 39 29 4616 3213 4616 1743 44 30 39 29 2475 277 862 330 3259 4278 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_089892-090107": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:6277089", 
+                    "name": "input1", 
+                    "shape": [
+                        213, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>姐係我會盡幫囉", 
+                    "token": "<D> 姐 係 我 會 盡 幫 囉", 
+                    "tokenid": "20 1162 308 1743 2197 3184 1465 949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-2_spk_1503_2_000000-000158": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:7049945", 
+                    "name": "input1", 
+                    "shape": [
+                        156, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>喂", 
+                    "token": "<D> 喂", 
+                    "tokenid": "20 808"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1503-2_spk_1503_2_013210-013285": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:7266888", 
+                    "name": "input1", 
+                    "shape": [
+                        73, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1503-2_spk_1503_2_086338-086360": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.6.ark:8257164", 
+                    "name": "input1", 
+                    "shape": [
+                        20, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1504-1_spk_1504_1_004519-005030": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:8551", 
+                    "name": "input1", 
+                    "shape": [
+                        509, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        31, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>呢個PLAN呢而家有個係做緊<SPK/>無限上網就做緊106蚊一個月", 
+                    "token": "<D> <SPK/> 呢 個 P L A N 呢 而 家 有 個 係 做 緊 <SPK/> 無 限 上 網 就 做 緊 1 0 6 蚊 一 個 月", 
+                    "tokenid": "20 23 684 330 41 37 26 39 684 3716 1 2199 330 308 358 3599 23 2816 4965 157 3591 1336 358 3599 9 8 14 4092 152 330 2198"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_020520-020976": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:936762", 
+                    "name": "input1", 
+                    "shape": [
+                        454, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        30, 
+                        5477
+                    ], 
+                    "text": "<D>之前話冧左西吖嘛話<SPK/>8個鐘都用唔到上網打電話都用唔到吖嘛話", 
+                    "token": "<D> 之 前 話 冧 左 西 吖 嘛 話 <SPK/> 8 個 鐘 都 用 唔 到 上 網 打 電 話 都 用 唔 到 吖 嘛 話", 
+                    "tokenid": "20 182 506 4319 457 1421 4252 649 882 4319 23 16 330 4885 4720 3062 766 494 157 3591 1767 5023 4319 4720 3062 766 494 649 882 4319"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_041612-041660": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:2297089", 
+                    "name": "input1", 
+                    "shape": [
+                        46, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_047086-047286": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:2598895", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_057267-057514": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:3214480", 
+                    "name": "input1", 
+                    "shape": [
+                        244, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>飛線嗰啲有架飛線有架飛線", 
+                    "token": "<D> 飛 線 嗰 啲 有 架 飛 線 有 架 飛 線", 
+                    "tokenid": "20 5128 3604 862 800 2199 2246 5128 3604 2199 2246 5128 3604"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_071936-072366": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:3934172", 
+                    "name": "input1", 
+                    "shape": [
+                        428, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        27, 
+                        5477
+                    ], 
+                    "text": "<D>啊因為我今日睇呢就因為佢睇價錢就真係未出既好老實講返", 
+                    "token": "<D> 啊 因 為 我 今 日 睇 呢 就 因 為 佢 睇 價 錢 就 真 係 未 出 既 好 老 實 講 返", 
+                    "tokenid": "20 783 958 2799 1743 226 2106 3213 684 1336 958 2799 279 3213 396 4838 1336 3203 308 2211 1 2104 1135 3712 1305 4373 4616"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_073430-073666": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:4024907", 
+                    "name": "input1", 
+                    "shape": [
+                        234, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>係因為我而家睇就暫時未出", 
+                    "token": "<D> 係 因 為 我 而 家 睇 就 暫 時 未 出", 
+                    "tokenid": "20 308 958 2799 1743 3716 1 3213 1336 2168 2135 2211 1"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_081086-081146": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:4505322", 
+                    "name": "input1", 
+                    "shape": [
+                        58, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_086424-086510": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:4862685", 
+                    "name": "input1", 
+                    "shape": [
+                        84, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>都唔影響", 
+                    "token": "<D> 都 唔 影 響", 
+                    "tokenid": "20 4720 766 1553 5079"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_098226-098370": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:5450096", 
+                    "name": "input1", 
+                    "shape": [
+                        142, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>我地唔知啊真係", 
+                    "token": "<D> 我 地 唔 知 啊 真 係", 
+                    "tokenid": "20 1743 982 766 3256 783 3203 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_098854-099086": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.7.ark:5502213", 
+                    "name": "input1", 
+                    "shape": [
+                        230, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>因為個OFFER方面啦係真係比門市平既", 
+                    "token": "<D> 因 為 個 O F F E R 方 面 啦 係 真 係 比 門 市 平 既", 
+                    "tokenid": "20 958 2799 330 40 31 31 30 43 2097 1 794 308 3203 308 2475 4914 1433 1466 2104"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-2_spk_1504_2_046228-046664": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:100946", 
+                    "name": "input1", 
+                    "shape": [
+                        434, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>我每日都係用個電話係唔離開我半步架", 
+                    "token": "<D> 我 每 日 都 係 用 個 電 話 係 唔 離 開 我 半 步 架", 
+                    "tokenid": "20 1743 2473 2106 4720 308 3062 330 5023 4319 308 766 5014 4919 1743 579 2440 2246"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_061282-061877": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:706721", 
+                    "name": "input1", 
+                    "shape": [
+                        593, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        26, 
+                        5477
+                    ], 
+                    "text": "<D>因為呢我就想出咗嗰S8S8我先先JOIN嗰PLAN", 
+                    "token": "<D> 因 為 呢 我 就 想 出 咗 嗰 S 8 S 8 我 先 先 J O I N 嗰 P L A N", 
+                    "tokenid": "20 958 2799 684 1743 1336 1667 1 710 862 44 16 44 16 1743 420 420 35 40 34 39 862 41 37 26 39"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_069146-069342": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:1060734", 
+                    "name": "input1", 
+                    "shape": [
+                        194, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>有冇話哦我有一個要", 
+                    "token": "<D> 有 冇 話 哦 我 有 一 個 要", 
+                    "tokenid": "20 2199 445 4319 743 1743 2199 152 330 4253"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1505-1_spk_1505_1_028967-028995": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:4549605", 
+                    "name": "input1", 
+                    "shape": [
+                        27, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>係", 
+                    "token": "<D> 係", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_054021-054576": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:5665481", 
+                    "name": "input1", 
+                    "shape": [
+                        553, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        28, 
+                        5477
+                    ], 
+                    "text": "<D>唔係其實唔係其實小姐係因為咁既我都想睇翻你大概用緊幾錢", 
+                    "token": "<D> 唔 係 其 實 唔 係 其 實 小 姐 係 因 為 咁 既 我 都 想 睇 翻 你 大 概 用 緊 幾 錢", 
+                    "tokenid": "20 766 308 439 1305 766 308 439 1305 1328 1162 308 958 2799 699 2104 1743 4720 1667 3213 3709 277 1101 2345 3062 3599 1474 4838"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_069218-069642": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.8.ark:6527110", 
+                    "name": "input1", 
+                    "shape": [
+                        422, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        23, 
+                        5477
+                    ], 
+                    "text": "<D>因為<SPK/>佢嗰個速度就SET死咗啦行緊呢個速度既", 
+                    "token": "<D> 因 為 <SPK/> 佢 嗰 個 速 度 就 S E T 死 咗 啦 行 緊 呢 個 速 度 既", 
+                    "tokenid": "20 958 2799 23 279 862 330 4644 1484 1336 44 30 45 2450 710 794 4183 3599 684 330 4644 1484 2104"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_102222-102492": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:764860", 
+                    "name": "input1", 
+                    "shape": [
+                        268, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>98481494呢個號碼就OK架啦", 
+                    "token": "<D> 9 8 4 8 1 4 9 4 呢 個 號 碼 就 O K 架 啦", 
+                    "tokenid": "20 17 16 12 16 9 12 17 12 684 330 4088 3301 1336 40 36 2246 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-2_spk_1505_2_020716-020902": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:1353629", 
+                    "name": "input1", 
+                    "shape": [
+                        184, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>你用最簡單既方法話俾我聽", 
+                    "token": "<D> 你 用 最 簡 單 既 方 法 話 俾 我 聽", 
+                    "tokenid": "20 277 3062 2196 3482 832 2104 2097 2548 4319 327 1743 3741"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "1505-2_spk_1505_2_034950-035622": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:1921436", 
+                    "name": "input1", 
+                    "shape": [
+                        670, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        30, 
+                        5477
+                    ], 
+                    "text": "<D>我就係我睇蘋果動裡面我都睇到既下咁即係但係你話你嗰個384", 
+                    "token": "<D> 我 就 係 我 睇 蘋 果 動 裡 面 我 都 睇 到 既 下 咁 即 係 但 係 你 話 你 嗰 個 3 8 4", 
+                    "tokenid": "20 1743 1336 308 1743 3213 4075 2240 543 4223 1 1743 4720 3213 494 2104 158 699 595 308 263 308 277 4319 277 862 330 11 16 12"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "1505-2_spk_1505_2_077075-077375": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:3317017", 
+                    "name": "input1", 
+                    "shape": [
+                        298, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        25, 
+                        5477
+                    ], 
+                    "text": "<D>我想問你呢個PLAN如果咩長途電話嗰啲打去點樣樣", 
+                    "token": "<D> 我 想 問 你 呢 個 P L A N 如 果 咩 長 途 電 話 嗰 啲 打 去 點 樣 樣", 
+                    "tokenid": "20 1743 1667 785 277 684 330 41 37 26 39 1136 2240 714 4913 4636 5023 4319 862 800 1767 607 5350 2383 2383"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "3_spk_3_005162-005477": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:4561909", 
+                    "name": "input1", 
+                    "shape": [
+                        313, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>咁但係俾番鄧生啦做留一個最後月費調整嘅", 
+                    "token": "<D> 咁 但 係 俾 番 鄧 生 啦 做 留 一 個 最 後 月 費 調 整 嘅", 
+                    "tokenid": "20 699 263 308 327 3083 4729 3058 794 358 3078 152 330 2196 1563 2198 4444 4345 2075 871"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_005657-005812": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:4604076", 
+                    "name": "input1", 
+                    "shape": [
+                        153, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>238就OK㗎啦", 
+                    "token": "<D> 2 3 8 就 O K 㗎 啦", 
+                    "tokenid": "20 10 11 16 1336 40 36 142 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_015469-015816": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:5461412", 
+                    "name": "input1", 
+                    "shape": [
+                        345, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        16, 
+                        5477
+                    ], 
+                    "text": "<D>咁我直線啦就係37985805", 
+                    "token": "<D> 咁 我 直 線 啦 就 係 3 7 9 8 5 8 0 5", 
+                    "tokenid": "20 699 1743 3193 3604 794 1336 308 11 15 17 16 13 16 8 13"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_030930-031047": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.9.ark:6644151", 
+                    "name": "input1", 
+                    "shape": [
+                        115, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>咁<SPK/>或者我", 
+                    "token": "<D> 咁 <SPK/> 或 者 我", 
+                    "tokenid": "20 699 23 1745 3714 1743"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_039765-040110": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:726111", 
+                    "name": "input1", 
+                    "shape": [
+                        343, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>其實你放心啦哩個PLAN係真係抵㗎", 
+                    "token": "<D> <SPK/> 其 實 你 放 心 啦 哩 個 P L A N 係 真 係 抵 㗎", 
+                    "tokenid": "20 23 439 1305 277 2058 1582 794 745 330 41 37 26 39 308 3203 308 1807 142"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_042660-042682": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:980192", 
+                    "name": "input1", 
+                    "shape": [
+                        20, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>如果", 
+                    "token": "<D> 如 果", 
+                    "tokenid": "20 1136 2240"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_046712-047187": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:1288518", 
+                    "name": "input1", 
+                    "shape": [
+                        473, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        31, 
+                        5477
+                    ], 
+                    "text": "<D>咁但係FOR番嘅話呢可以做番一點五嘅一個數據啦即係送番一點五", 
+                    "token": "<D> 咁 但 係 F O R 番 嘅 話 呢 可 以 做 番 一 點 五 嘅 一 個 數 據 啦 即 係 送 番 一 點 五", 
+                    "tokenid": "20 699 263 308 31 40 43 3083 871 4319 684 632 239 358 3083 152 5350 205 871 152 330 2078 2020 794 595 308 4628 3083 152 5350 205"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_054647-054835": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:1952071", 
+                    "name": "input1", 
+                    "shape": [
+                        186, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>咁其實無所謂㗎你到時", 
+                    "token": "<D> 咁 其 實 無 所 謂 㗎 你 到 時", 
+                    "tokenid": "20 699 439 1305 2816 1760 4366 142 277 494 2135"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_057404-057602": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:2190216", 
+                    "name": "input1", 
+                    "shape": [
+                        195, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>哦唔係我嘅意思係話嗱", 
+                    "token": "<D> 哦 唔 係 我 嘅 意 思 係 話 嗱", 
+                    "tokenid": "20 743 766 308 1743 871 1673 1606 308 4319 863"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "3_spk"
+        }, 
+        "4_spk_4_006584-007131": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:3303779", 
+                    "name": "input1", 
+                    "shape": [
+                        545, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        33, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>你㩒你按照番佢個指示搵番你個帳戶查詢裡便去登記番哩個服務好無呀", 
+                    "token": "<D> <SPK/> 你 㩒 你 按 照 番 佢 個 指 示 搵 番 你 個 帳 戶 查 詢 裡 便 去 登 記 番 哩 個 服 務 好 無 呀", 
+                    "tokenid": "20 23 277 147 277 1847 2834 3083 279 330 1845 3320 1951 3083 277 330 1448 1757 2259 4310 4223 307 607 3153 4286 3083 745 330 2201 544 1135 2816 672"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_010065-010148": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:3548026", 
+                    "name": "input1", 
+                    "shape": [
+                        81, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>9947", 
+                    "token": "<D> 9 9 4 7", 
+                    "tokenid": "20 17 17 12 15"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_010399-010497": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:3578118", 
+                    "name": "input1", 
+                    "shape": [
+                        96, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>9947係咪", 
+                    "token": "<D> 9 9 4 7 係 咪", 
+                    "tokenid": "20 17 17 12 15 308 715"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_013266-013358": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:3789709", 
+                    "name": "input1", 
+                    "shape": [
+                        90, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>登記服務", 
+                    "token": "<D> 登 記 服 務", 
+                    "tokenid": "20 3153 4286 2201 544"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_014788-014988": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:3890320", 
+                    "name": "input1", 
+                    "shape": [
+                        199, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>幻海爆炸性", 
+                    "token": "<D> 幻 海 爆 炸 性", 
+                    "tokenid": "20 1471 2587 2880 2798 1611"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_019975-020172": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:4264022", 
+                    "name": "input1", 
+                    "shape": [
+                        195, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        16, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>唔洗我SEND咗短訊俾你㗎啦", 
+                    "token": "<D> <SPK/> 唔 洗 我 S E N D 咗 短 訊 俾 你 㗎 啦", 
+                    "tokenid": "20 23 766 2563 1743 44 30 39 29 710 3259 4278 327 277 142 794"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_025069-025280": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.10.ark:4644825", 
+                    "name": "input1", 
+                    "shape": [
+                        209, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>下個個APPS點樣呀", 
+                    "token": "<D> 下 個 個 A P P S 點 樣 呀", 
+                    "tokenid": "20 158 330 330 26 41 41 44 5350 2383 672"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_059888-060088": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:468455", 
+                    "name": "input1", 
+                    "shape": [
+                        198, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>咁哦即係啟動咗都唔怕嘅", 
+                    "token": "<D> 咁 哦 即 係 啟 動 咗 都 唔 怕 嘅", 
+                    "tokenid": "20 699 743 595 308 790 543 710 4720 766 1604 871"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_070002-070117": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:1239942", 
+                    "name": "input1", 
+                    "shape": [
+                        113, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>你好", 
+                    "token": "<D> 你 好", 
+                    "tokenid": "20 277 1135"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "4_spk"
+        }, 
+        "8_spk_8_004937-005035": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:2473403", 
+                    "name": "input1", 
+                    "shape": [
+                        96, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>有無俾資料吖", 
+                    "token": "<D> 有 無 俾 資 料 吖", 
+                    "tokenid": "20 2199 2816 327 4451 2087 649"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_008680-009167": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:2785593", 
+                    "name": "input1", 
+                    "shape": [
+                        485, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        26, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>我係用你哋個台嘅咁4G3G我不嬲個電話都係3G嘅", 
+                    "token": "<D> <SPK/> 我 係 用 你 哋 個 台 嘅 咁 4 G 3 G 我 不 嬲 個 電 話 都 係 3 G 嘅", 
+                    "tokenid": "20 23 1743 308 3062 277 735 330 1 871 699 12 32 11 32 1743 159 1236 330 5023 4319 4720 308 11 32 871"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_011380-011532": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:3011531", 
+                    "name": "input1", 
+                    "shape": [
+                        150, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>係一打電話就咩呀", 
+                    "token": "<D> 係 一 打 電 話 就 咩 呀", 
+                    "tokenid": "20 308 152 1767 5023 4319 1336 714 672"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_012322-012480": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:3080802", 
+                    "name": "input1", 
+                    "shape": [
+                        156, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>咁先可以講到電話", 
+                    "token": "<D> 咁 先 可 以 講 到 電 話", 
+                    "tokenid": "20 699 420 632 239 4373 494 5023 4319"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_014080-014335": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:3222243", 
+                    "name": "input1", 
+                    "shape": [
+                        253, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>啊即係<SPK/>洗手間嘅位置啦咁其實", 
+                    "token": "<D> 啊 即 係 <SPK/> 洗 手 間 嘅 位 置 啦 咁 其 實", 
+                    "tokenid": "20 783 595 308 23 2563 1764 4923 871 265 3670 794 699 439 1305"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_017150-017707": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:3454449", 
+                    "name": "input1", 
+                    "shape": [
+                        555, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        39, 
+                        5477
+                    ], 
+                    "text": "<D>總之我收唔到啦我就自己走去開自己個WIFI因為不嬲我好少開我屋企個WIFI嘅", 
+                    "token": "<D> 總 之 我 收 唔 到 啦 我 就 自 己 走 去 開 自 己 個 W I F I 因 為 不 嬲 我 好 少 開 我 屋 企 個 W I F I 嘅", 
+                    "tokenid": "20 3631 182 1743 2054 766 494 794 1743 1336 3847 1426 4484 607 4919 3847 1426 330 48 34 31 34 958 2799 159 1236 1743 1135 1330 4919 1743 1349 247 330 48 34 31 34 871"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_074480-075015": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.11.ark:6863235", 
+                    "name": "input1", 
+                    "shape": [
+                        533, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        32, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>有無改善呢咁哩個嘅話呢就我哋都普遍嚟講係一定會比3G係有改善", 
+                    "token": "<D> <SPK/> 有 無 改 善 呢 咁 哩 個 嘅 話 呢 就 我 哋 都 普 遍 嚟 講 係 一 定 會 比 3 G 係 有 改 善", 
+                    "tokenid": "20 23 2199 2816 2056 810 684 699 745 330 871 4319 684 1336 1743 735 4720 2150 4660 933 4373 308 152 1275 2197 2475 11 32 308 2199 2056 810"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "8_spk"
+        }, 
+        "9_spk_9_003055-003160": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:855695", 
+                    "name": "input1", 
+                    "shape": [
+                        103, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>嗯哼嗯", 
+                    "token": "<D> 嗯 哼 嗯", 
+                    "tokenid": "20 861 751 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_012944-013069": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:1656788", 
+                    "name": "input1", 
+                    "shape": [
+                        123, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>稍等一陣呀等等", 
+                    "token": "<D> 稍 等 一 陣 呀 等 等", 
+                    "tokenid": "20 3371 3448 152 4970 672 3448 3448"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_015694-015805": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:1910122", 
+                    "name": "input1", 
+                    "shape": [
+                        108, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>OK無問題張小姐", 
+                    "token": "<D> O K 無 問 題 張 小 姐", 
+                    "tokenid": "20 40 36 2816 785 5105 1534 1328 1162"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_020070-020345": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:2081329", 
+                    "name": "input1", 
+                    "shape": [
+                        273, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>跟住打唔到電話停過兩次囉我係", 
+                    "token": "<D> 跟 住 打 唔 到 電 話 停 過 兩 次 囉 我 係", 
+                    "tokenid": "20 4511 267 1767 766 494 5023 4319 359 4661 431 2422 949 1743 308"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_025370-025932": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:2440463", 
+                    "name": "input1", 
+                    "shape": [
+                        560, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        39, 
+                        5477
+                    ], 
+                    "text": "<D>SORRY只係<SPK/>都唔好介意下就確保番你係有打開到哩個本地數據開關㗎嘛請問係咪", 
+                    "token": "<D> S O R R Y 只 係 <SPK/> 都 唔 好 介 意 下 就 確 保 番 你 係 有 打 開 到 哩 個 本 地 數 據 開 關 㗎 嘛 請 問 係 咪", 
+                    "tokenid": "20 44 40 43 43 50 1 308 23 4720 766 1135 227 1673 158 1336 3300 317 3083 277 308 2199 1767 4919 494 745 330 2213 982 2078 2020 4919 4949 142 882 4348 785 308 715"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_032555-032682": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:3159343", 
+                    "name": "input1", 
+                    "shape": [
+                        125, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>哦佢唔俾你關", 
+                    "token": "<D> 哦 佢 唔 俾 你 關", 
+                    "tokenid": "20 743 279 766 327 277 4949"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_034327-034707": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:3336978", 
+                    "name": "input1", 
+                    "shape": [
+                        378, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        22, 
+                        5477
+                    ], 
+                    "text": "<D>哩個叫做運營商呀即係即係番番去上網界面到嘅", 
+                    "token": "<D> 哩 個 叫 做 運 營 商 呀 即 係 即 係 番 番 去 上 網 界 面 到 嘅", 
+                    "tokenid": "20 745 330 628 358 4659 2872 782 672 595 308 595 308 3083 3083 607 157 3591 3075 1 494 871"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_061441-061488": {
+            "input": [
+                {
+                    "feat": "/home/lahiru/Devinstalls/espnet_new/espnet/egs/domain_adaptation_cantonese/asr5/smartone_data/smartone_kaldi/feats.12.ark:5340444", 
+                    "name": "input1", 
+                    "shape": [
+                        44, 
+                        83
+                    ]
+                }
+            ], 
+            "output": [
+                {
+                    "name": "target1", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>嗯", 
+                    "token": "<D> 嗯", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2corpus": "0", 
+            "utt2spk": "9_spk"
+        }
+    }
+}

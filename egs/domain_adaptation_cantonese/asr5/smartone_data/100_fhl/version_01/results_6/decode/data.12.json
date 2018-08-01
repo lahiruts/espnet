@@ -1,0 +1,2056 @@
+{
+    "utts": {
+        "12_spk_12_006603-006803": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5c31\u6703\u4fc2\u8a92\u8b6c\u5982<eos>", 
+                    "rec_token": "<D> \u5c31 \u6703 \u4fc2 \u8a92 \u8b6c \u5982 <eos>", 
+                    "rec_tokenid": "20 1336 2197 308 4329 4391 1136 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>\u5c31\u6703\u4fc2<SPK/>\u8b6c\u5982", 
+                    "token": "<D> \u5c31 \u6703 \u4fc2 <SPK/> \u8b6c \u5982", 
+                    "tokenid": "20 1336 2197 308 23 4391 1136"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_007367-007567": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5c31\u6703\u55ba\u4f60\u539f\u53cb\u5605\u71b1\u8cbb<eos>", 
+                    "rec_token": "<D> \u5c31 \u6703 \u55ba \u4f60 \u539f \u53cb \u5605 \u71b1 \u8cbb <eos>", 
+                    "rec_tokenid": "20 1336 2197 837 277 603 615 871 2857 4444 5476", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>\u5c31\u6703\u4fc2\u4f60\u539f\u6709\u5605\u6708\u8cbb", 
+                    "token": "<D> \u5c31 \u6703 \u4fc2 \u4f60 \u539f \u6709 \u5605 \u6708 \u8cbb", 
+                    "tokenid": "20 1336 2197 308 277 603 2199 871 2198 4444"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_015734-016003": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8981\u4f60\u4fc2\u6703\u5206\u9418\u5c31\u904e\u516d\u4e00\u73ed\u5148<eos>", 
+                    "rec_token": "<D> \u8981 \u4f60 \u4fc2 \u6703 \u5206 \u9418 \u5c31 \u904e \u516d \u4e00 \u73ed \u5148 <eos>", 
+                    "rec_tokenid": "20 4253 277 308 2197 483 4885 1336 4661 434 152 2989 420 5476", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f60\u8981\u4fc2\u672c\u8eabJOIN\u5497\u500b6\u6fc0PLAN\u5148", 
+                    "token": "<D> \u4f60 \u8981 \u4fc2 \u672c \u8eab J O I N \u5497 \u500b 6 \u6fc0 P L A N \u5148", 
+                    "tokenid": "20 277 4253 308 2213 4556 35 40 34 39 710 330 14 2740 41 37 26 39 420"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_016315-016515": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8cb4\u5481\u6a23\u6a23\u54af\u56e0\u70ba\u4eba\u54cb\u5148<eos>", 
+                    "rec_token": "<D> \u8cb4 \u5481 \u6a23 \u6a23 \u54af \u56e0 \u70ba \u4eba \u54cb \u5148 <eos>", 
+                    "rec_tokenid": "20 4440 699 2383 2383 718 958 2799 221 735 420 5476", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>GRADE\u5481\u6a23\u6a23\u54af\u56e0\u70ba\u4f60\u5df2\u7d93", 
+                    "token": "<D> G R A D E \u5481 \u6a23 \u6a23 \u54af \u56e0 \u70ba \u4f60 \u5df2 \u7d93", 
+                    "tokenid": "20 32 43 26 29 30 699 2383 2383 718 958 2799 277 1427 3583"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_017132-017281": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u4f46\u5462\u500b\u54af<eos>", 
+                    "rec_token": "<D> \u8a92 \u4f46 \u5462 \u500b \u54af <eos>", 
+                    "rec_tokenid": "20 4329 263 684 330 718 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u554a\u5c31\u4fc2\u5462\u500b\u54af", 
+                    "token": "<D> \u4fc2 \u554a \u5c31 \u4fc2 \u5462 \u500b \u54af", 
+                    "tokenid": "20 308 783 1336 308 684 330 718"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_023532-023588": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6\u54e6<eos>", 
+                    "rec_token": "<D> \u54e6 \u54e6 <eos>", 
+                    "rec_tokenid": "20 743 743 5476", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u54e6", 
+                    "token": "<D> \u54e6 \u54e6", 
+                    "tokenid": "20 743 743"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_027833-028091": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5982\u679c\u53c8\u8a71\u6211\u518d\u569f\u8b1b\u5566\u5481\u4f60\u80af\u5b9a<eos>", 
+                    "rec_token": "<D> \u5982 \u679c \u53c8 \u8a71 \u6211 \u518d \u569f \u8b1b \u5566 \u5481 \u4f60 \u80af \u5b9a <eos>", 
+                    "rec_tokenid": "20 1136 2240 612 4319 1743 448 933 4373 794 699 277 3760 1275 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>\u5982\u679c\u4f60\u8a71\u4e0b\u8f09\u9ece\u8b1b\u5481\u4f60\u80af\u5b9a", 
+                    "token": "<D> \u5982 \u679c \u4f60 \u8a71 \u4e0b \u8f09 \u9ece \u8b1b \u5481 \u4f60 \u80af \u5b9a", 
+                    "tokenid": "20 1136 2240 277 4319 158 4573 5341 4373 699 277 3760 1275"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_031570-031770": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u5481\u771f\u4fc2\u5481\u5176\u5be6<eos>", 
+                    "rec_token": "<D> \u8a92 \u5481 \u771f \u4fc2 \u5481 \u5176 \u5be6 <eos>", 
+                    "rec_tokenid": "20 4329 699 3203 308 699 439 1305 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u7576\u7136\u5605\u8a71\u5176\u5be6", 
+                    "token": "<D> \u5481 \u7576 \u7136 \u5605 \u8a71 \u5176 \u5be6", 
+                    "tokenid": "20 699 3086 2820 871 4319 439 1305"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_048609-048836": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u53c8\u53bb\u5230\u6211\u554a\u6703\u8a71\u5572\u5497\u505a\u5462\u5c31\u8ad7\u7ffb<eos>", 
+                    "rec_token": "<D> \u5481 \u53c8 \u53bb \u5230 \u6211 \u554a \u6703 \u8a71 \u5572 \u5497 \u505a \u5462 \u5c31 \u8ad7 \u7ffb <eos>", 
+                    "rec_tokenid": "20 699 612 607 494 1743 783 2197 4319 800 710 358 684 1336 4351 3709 5476", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u4f60\u53bb\u5230\u55f0\u4e00\u5572\u4f4d\u7f6e\u55f0\u5ea6\u5c31\u53ef\u4ee5", 
+                    "token": "<D> \u5481 \u4f60 \u53bb \u5230 \u55f0 \u4e00 \u5572 \u4f4d \u7f6e \u55f0 \u5ea6 \u5c31 \u53ef \u4ee5", 
+                    "tokenid": "20 699 277 607 494 862 152 800 265 3670 862 1484 1336 632 239"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_050598-051011": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u7a81\u7136\u9593\u53ef\u80fd\u7528\u4e0b\u5514\u5920\u5341\u96f6\u554a\u5206\u9418\u4f60\u53c8<eos>", 
+                    "rec_token": "<D> \u7a81 \u7136 \u9593 \u53ef \u80fd \u7528 \u4e0b \u5514 \u5920 \u5341 \u96f6 \u554a \u5206 \u9418 \u4f60 \u53c8 <eos>", 
+                    "rec_tokenid": "20 3399 2820 4923 632 3779 3062 158 766 1098 574 5020 783 483 4885 277 612 5476", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>\u51f8\u7136\u9593\u53ef\u80fd\u7528\u7528\u4e0b\u5514\u592010\u51cc20\u5206\u9418\u4f60\u53c8", 
+                    "token": "<D> \u51f8 \u7136 \u9593 \u53ef \u80fd \u7528 \u7528 \u4e0b \u5514 \u5920 1 0 \u51cc 2 0 \u5206 \u9418 \u4f60 \u53c8", 
+                    "tokenid": "20 477 2820 4923 632 3779 3062 3062 158 766 1098 9 8 1 10 8 483 4885 277 612"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_058104-058304": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u7ffb\u54a9\u6b21\u904e\u6211\u60f3\u5566<eos>", 
+                    "rec_token": "<D> \u7ffb \u54a9 \u6b21 \u904e \u6211 \u60f3 \u5566 <eos>", 
+                    "rec_tokenid": "20 3709 714 2422 4661 1743 1667 794 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>\u7ffb\u54a9\u6642\u5019\u5481\u90fd", 
+                    "token": "<D> \u7ffb \u54a9 \u6642 \u5019 \u5481 \u90fd", 
+                    "tokenid": "20 3709 714 2135 338 699 4720"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_058436-058636": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5927\u5169\u5572\u5481\u554a<eos>", 
+                    "rec_token": "<D> \u5481 \u5927 \u5169 \u5572 \u5481 \u554a <eos>", 
+                    "rec_tokenid": "20 699 1101 431 800 699 783 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>\u664f\u665d\u5169\u9ede\u9418\u4fc2\u554a", 
+                    "token": "<D> \u664f \u665d \u5169 \u9ede \u9418 \u4fc2 \u554a", 
+                    "tokenid": "20 2139 2143 431 5350 4885 308 783"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_067294-067352": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u4fc2<eos>", 
+                    "rec_token": "<D> \u8a92 \u4fc2 <eos>", 
+                    "rec_tokenid": "20 4329 308 5476", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u554a\u4fc2", 
+                    "token": "<D> \u4fc2 \u554a \u4fc2", 
+                    "tokenid": "20 308 783 308"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_069769-069969": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6642\u9593\u5f97\u4fc2\u7a2e\u65b9\u9eb5\u90fd\u6703\u5eff\u6709\u5572<eos>", 
+                    "rec_token": "<D> \u6642 \u9593 \u5f97 \u4fc2 \u7a2e \u65b9 \u9eb5 \u90fd \u6703 \u5eff \u6709 \u5572 <eos>", 
+                    "rec_tokenid": "20 2135 4923 1567 308 3379 2097 5334 4720 2197 1516 2199 800 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>\u6642\u9593\u7cfb\u7d71\u65b9\u9762\u90fd\u6703\u6709\u4e00\u5572", 
+                    "token": "<D> \u6642 \u9593 \u7cfb \u7d71 \u65b9 \u9762 \u90fd \u6703 \u6709 \u4e00 \u5572", 
+                    "tokenid": "20 2135 4923 1 3575 2097 1 4720 2197 2199 152 800"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "12_spk_12_070540-070991": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u54af\u5566\u55ef\u5481\u800c\u50a2\u6211\u90fd\u8981\u98df\u500b\u5e6b\u4f60\u5b89\u6392\u7ffb\u5566\u5481\u569f\u7dca\u5605\u8a71\u5c31<eos>", 
+                    "rec_token": "<D> \u4fc2 \u54af \u5566 \u55ef \u5481 \u800c \u50a2 \u6211 \u90fd \u8981 \u98df \u500b \u5e6b \u4f60 \u5b89 \u6392 \u7ffb \u5566 \u5481 \u569f \u7dca \u5605 \u8a71 \u5c31 <eos>", 
+                    "rec_tokenid": "20 308 718 794 861 699 3716 373 1743 4720 4253 5129 330 1465 277 1268 1887 3709 794 699 933 3599 871 4319 1336 5476", 
+                    "shape": [
+                        22, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u5587\u55ef\u5481\u5b9c\u5bb6\u5605\u8a71\u5c31\u5e6b\u4f60\u5b89\u6392\u7ffb\u5587\u5481\u9ece\u7dca\u5605\u8a71\u5c31", 
+                    "token": "<D> \u4fc2 \u5587 \u55ef \u5481 \u5b9c \u5bb6 \u5605 \u8a71 \u5c31 \u5e6b \u4f60 \u5b89 \u6392 \u7ffb \u5587 \u5481 \u9ece \u7dca \u5605 \u8a71 \u5c31", 
+                    "tokenid": "20 308 812 861 699 1277 1 871 4319 1336 1465 277 1268 1887 3709 812 699 5341 3599 871 4319 1336"
+                }
+            ], 
+            "utt2spk": "12_spk"
+        }, 
+        "1501-1_spk_1501_1_005598-005798": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f60\u9593\u5514\u4ecb\u610f\u97c6\u5834\u5c11\u5c11COTR<eos>", 
+                    "rec_token": "<D> \u4f60 \u9593 \u5514 \u4ecb \u610f \u97c6 \u5834 \u5c11 \u5c11 C O T R <eos>", 
+                    "rec_tokenid": "20 277 4923 766 227 1673 5066 1040 1330 1330 28 40 45 43 5476", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f60\u4ecb\u5514\u4ecb\u610f\u7c3d\u9577\u5c11\u5c11CONTRACT\u5440", 
+                    "token": "<D> \u4f60 \u4ecb \u5514 \u4ecb \u610f \u7c3d \u9577 \u5c11 \u5c11 C O N T R A C T \u5440", 
+                    "tokenid": "20 277 227 766 227 1673 3486 4913 1330 1330 28 40 39 45 43 26 28 45 672"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_024125-024336": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u55f0\u5572\u4e2d\u5c31\u5187\u5676\u54af<eos>", 
+                    "rec_token": "<D> \u6211 \u55f0 \u5572 \u4e2d \u5c31 \u5187 \u5676 \u54af <eos>", 
+                    "rec_tokenid": "20 1743 862 800 171 1336 445 921 718 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>\u5462\u7a2e\u5c31\u5187\u35ce\u5566", 
+                    "token": "<D> <SPK/> \u5462 \u7a2e \u5c31 \u5187 \u35ce \u5566", 
+                    "tokenid": "20 23 684 3379 1336 445 142 794"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_037203-037371": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5b9a\u4fc2\u8a71\u4f60\u8fa6\u516c\u5ba4<eos>", 
+                    "rec_token": "<D> \u5b9a \u4fc2 \u8a71 \u4f60 \u8fa6 \u516c \u5ba4 <eos>", 
+                    "rec_tokenid": "20 1275 308 4319 277 4604 433 1280 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>\u5b9a\u4fc2\u8a71\u4f60\u8fa6\u516c\u5ba4", 
+                    "token": "<D> \u5b9a \u4fc2 \u8a71 \u4f60 \u8fa6 \u516c \u5ba4", 
+                    "tokenid": "20 1275 308 4319 277 4604 433 1280"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_038046-038246": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5373\u4fc2\u9001\u5497\u5148\u5361\u4ffe\u4f60\u90fdOK\u5187\u554f\u984c<eos>", 
+                    "rec_token": "<D> \u5373 \u4fc2 \u9001 \u5497 \u5148 \u5361 \u4ffe \u4f60 \u90fd O K \u5187 \u554f \u984c <eos>", 
+                    "rec_tokenid": "20 595 308 4628 710 420 590 327 277 4720 40 36 445 785 5105 5476", 
+                    "shape": [
+                        16, 
+                        5477
+                    ], 
+                    "text": "<D>\u556b\u9001\u5f35SIM\u5361\u6bd4\u4f60\u90fdOK\u5187\u554f\u984c", 
+                    "token": "<D> \u556b \u9001 \u5f35 S I M \u5361 \u6bd4 \u4f60 \u90fd O K \u5187 \u554f \u984c", 
+                    "tokenid": "20 797 4628 1534 44 34 38 590 2475 277 4720 40 36 445 785 5105"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_064561-064947": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u5fa9\u5230\u55ba\u5bbf\u4fc2\u8a92\u5e78\u798f\u500b\u90fd<eos>", 
+                    "rec_token": "<D> \u6211 \u5fa9 \u5230 \u55ba \u5bbf \u4fc2 \u8a92 \u5e78 \u798f \u500b \u90fd <eos>", 
+                    "rec_tokenid": "20 1743 1574 494 837 1289 308 4329 1468 3344 330 4720 5476", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>\u5404\u798f\u9053\u4fc2\u798f\u4fc2\u5e78\u798f\u500b\u798f", 
+                    "token": "<D> \u5404 \u798f \u9053 \u4fc2 \u798f \u4fc2 \u5e78 \u798f \u500b \u798f", 
+                    "tokenid": "20 640 3344 4665 308 3344 308 1468 3344 330 3344"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_076113-076346": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u7528\u7dca\u65b0\u6488\u5927\u6211\u5c31\u5187\u8fa6\u6cd5<eos>", 
+                    "rec_token": "<D> \u6211 \u7528 \u7dca \u65b0 \u6488 \u5927 \u6211 \u5c31 \u5187 \u8fa6 \u6cd5 <eos>", 
+                    "rec_tokenid": "20 1743 3062 3599 2095 1981 1101 1743 1336 445 4604 2548 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u7528\u7dcaSUNMOBILE\u5c31\u5187\u8fa6\u6cd5\u5566", 
+                    "token": "<D> \u54e6 \u7528 \u7dca S U N M O B I L E \u5c31 \u5187 \u8fa6 \u6cd5 \u5566", 
+                    "tokenid": "20 743 3062 3599 44 46 39 38 40 27 34 37 30 1336 445 4604 2548 794"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_078666-078691": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u98df<eos>", 
+                    "rec_token": "<D> \u98df <eos>", 
+                    "rec_tokenid": "20 5129 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>", 
+                    "token": "<D> <SPK/>", 
+                    "tokenid": "20 23"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_079426-079634": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5462\u500b\u8ad7\u98fd\u4fc2\u54aa\u4f60\u7ba1\u4eba\u5206\u5e7e\u5676<eos>", 
+                    "rec_token": "<D> \u5481 \u5462 \u500b \u8ad7 \u98fd \u4fc2 \u54aa \u4f60 \u7ba1 \u4eba \u5206 \u5e7e \u5676 <eos>", 
+                    "rec_tokenid": "20 699 684 330 4351 5138 308 715 277 3466 221 483 1474 921 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u5462\u500bNUMBER\u4fc2\u54aa\u4f60\u672c\u4eba\u767b\u8a18\u35ce", 
+                    "token": "<D> \u5481 \u5462 \u500b N U M B E R \u4fc2 \u54aa \u4f60 \u672c \u4eba \u767b \u8a18 \u35ce", 
+                    "tokenid": "20 699 684 330 39 46 38 27 30 43 308 715 277 2213 221 3153 4286 142"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_087781-087805": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f62<eos>", 
+                    "rec_token": "<D> \u4f62 <eos>", 
+                    "rec_tokenid": "20 279 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2", 
+                    "token": "<D> \u4fc2", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-1_spk_1501_1_087856-087926": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6216\u8005<eos>", 
+                    "rec_token": "<D> \u6216 \u8005 <eos>", 
+                    "rec_tokenid": "20 1745 3714 5476", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>\u6216\u8005", 
+                    "token": "<D> \u6216 \u8005", 
+                    "tokenid": "20 1745 3714"
+                }
+            ], 
+            "utt2spk": "1501-1_spk"
+        }, 
+        "1501-2_spk_1501_2_004494-004574": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4e00\u4e0b\u96f6\u516d\u55ce<eos>", 
+                    "rec_token": "<D> \u4e00 \u4e0b \u96f6 \u516d \u55ce <eos>", 
+                    "rec_tokenid": "20 152 158 5020 434 848 5476", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>\u4e00\u767e\u96f6\u516d\u868a", 
+                    "token": "<D> \u4e00 \u767e \u96f6 \u516d \u868a", 
+                    "tokenid": "20 152 3156 5020 434 4092"
+                }
+            ], 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_016055-016211": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u5373\u4fc2\u5514\u4fc2<eos>", 
+                    "rec_token": "<D> \u6211 \u5373 \u4fc2 \u5514 \u4fc2 <eos>", 
+                    "rec_tokenid": "20 1743 595 308 766 308 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u556b\u4e8c\u4fc2", 
+                    "token": "<D> \u54e6 \u556b \u4e8c \u4fc2", 
+                    "tokenid": "20 743 797 203 308"
+                }
+            ], 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1501-2_spk_1501_2_081604-081813": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f62\u5605\u6642\u5019\u53ef\u80fd\u8a92<eos>", 
+                    "rec_token": "<D> \u4f62 \u5605 \u6642 \u5019 \u53ef \u80fd \u8a92 <eos>", 
+                    "rec_tokenid": "20 279 871 2135 338 632 3779 4329 5476", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f62\u7d04\u5497\u6642\u9593\u53ef\u80fd<SPK/>", 
+                    "token": "<D> \u4f62 \u7d04 \u5497 \u6642 \u9593 \u53ef \u80fd <SPK/>", 
+                    "tokenid": "20 279 3535 710 2135 4923 632 3779 23"
+                }
+            ], 
+            "utt2spk": "1501-2_spk"
+        }, 
+        "1502-1_spk_1502_1_022200-022392": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f46\u5c31\u4fc2\u516b\u4e8c\u7279\u5605<eos>", 
+                    "rec_token": "<D> \u4f46 \u5c31 \u4fc2 \u516b \u4e8c \u7279 \u5605 <eos>", 
+                    "rec_tokenid": "20 263 1336 308 432 203 2914 871 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>PLAN\u5c31\u4fc2\u516b\u81f3\u5341GB", 
+                    "token": "<D> P L A N \u5c31 \u4fc2 \u516b \u81f3 \u5341 G B", 
+                    "tokenid": "20 41 37 26 39 1336 308 432 3849 574 32 27"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_027798-027817": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef<eos>", 
+                    "rec_token": "<D> \u55ef <eos>", 
+                    "rec_tokenid": "20 861 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_054746-054888": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6709\u5e7e\u500b\u4eba\u90fd\u6709<eos>", 
+                    "rec_token": "<D> \u6709 \u5e7e \u500b \u4eba \u90fd \u6709 <eos>", 
+                    "rec_tokenid": "20 2199 1474 330 221 4720 2199 5476", 
+                    "shape": [
+                        10, 
+                        5477
+                    ], 
+                    "text": "<D>\u4e4b\u5f8c\u5e7e\u500b\u4eba\u90fd\u7528\u5230\u35ce", 
+                    "token": "<D> \u4e4b \u5f8c \u5e7e \u500b \u4eba \u90fd \u7528 \u5230 \u35ce", 
+                    "tokenid": "20 182 1563 1474 330 221 4720 3062 494 142"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_065454-065635": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6\u8a92\u554a\u5927\u9678\u90fd\u5187\u5f97\u54af<eos>", 
+                    "rec_token": "<D> \u54e6 \u8a92 \u554a \u5927 \u9678 \u90fd \u5187 \u5f97 \u54af <eos>", 
+                    "rec_tokenid": "20 743 4329 783 1101 4978 4720 445 1567 718 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>OK\u5440\u5609\u798f\u90a8\u55f0\u5230\u90fdOK", 
+                    "token": "<D> O K \u5440 \u5609 \u798f \u90a8 \u55f0 \u5230 \u90fd O K", 
+                    "tokenid": "20 40 36 672 874 3344 4702 862 494 4720 40 36"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_088710-088748": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef<eos>", 
+                    "rec_token": "<D> \u55ef <eos>", 
+                    "rec_tokenid": "20 861 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-1_spk_1502_1_091537-091842": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55f0\u5572\u7279\u7136\u55f0\u5572\u6211\u4fc2\u8d8a\u6211\u6211\u90fd\u5176\u4ed6<eos>", 
+                    "rec_token": "<D> \u55f0 \u5572 \u7279 \u7136 \u55f0 \u5572 \u6211 \u4fc2 \u8d8a \u6211 \u6211 \u90fd \u5176 \u4ed6 <eos>", 
+                    "rec_tokenid": "20 862 800 2914 2820 862 800 1743 308 4489 1743 1743 4720 439 231 5476", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D>\u7e3d\u4e4b\u5341GB\u7e3d\u4e4b\u7576\u6211\u4e03\u6708\u5341\u516d\u865f\u904e\u5230\u671f\u5566", 
+                    "token": "<D> \u7e3d \u4e4b \u5341 G B \u7e3d \u4e4b \u7576 \u6211 \u4e03 \u6708 \u5341 \u516d \u865f \u904e \u5230 \u671f \u5566", 
+                    "tokenid": "20 3631 182 574 32 27 3631 182 3086 1743 154 2198 574 434 4088 4661 494 2207 794"
+                }
+            ], 
+            "utt2spk": "1502-1_spk"
+        }, 
+        "1502-2_spk_1502_2_002581-002749": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u5605\u611f\u53d7\u8a92<eos>", 
+                    "rec_token": "<D> \u6211 \u5605 \u611f \u53d7 \u8a92 <eos>", 
+                    "rec_tokenid": "20 1743 871 1677 619 4329 5476", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>OK\u5481\u5c31<SPK/>", 
+                    "token": "<D> O K \u5481 \u5c31 <SPK/>", 
+                    "tokenid": "20 40 36 699 1336 23"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_033445-033507": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6bcf\u500b\u6708<eos>", 
+                    "rec_token": "<D> \u6bcf \u500b \u6708 <eos>", 
+                    "rec_tokenid": "20 2473 330 2198 5476", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>\u6bcf\u500b\u6708", 
+                    "token": "<D> \u6bcf \u500b \u6708", 
+                    "tokenid": "20 2473 330 2198"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_039273-039460": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f62\u54cb\u4e00\u5b9a\u4fc2<eos>", 
+                    "rec_token": "<D> \u4f62 \u54cb \u4e00 \u5b9a \u4fc2 <eos>", 
+                    "rec_tokenid": "20 279 735 152 1275 308 5476", 
+                    "shape": [
+                        6, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f62\u54cb\u4e00\u5b9a\u4fc2", 
+                    "token": "<D> \u4f62 \u54cb \u4e00 \u5b9a \u4fc2", 
+                    "tokenid": "20 279 735 152 1275 308"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_047662-047926": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5df2\u7d93\u5b8c\u6210\u5497\u558e\u5514\u77e5\u55f0\u500b\u670d\u52d9\u55ba\u5ea6<eos>", 
+                    "rec_token": "<D> \u5df2 \u7d93 \u5b8c \u6210 \u5497 \u558e \u5514 \u77e5 \u55f0 \u500b \u670d \u52d9 \u55ba \u5ea6 <eos>", 
+                    "rec_tokenid": "20 1427 3583 1270 1742 710 817 766 3256 862 330 2201 544 837 1484 5476", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>\u5df2\u7d93\u5b8c\u6210\u5497\u500b5G\u55f0\u500b\u670d\u52d9\u55ba\u5230", 
+                    "token": "<D> \u5df2 \u7d93 \u5b8c \u6210 \u5497 \u500b 5 G \u55f0 \u500b \u670d \u52d9 \u55ba \u5230", 
+                    "tokenid": "20 1427 3583 1270 1742 710 330 13 32 862 330 2201 544 837 494"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_064699-064847": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u50a2\u798f\u7b97\u4fc2\u54aa\u9f63\u569f<eos>", 
+                    "rec_token": "<D> \u8a92 \u50a2 \u798f \u7b97 \u4fc2 \u54aa \u9f63 \u569f <eos>", 
+                    "rec_tokenid": "20 4329 373 3344 3465 308 715 5370 933 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>\u5609\u798f\u90a8\u4fc2\u54aa\u5440SORRY", 
+                    "token": "<D> <SPK/> \u5609 \u798f \u90a8 \u4fc2 \u54aa \u5440 S O R R Y", 
+                    "tokenid": "20 23 874 3344 4702 308 715 672 44 40 43 43 50"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_071491-071631": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5982\u679c\u5514\u5f97\u5605\u8a71\u569f<eos>", 
+                    "rec_token": "<D> \u5481 \u5982 \u679c \u5514 \u5f97 \u5605 \u8a71 \u569f <eos>", 
+                    "rec_tokenid": "20 699 1136 2240 766 1567 871 4319 933 5476", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u5982\u679c\u5514\u5f97\u5605\u8a71\u5462", 
+                    "token": "<D> \u5481 \u5982 \u679c \u5514 \u5f97 \u5605 \u8a71 \u5462", 
+                    "tokenid": "20 699 1136 2240 766 1567 871 4319 684"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_074312-074458": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>OK\u5187\u554f\u984c\u5605<eos>", 
+                    "rec_token": "<D> O K \u5187 \u554f \u984c \u5605 <eos>", 
+                    "rec_tokenid": "20 40 36 445 785 5105 871 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>OK\u5187\u554f\u984c\u5605", 
+                    "token": "<D> O K \u5187 \u554f \u984c \u5605", 
+                    "tokenid": "20 40 36 445 785 5105 871"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_075643-075756": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u569f\u7dca\u5605\u8a71\u5566<eos>", 
+                    "rec_token": "<D> \u5481 \u569f \u7dca \u5605 \u8a71 \u5566 <eos>", 
+                    "rec_tokenid": "20 699 933 3599 871 4319 794 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u569f\u7dca\u5605\u8a71\u5566", 
+                    "token": "<D> \u5481 \u569f \u7dca \u5605 \u8a71 \u5566", 
+                    "tokenid": "20 699 933 3599 871 4319 794"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_076488-076688": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6709\u9663\u7ffb\u843d\u53bb\u4e0b\u500b\u6708\u5481\u6a23\u54af<eos>", 
+                    "rec_token": "<D> \u6709 \u9663 \u7ffb \u843d \u53bb \u4e0b \u500b \u6708 \u5481 \u6a23 \u54af <eos>", 
+                    "rec_tokenid": "20 2199 4970 3709 3983 607 158 330 2198 699 2383 718 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>\u5c31\u6703\u892a\u8fd4\u843d\u53bb\u4e0b\u500b\u6708\u5481\u6a23\u56c9", 
+                    "token": "<D> \u5c31 \u6703 \u892a \u8fd4 \u843d \u53bb \u4e0b \u500b \u6708 \u5481 \u6a23 \u56c9", 
+                    "tokenid": "20 1336 2197 4238 4616 3983 607 158 330 2198 699 2383 949"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_076874-077093": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5462\u500b\u5c31\u4fc2\u6240\u7ffb\u500b\u5927\u4f62\u4fc2\u4e00\u500b\u6708\u5605\u6708\u53eb\u5566<eos>", 
+                    "rec_token": "<D> \u5462 \u500b \u5c31 \u4fc2 \u6240 \u7ffb \u500b \u5927 \u4f62 \u4fc2 \u4e00 \u500b \u6708 \u5605 \u6708 \u53eb \u5566 <eos>", 
+                    "rec_tokenid": "20 684 330 1336 308 1760 3709 330 1101 279 308 152 330 2198 871 2198 628 794 5476", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>\u5462\u500b\u5c31\u4fc2FOR\u8fd4\u4e00\u7b2c\u4e00\u7b2c\u4e00\u500b\u6708\u5605\u6708\u7e73\u5566", 
+                    "token": "<D> \u5462 \u500b \u5c31 \u4fc2 F O R \u8fd4 \u4e00 \u7b2c \u4e00 \u7b2c \u4e00 \u500b \u6708 \u5605 \u6708 \u7e73 \u5566", 
+                    "tokenid": "20 684 330 1336 308 31 40 43 4616 152 3445 152 3445 152 330 2198 871 2198 3646 794"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1502-2_spk_1502_2_086949-086963": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef<eos><eos>", 
+                    "rec_token": "<D> \u55ef <eos> <eos>", 
+                    "rec_tokenid": "20 861 5476 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1502-2_spk"
+        }, 
+        "1503-1_spk_1503_1_005206-005546": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u56e0\u70ba\u5462\u5982\u679c\u4f60\u7559\u5230\u6642\u53bb\u5481\u5c31\u7ffb\u53bb\u554f\u5605\u8a71\u561e<eos>", 
+                    "rec_token": "<D> \u56e0 \u70ba \u5462 \u5982 \u679c \u4f60 \u7559 \u5230 \u6642 \u53bb \u5481 \u5c31 \u7ffb \u53bb \u554f \u5605 \u8a71 \u561e <eos>", 
+                    "rec_tokenid": "20 958 2799 684 1136 2240 277 3078 494 2135 607 699 1336 3709 607 785 871 4319 884 5476", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D>\u56e0\u70ba\u5462\u5982\u679c\u4f60\u843d\u9580\u5e02\u53bb\u5c31\u5c31\u5481\u53bb\u554f\u65e2\u8a71\u5462", 
+                    "token": "<D> \u56e0 \u70ba \u5462 \u5982 \u679c \u4f60 \u843d \u9580 \u5e02 \u53bb \u5c31 \u5c31 \u5481 \u53bb \u554f \u65e2 \u8a71 \u5462", 
+                    "tokenid": "20 958 2799 684 1136 2240 277 3983 4914 1433 607 1336 1336 699 607 785 2104 4319 684"
+                }
+            ], 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_010020-010376": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8d77\u78bc\u90fd\u597d\u904e\u5514\u4f7f\u8a71\u518d\u6210\u65e5\u554a\u4fc2\u554a<eos>", 
+                    "rec_token": "<D> \u8d77 \u78bc \u90fd \u597d \u904e \u5514 \u4f7f \u8a71 \u518d \u6210 \u65e5 \u554a \u4fc2 \u554a <eos>", 
+                    "rec_tokenid": "20 4486 3301 4720 1135 4661 766 290 4319 448 1742 2106 783 308 783 5476", 
+                    "shape": [
+                        16, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u8d77\u78bc\u90fd\u597d\u904e\u5514\u6d17\u8a71\u518d\u6b63\u50f9\u65e2\u4fc2\u554a", 
+                    "token": "<D> \u5481 \u8d77 \u78bc \u90fd \u597d \u904e \u5514 \u6d17 \u8a71 \u518d \u6b63 \u50f9 \u65e2 \u4fc2 \u554a", 
+                    "tokenid": "20 699 4486 3301 4720 1135 4661 766 2563 4319 448 2438 396 2104 308 783"
+                }
+            ], 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_059888-060596": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5982\u679c\u5462\u500b\u81ea\u89ba\u4fc2\u5566\u5982\u679c\u5462\u5230\u6642\u8a71\u500b\u5b57\u6578\u65e5\u540c\u57cb\u7747\u7ffb\u4e0b\u6b21\u90fd\u4fc2\u4f62\u540c\u6211\u8b1b\u5176\u5be6\u76f8\u7ffb\u500b\u6642\u9593\u5462<eos>", 
+                    "rec_token": "<D> \u5982 \u679c \u5462 \u500b \u81ea \u89ba \u4fc2 \u5566 \u5982 \u679c \u5462 \u5230 \u6642 \u8a71 \u500b \u5b57 \u6578 \u65e5 \u540c \u57cb \u7747 \u7ffb \u4e0b \u6b21 \u90fd \u4fc2 \u4f62 \u540c \u6211 \u8b1b \u5176 \u5be6 \u76f8 \u7ffb \u500b \u6642 \u9593 \u5462 <eos>", 
+                    "rec_tokenid": "20 1136 2240 684 330 3847 4266 308 794 1136 2240 684 494 2135 4319 330 1246 2078 2106 644 1014 3213 3709 158 2422 4720 308 279 644 1743 4373 439 1305 3194 3709 330 2135 4923 684 5476", 
+                    "shape": [
+                        38, 
+                        5477
+                    ], 
+                    "text": "<D>\u5982\u679c\u5462\u5230\u6642\u500b\u4fc2\u5566\u5982\u679c\u5462\u5230\u6642\u8a71\u500b\u622a\u6578\u65e5\u540c\u57cb\u55ba\u8fd4\u554a\u5f90\u5c0f\u59d0\u4f60\u55f0\u500b\u5c0d\u53f0\u76f8\u5dee\u500b\u6642\u9593\u5462", 
+                    "token": "<D> \u5982 \u679c \u5462 \u5230 \u6642 \u500b \u4fc2 \u5566 \u5982 \u679c \u5462 \u5230 \u6642 \u8a71 \u500b \u622a \u6578 \u65e5 \u540c \u57cb \u55ba \u8fd4 \u554a \u5f90 \u5c0f \u59d0 \u4f60 \u55f0 \u500b \u5c0d \u53f0 \u76f8 \u5dee \u500b \u6642 \u9593 \u5462", 
+                    "tokenid": "20 1136 2240 684 494 2135 330 308 794 1136 2240 684 494 2135 4319 330 1751 2078 2106 644 1014 837 4616 783 1564 1328 1162 277 862 330 1326 1 3194 1425 330 2135 4923 684"
+                }
+            ], 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_075893-076056": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u56e0\u70ba\u5462\u500b\u4fc2\u597d\u7dca\u8981\u597d\u7dca\u8981\u5566<eos>", 
+                    "rec_token": "<D> \u56e0 \u70ba \u5462 \u500b \u4fc2 \u597d \u7dca \u8981 \u597d \u7dca \u8981 \u5566 <eos>", 
+                    "rec_tokenid": "20 958 2799 684 330 308 1135 3599 4253 1135 3599 4253 794 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>\u56e0\u70ba\u5462\u500b\u4fc2\u597d\u7dca\u8981\u597d\u7dca\u8981\u67b6", 
+                    "token": "<D> \u56e0 \u70ba \u5462 \u500b \u4fc2 \u597d \u7dca \u8981 \u597d \u7dca \u8981 \u67b6", 
+                    "tokenid": "20 958 2799 684 330 308 1135 3599 4253 1135 3599 4253 2246"
+                }
+            ], 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-1_spk_1503_1_091306-091460": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u554a\u554a<eos>", 
+                    "rec_token": "<D> \u554a \u554a <eos>", 
+                    "rec_tokenid": "20 783 783 5476", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u55ef\u554a", 
+                    "token": "<D> \u54e6 \u55ef \u554a", 
+                    "tokenid": "20 743 861 783"
+                }
+            ], 
+            "utt2spk": "1503-1_spk"
+        }, 
+        "1503-2_spk_1503_2_069150-069214": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6<eos>", 
+                    "rec_token": "<D> \u54e6 <eos>", 
+                    "rec_tokenid": "20 743 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1503-2_spk_1503_2_073920-073988": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef\u55ef<eos>", 
+                    "rec_token": "<D> \u55ef \u55ef <eos>", 
+                    "rec_tokenid": "20 861 861 5476", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef\u55ef", 
+                    "token": "<D> \u55ef \u55ef", 
+                    "tokenid": "20 861 861"
+                }
+            ], 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1503-2_spk_1503_2_099845-100129": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6\u8a92\u6211<eos>", 
+                    "rec_token": "<D> \u54e6 \u8a92 \u6211 <eos>", 
+                    "rec_tokenid": "20 743 4329 1743 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u597d\u55ef\u597d\u55ef", 
+                    "token": "<D> \u597d \u55ef \u597d \u55ef", 
+                    "tokenid": "20 1135 861 1135 861"
+                }
+            ], 
+            "utt2spk": "1503-2_spk"
+        }, 
+        "1504-1_spk_1504_1_007926-008140": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5c31\u4fc2\u7ffb\u7ffb\u554f\u6709\u4e5d\u5341\u4e03\u868a\u500b\u6708\u54af<eos>", 
+                    "rec_token": "<D> \u5481 \u5c31 \u4fc2 \u7ffb \u7ffb \u554f \u6709 \u4e5d \u5341 \u4e03 \u868a \u500b \u6708 \u54af <eos>", 
+                    "rec_tokenid": "20 699 1336 308 3709 3709 785 2199 192 574 154 4092 330 2198 718 5476", 
+                    "shape": [
+                        15, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u5176\u5be6\u6524\u8fd4\u52fb\u5c3197\u868a\u4e00\u500b\u6708\u56c9", 
+                    "token": "<D> \u5481 \u5176 \u5be6 \u6524 \u8fd4 \u52fb \u5c31 9 7 \u868a \u4e00 \u500b \u6708 \u56c9", 
+                    "tokenid": "20 699 439 1305 2049 4616 554 1336 17 15 4092 152 330 2198 949"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_011834-012204": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u56e0\u70ba\u800c\u50a2\u597d\u4f3c\u516c\u53f8\u505a\u5230\u5187\u9650\u4e0a\u7db2\u5676\u556b\u558e\u54a9\u98b1\u5481\u5605\u7528\u771f\u4fc2<eos>", 
+                    "rec_token": "<D> \u56e0 \u70ba \u800c \u50a2 \u597d \u4f3c \u516c \u53f8 \u505a \u5230 \u5187 \u9650 \u4e0a \u7db2 \u5676 \u556b \u558e \u54a9 \u98b1 \u5481 \u5605 \u7528 \u771f \u4fc2 <eos>", 
+                    "rec_tokenid": "20 958 2799 3716 373 1135 261 433 636 358 494 445 4965 157 3591 921 797 817 714 5121 699 871 3062 3203 308 5476", 
+                    "shape": [
+                        25, 
+                        5477
+                    ], 
+                    "text": "<D>\u56e0\u70ba\u800c\u5bb6\u597d\u5c11\u516c\u53f8\u505a\u5230\u7121\u9650\u4e0a\u7db2\u67b6\u548b\u558e\u54a9\u53f0\u5481\u67b6\u7528\u7dca\u4fc2", 
+                    "token": "<D> \u56e0 \u70ba \u800c \u5bb6 \u597d \u5c11 \u516c \u53f8 \u505a \u5230 \u7121 \u9650 \u4e0a \u7db2 \u67b6 \u548b \u558e \u54a9 \u53f0 \u5481 \u67b6 \u7528 \u7dca \u4fc2", 
+                    "tokenid": "20 958 2799 3716 1 1135 1330 433 636 358 494 2816 4965 157 3591 2246 703 817 714 1 699 2246 3062 3599 308"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_022376-022393": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef<eos>", 
+                    "rec_token": "<D> \u55ef <eos>", 
+                    "rec_tokenid": "20 861 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_040802-041002": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f60\u5514\u534a\u95a4\u4eba\u4fc2<eos>", 
+                    "rec_token": "<D> \u4f60 \u5514 \u534a \u95a4 \u4eba \u4fc2 <eos>", 
+                    "rec_tokenid": "20 277 766 579 4931 221 308 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>2\u5e74\u534a\u5408\u7d04\u4fc2", 
+                    "token": "<D> 2 \u5e74 \u534a \u5408 \u7d04 \u4fc2", 
+                    "tokenid": "20 10 1467 579 1 3535 308"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_060726-061129": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5e73\u50a2\u597d\u8b1b\u5605\u4fc2\u6703\u5feb\u4f46\u4fc2\u5462\u597d\u591a\u5622\u5514\u80af\u5b9a<eos>", 
+                    "rec_token": "<D> \u5e73 \u50a2 \u597d \u8b1b \u5605 \u4fc2 \u6703 \u5feb \u4f46 \u4fc2 \u5462 \u597d \u591a \u5622 \u5514 \u80af \u5b9a <eos>", 
+                    "rec_tokenid": "20 1466 373 1135 4373 871 308 2197 1595 263 308 684 1135 1096 886 766 3760 1275 5476", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>\u860b\u679c\u65e5\u5831\u8b1b\u65e2\u4fc2\u6703\u5feb\u4f46\u4fc2\u5462\u597d\u591a\u5730\u65b9\u5514\u7a69\u5b9a", 
+                    "token": "<D> \u860b \u679c \u65e5 \u5831 \u8b1b \u65e2 \u4fc2 \u6703 \u5feb \u4f46 \u4fc2 \u5462 \u597d \u591a \u5730 \u65b9 \u5514 \u7a69 \u5b9a", 
+                    "tokenid": "20 4075 2240 2106 1039 4373 2104 308 2197 1595 263 308 684 1135 1096 982 2097 766 3393 1275"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_067944-067974": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef<eos>", 
+                    "rec_token": "<D> \u55ef <eos>", 
+                    "rec_tokenid": "20 861 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_078162-078548": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u8001\u7d30\u8b1b\u7ffb\u5481\u5176\u5be6\u4f60\u5230\u6bd4\u5982\u591a\u5572\u56db\u9ede\u4e94\u6b21\u5605\u75c5<eos>", 
+                    "rec_token": "<D> \u6211 \u8001 \u7d30 \u8b1b \u7ffb \u5481 \u5176 \u5be6 \u4f60 \u5230 \u6bd4 \u5982 \u591a \u5572 \u56db \u9ede \u4e94 \u6b21 \u5605 \u75c5 <eos>", 
+                    "rec_tokenid": "20 1743 3712 3556 4373 3709 699 439 1305 277 494 2475 1136 1096 800 956 5350 205 2422 871 3103 5476", 
+                    "shape": [
+                        28, 
+                        5477
+                    ], 
+                    "text": "<D>\u597d\u8001\u5be6\u8b1b\u8fd4\u5481\u5176\u5be6\u4f60\u5012\u4e0d\u5982JOIN\u557245G\u65e2PLAN\u59d0\u4fc2", 
+                    "token": "<D> \u597d \u8001 \u5be6 \u8b1b \u8fd4 \u5481 \u5176 \u5be6 \u4f60 \u5012 \u4e0d \u5982 J O I N \u5572 4 5 G \u65e2 P L A N \u59d0 \u4fc2", 
+                    "tokenid": "20 1135 3712 1305 4373 4616 699 439 1305 277 333 159 1136 35 40 34 39 800 12 13 32 2104 41 37 26 39 1162 308"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-1_spk_1504_1_099786-100070": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u518d\u5514\u5230\u5605\u6bcf\u6b21\u505a\u5514\u5230\u4ffe\u4f60\u5605\u653e\u7ffb\u5676\u5566\u5c31<eos>", 
+                    "rec_token": "<D> \u518d \u5514 \u5230 \u5605 \u6bcf \u6b21 \u505a \u5514 \u5230 \u4ffe \u4f60 \u5605 \u653e \u7ffb \u5676 \u5566 \u5c31 <eos>", 
+                    "rec_tokenid": "20 448 766 494 871 2473 2422 358 766 494 327 277 871 2058 3709 921 794 1336 5476", 
+                    "shape": [
+                        23, 
+                        5477
+                    ], 
+                    "text": "<D>JOIN\u5514\u5230\u65e2\u9580\u5e02\u505a\u5514\u5230\u6bd4\u4f60\u65e2FOR\u8fd4\u65e2\u8a71\u5c31", 
+                    "token": "<D> J O I N \u5514 \u5230 \u65e2 \u9580 \u5e02 \u505a \u5514 \u5230 \u6bd4 \u4f60 \u65e2 F O R \u8fd4 \u65e2 \u8a71 \u5c31", 
+                    "tokenid": "20 35 40 34 39 766 494 2104 4914 1433 358 766 494 2475 277 2104 31 40 43 4616 2104 4319 1336"
+                }
+            ], 
+            "utt2spk": "1504-1_spk"
+        }, 
+        "1504-2_spk_1504_2_008740-008964": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u4ee5\u524d\u5462\u7528\u5f97\u4f60\u9001\u7269\u98a8\u5676<eos>", 
+                    "rec_token": "<D> \u6211 \u4ee5 \u524d \u5462 \u7528 \u5f97 \u4f60 \u9001 \u7269 \u98a8 \u5676 <eos>", 
+                    "rec_tokenid": "20 1743 239 506 684 3062 1567 277 4628 2912 5120 921 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>\u6211\u4ee5\u524d\u5462\u7528\u958b\u4f60\u6578\u78bc\u901a\u67b6", 
+                    "token": "<D> \u6211 \u4ee5 \u524d \u5462 \u7528 \u958b \u4f60 \u6578 \u78bc \u901a \u67b6", 
+                    "tokenid": "20 1743 239 506 684 3062 4919 277 2078 3301 4640 2246"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_023026-023516": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u554a\u55f0\u500b\u90fd\u4fc2\u53eb\u7dca\u72d7\u4fc2\u554a\u55f0\u500b\u5e7e\u556b\u561b<eos>", 
+                    "rec_token": "<D> \u554a \u55f0 \u500b \u90fd \u4fc2 \u53eb \u7dca \u72d7 \u4fc2 \u554a \u55f0 \u500b \u5e7e \u556b \u561b <eos>", 
+                    "rec_tokenid": "20 783 862 330 4720 308 628 3599 2928 308 783 862 330 1474 797 882 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u554a\u4fc2\u554a\u55f0\u500b\u90fd\u4fc2\u505a\u7dca9\u4fc2\u554a9\u554a\u5e7e\u548b\u561b", 
+                    "token": "<D> \u554a \u4fc2 \u554a \u55f0 \u500b \u90fd \u4fc2 \u505a \u7dca 9 \u4fc2 \u554a 9 \u554a \u5e7e \u548b \u561b", 
+                    "tokenid": "20 783 308 783 862 330 4720 308 358 3599 17 308 783 17 783 1474 703 882"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_047010-047292": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u6240\u4ee5\u4f60\u4fc2\u56db\u97c6\u5206\u9418\u90fd\u5514\u5920\u4ffe\u6211\u7528<eos>", 
+                    "rec_token": "<D> \u5481 \u6240 \u4ee5 \u4f60 \u4fc2 \u56db \u97c6 \u5206 \u9418 \u90fd \u5514 \u5920 \u4ffe \u6211 \u7528 <eos>", 
+                    "rec_tokenid": "20 699 1760 239 277 308 956 5066 483 4885 4720 766 1098 327 1743 3062 5476", 
+                    "shape": [
+                        19, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u6240\u4ee5\u4f60\u4fc24000\u5206\u9418\u90fd\u5514\u5920\u4ffe\u6211\u7528\u65e2", 
+                    "token": "<D> \u5481 \u6240 \u4ee5 \u4f60 \u4fc2 4 0 0 0 \u5206 \u9418 \u90fd \u5514 \u5920 \u4ffe \u6211 \u7528 \u65e2", 
+                    "tokenid": "20 699 1760 239 277 308 12 8 8 8 483 4885 4720 766 1098 327 1743 3062 2104"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_063734-063834": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u6a23\u5605<eos>", 
+                    "rec_token": "<D> \u5481 \u6a23 \u5605 <eos>", 
+                    "rec_tokenid": "20 699 2383 871 5476", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u6a23\u65e2", 
+                    "token": "<D> \u5481 \u6a23 \u65e2", 
+                    "tokenid": "20 699 2383 2104"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_067820-068074": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5e7e\u500b\u865f\u78bc\u9f63\u5497\u569f\u556b<eos>", 
+                    "rec_token": "<D> \u5e7e \u500b \u865f \u78bc \u9f63 \u5497 \u569f \u556b <eos>", 
+                    "rec_tokenid": "20 1474 330 4088 3301 5370 710 933 797 5476", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>\u5e7e\u500b\u865f\u78bc\u51fa\u5497\u9ece\u59d0", 
+                    "token": "<D> \u5e7e \u500b \u865f \u78bc \u51fa \u5497 \u9ece \u59d0", 
+                    "tokenid": "20 1474 330 4088 3301 1 710 5341 1162"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_072824-073148": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u6211\u800c\u50a2\u55baA\u4e4b\u5f8c\u5c31\u55ba\u55f0\u5ea6\u4fc2\u554a<eos>", 
+                    "rec_token": "<D> \u6211 \u6211 \u800c \u50a2 \u55ba A \u4e4b \u5f8c \u5c31 \u55ba \u55f0 \u5ea6 \u4fc2 \u554a <eos>", 
+                    "rec_tokenid": "20 1743 1743 3716 373 837 26 182 1563 1336 837 862 1484 308 783 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>\u6211\u5b9c\u5bb6\u55baCSL\u55f0\u5230\u4fc2\u554a", 
+                    "token": "<D> \u6211 \u5b9c \u5bb6 \u55ba C S L \u55f0 \u5230 \u4fc2 \u554a", 
+                    "tokenid": "20 1743 1277 1 837 28 44 37 862 494 308 783"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_077473-077673": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4efb\u5206\u672c\u5605<eos>", 
+                    "rec_token": "<D> \u4efb \u5206 \u672c \u5605 <eos>", 
+                    "rec_tokenid": "20 244 483 2213 871 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u65b0\u6b3e\u6a5f", 
+                    "token": "<D> \u5481 \u65b0 \u6b3e \u6a5f", 
+                    "tokenid": "20 699 2095 2429 2396"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_081590-082296": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8ddf\u8457\u6211\u5462\u500b\u5169\u4e00\u96f6\u516d\u5462\u500b\u6211\u54aa\u64fa\u53bb\u904e\u820a\u6a5f\u5ea6\u54af\u6211\u90e8\u6a5f\u5514\u597d\u641e\u5605\u556b<eos>", 
+                    "rec_token": "<D> \u8ddf \u8457 \u6211 \u5462 \u500b \u5169 \u4e00 \u96f6 \u516d \u5462 \u500b \u6211 \u54aa \u64fa \u53bb \u904e \u820a \u6a5f \u5ea6 \u54af \u6211 \u90e8 \u6a5f \u5514 \u597d \u641e \u5605 \u556b <eos>", 
+                    "rec_tokenid": "20 4511 3986 1743 684 330 431 152 5020 434 684 330 1743 715 2036 607 4661 3859 2396 1484 718 1743 4715 2396 766 1135 1945 871 797 5476", 
+                    "shape": [
+                        30, 
+                        5477
+                    ], 
+                    "text": "<D>\u8ddf\u4f4f\u6211\u5462\u500b\u4e0a106\u5462\u500b\u6211\u54aa\u64fa\u4fc2\u500b\u820a\u6a5f\u5230\u56c9\u6211\u90e8\u6a5f\u5514\u4fc2\u597d\u820a\u67b6\u548b", 
+                    "token": "<D> \u8ddf \u4f4f \u6211 \u5462 \u500b \u4e0a 1 0 6 \u5462 \u500b \u6211 \u54aa \u64fa \u4fc2 \u500b \u820a \u6a5f \u5230 \u56c9 \u6211 \u90e8 \u6a5f \u5514 \u4fc2 \u597d \u820a \u67b6 \u548b", 
+                    "tokenid": "20 4511 267 1743 684 330 157 9 8 14 684 330 1743 715 2036 308 330 3859 2396 494 949 1743 4715 2396 766 308 1135 3859 2246 703"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_089232-089664": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54c7\u771f\u4fc2\u5e7e\u5566\u500b\u4f46\u4fc2\u6211\u8a71\u6211\u540c\u4f60\u8b1b\u4e00\u660e\u55f0\u54af<eos>", 
+                    "rec_token": "<D> \u54c7 \u771f \u4fc2 \u5e7e \u5566 \u500b \u4f46 \u4fc2 \u6211 \u8a71 \u6211 \u540c \u4f60 \u8b1b \u4e00 \u660e \u55f0 \u54af <eos>", 
+                    "rec_tokenid": "20 732 3203 308 1474 794 330 263 308 1743 4319 1743 644 277 4373 152 2122 862 718 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u54c7\u771f\u4fc2\u5e7e\u649a\u4ec6\u8857\u554a\u6211\u8a71\u6211\u540c\u4f60\u8b1b\u660e\u67b6\u558e", 
+                    "token": "<D> \u54c7 \u771f \u4fc2 \u5e7e \u649a \u4ec6 \u8857 \u554a \u6211 \u8a71 \u6211 \u540c \u4f60 \u8b1b \u660e \u67b6 \u558e", 
+                    "tokenid": "20 732 3203 308 1474 1988 1 4187 783 1743 4319 1743 644 277 4373 2122 2246 817"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1504-2_spk_1504_2_102145-102372": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f60\u8ad7\u5e7e\u55f0\u9593\u4e2d\u4e00\u5b9a\u4fc2\u4e00\u500b<eos>", 
+                    "rec_token": "<D> \u4f60 \u8ad7 \u5e7e \u55f0 \u9593 \u4e2d \u4e00 \u5b9a \u4fc2 \u4e00 \u500b <eos>", 
+                    "rec_tokenid": "20 277 4351 1474 862 4923 171 152 1275 308 152 330 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u5169\u90e8SAMSUNG\u4e00\u90e8IPHONE", 
+                    "token": "<D> \u5169 \u90e8 S A M S U N G \u4e00 \u90e8 I P H O N E", 
+                    "tokenid": "20 431 4715 44 26 38 44 46 39 32 152 4715 34 41 33 40 39 30"
+                }
+            ], 
+            "utt2spk": "1504-2_spk"
+        }, 
+        "1505-1_spk_1505_1_003260-003658": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u90fdOK\u5187\u554f\u984c\u5605\u53ef\u80fd\u8981<eos>", 
+                    "rec_token": "<D> \u90fd O K \u5187 \u554f \u984c \u5605 \u53ef \u80fd \u8981 <eos>", 
+                    "rec_tokenid": "20 4720 40 36 445 785 5105 871 632 3779 4253 5476", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>\u90fdOK\u5187\u554f\u984c\u65e2\u53ef\u80fd\u8981\u7de9\u5b58\u4fc2", 
+                    "token": "<D> \u90fd O K \u5187 \u554f \u984c \u65e2 \u53ef \u80fd \u8981 \u7de9 \u5b58 \u4fc2", 
+                    "tokenid": "20 4720 40 36 445 785 5105 2104 632 3779 4253 3610 1247 308"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_008886-009112": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5c31\u4fc2\u55f0\u5572\u4fc2\u554a\u89aa\u661f\u55f0\u5572\u79d1<eos>", 
+                    "rec_token": "<D> \u5c31 \u4fc2 \u55f0 \u5572 \u4fc2 \u554a \u89aa \u661f \u55f0 \u5572 \u79d1 <eos>", 
+                    "rec_tokenid": "20 1336 308 862 800 308 783 4264 2127 862 800 3360 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>\u59d0\u4fc2\u55f0\u5572\u4fc2\u554a\u771f\u6b63\u55f0\u55724G", 
+                    "token": "<D> \u59d0 \u4fc2 \u55f0 \u5572 \u4fc2 \u554a \u771f \u6b63 \u55f0 \u5572 4 G", 
+                    "tokenid": "20 1162 308 862 800 308 783 3203 2438 862 800 12 32"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_021374-021414": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2<eos>", 
+                    "rec_token": "<D> \u4fc2 <eos>", 
+                    "rec_tokenid": "20 308 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2", 
+                    "token": "<D> \u4fc2", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_054776-055179": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u4e00\u9ede\u7ffb\u4f60\u73fe\u6642\u7528\u7dca\u5605\u6216\u8005\u4fc2\u4f60\u5605\u8870\u7403\u65b9\u9eb5\u5566<eos>", 
+                    "rec_token": "<D> \u5481 \u4e00 \u9ede \u7ffb \u4f60 \u73fe \u6642 \u7528 \u7dca \u5605 \u6216 \u8005 \u4fc2 \u4f60 \u5605 \u8870 \u7403 \u65b9 \u9eb5 \u5566 <eos>", 
+                    "rec_tokenid": "20 699 152 5350 3709 277 2992 2135 3062 3599 871 1745 3714 308 277 871 4197 2993 2097 5334 794 5476", 
+                    "shape": [
+                        21, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u56e0\u61c9\u7ffb\u4f60\u73fe\u6642\u7528\u7dca\u65e2\u6216\u8005\u4fc2\u4f60\u65e2\u9700\u6c42\u65b9\u9762\u5566", 
+                    "token": "<D> \u5481 \u56e0 \u61c9 \u7ffb \u4f60 \u73fe \u6642 \u7528 \u7dca \u65e2 \u6216 \u8005 \u4fc2 \u4f60 \u65e2 \u9700 \u6c42 \u65b9 \u9762 \u5566", 
+                    "tokenid": "20 699 958 1727 3709 277 2992 2135 3062 3599 2104 1745 3714 308 277 2104 5024 2501 2097 1 794"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_068371-068610": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u5566\u4fc2\u5566\u4fc2\u5566\u4fc2\u5566<eos>", 
+                    "rec_token": "<D> \u4fc2 \u5566 \u4fc2 \u5566 \u4fc2 \u5566 \u4fc2 \u5566 <eos>", 
+                    "rec_tokenid": "20 308 794 308 794 308 794 308 794 5476", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u5566\u4fc2\u5566\u4fc2\u5566\u4fc2\u5566", 
+                    "token": "<D> \u4fc2 \u5566 \u4fc2 \u5566 \u4fc2 \u5566 \u4fc2 \u5566", 
+                    "tokenid": "20 308 794 308 794 308 794 308 794"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-1_spk_1505_1_072274-072474": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u6211\u98df\u5462\u9ede\u6a23<eos>", 
+                    "rec_token": "<D> \u5481 \u6211 \u98df \u5462 \u9ede \u6a23 <eos>", 
+                    "rec_tokenid": "20 699 1743 5129 684 5350 2383 5476", 
+                    "shape": [
+                        7, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u6211\u5730\u4f9d\u908a\u5462", 
+                    "token": "<D> \u5481 \u6211 \u5730 \u4f9d \u908a \u5462", 
+                    "tokenid": "20 699 1743 982 300 4694 684"
+                }
+            ], 
+            "utt2spk": "1505-1_spk"
+        }, 
+        "1505-2_spk_1505_2_003578-003947": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u9322\u4f60\u5605\u91ab\u7b97\u8a71\u7747\u6232\u554a\u561b\u6211\u5514\u4fc2\u55ba\u4fc2<eos>", 
+                    "rec_token": "<D> \u4fc2 \u9322 \u4f60 \u5605 \u91ab \u7b97 \u8a71 \u7747 \u6232 \u554a \u561b \u6211 \u5514 \u4fc2 \u55ba \u4fc2 <eos>", 
+                    "rec_tokenid": "20 308 4838 277 871 4757 3465 4319 3213 1754 783 882 1743 766 308 837 308 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D>\u7747\u7247\u4f60\u65e2\u610f\u601d\u4fc2\u8a71\u7747\u6232\u5416\u561b\u6211\u5514\u4fc2\u7747\u6232", 
+                    "token": "<D> \u7747 \u7247 \u4f60 \u65e2 \u610f \u601d \u4fc2 \u8a71 \u7747 \u6232 \u5416 \u561b \u6211 \u5514 \u4fc2 \u7747 \u6232", 
+                    "tokenid": "20 3213 2900 277 2104 1673 1606 308 4319 3213 1754 649 882 1743 766 308 3213 1754"
+                }
+            ], 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "1505-2_spk_1505_2_078280-078532": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5982\u679c\u6211\u6709\u96bb\u8981\u60f3\u4f62\u96fb\u8a71<eos>", 
+                    "rec_token": "<D> \u5982 \u679c \u6211 \u6709 \u96bb \u8981 \u60f3 \u4f62 \u96fb \u8a71 <eos>", 
+                    "rec_tokenid": "20 1136 2240 1743 2199 4998 4253 1667 279 5023 4319 5476", 
+                    "shape": [
+                        13, 
+                        5477
+                    ], 
+                    "text": "<D>\u5982\u679c\u6211\u6709\u9663\u6642\u8981\u9577\u9014\u96fb\u8a71\u65e2", 
+                    "token": "<D> \u5982 \u679c \u6211 \u6709 \u9663 \u6642 \u8981 \u9577 \u9014 \u96fb \u8a71 \u65e2", 
+                    "tokenid": "20 1136 2240 1743 2199 4970 2135 4253 4913 4636 5023 4319 2104"
+                }
+            ], 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "1505-2_spk_1505_2_090595-090897": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u610f\u601d\u6211\u8a71\u5373\u4fc2\u4f60\u54cb\u6703\u505a\u4e4b\u5f8c\u4e4b\u5f8c\u55f0\u908a\u6dfb\u554a<eos>", 
+                    "rec_token": "<D> \u6211 \u610f \u601d \u6211 \u8a71 \u5373 \u4fc2 \u4f60 \u54cb \u6703 \u505a \u4e4b \u5f8c \u4e4b \u5f8c \u55f0 \u908a \u6dfb \u554a <eos>", 
+                    "rec_tokenid": "20 1743 1673 1606 1743 4319 595 308 277 735 2197 358 182 1563 182 1563 862 4694 2626 783 5476", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>\u6211\u610f\u601d\u4fc2\u8a71\u5373\u4fc2\u4f60\u5730\u6703\u540cCSL\u55f0\u908a\u50be\u67b6\u5566", 
+                    "token": "<D> \u6211 \u610f \u601d \u4fc2 \u8a71 \u5373 \u4fc2 \u4f60 \u5730 \u6703 \u540c C S L \u55f0 \u908a \u50be \u67b6 \u5566", 
+                    "tokenid": "20 1743 1673 1606 308 4319 595 308 277 982 2197 644 28 44 37 862 4694 382 2246 794"
+                }
+            ], 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "1505-2_spk_1505_2_093838-094044": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5373\u4fc2\u4f60\u8981\u53eb\u4f62\u53eb\u55f0\u5572\u4e00\u9ede\u7747\u6211<eos>", 
+                    "rec_token": "<D> \u5373 \u4fc2 \u4f60 \u8981 \u53eb \u4f62 \u53eb \u55f0 \u5572 \u4e00 \u9ede \u7747 \u6211 <eos>", 
+                    "rec_tokenid": "20 595 308 277 4253 628 279 628 862 800 152 5350 3213 1743 5476", 
+                    "shape": [
+                        17, 
+                        5477
+                    ], 
+                    "text": "<D>\u5373\u4fc2\u4f60\u5730\u5230\u671f\u6642\u6703\u4ffe\u5b9a\u5f35SIM\u5361\u6211", 
+                    "token": "<D> \u5373 \u4fc2 \u4f60 \u5730 \u5230 \u671f \u6642 \u6703 \u4ffe \u5b9a \u5f35 S I M \u5361 \u6211", 
+                    "tokenid": "20 595 308 277 982 494 2207 2135 2197 327 1275 1534 44 34 38 590 1743"
+                }
+            ], 
+            "utt2spk": "1505-2_spk"
+        }, 
+        "3_spk_3_002602-002970": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5176\u5be6\u569f\u7dca\u5605\u8a71\u5566\u90fd\u53ef\u4ee5\u5e6b\u4f60K\u7ffb\u4e00\u500b\u516d\u64ca\u5605\u6578\u64da\u5676<eos>", 
+                    "rec_token": "<D> \u5481 \u5176 \u5be6 \u569f \u7dca \u5605 \u8a71 \u5566 \u90fd \u53ef \u4ee5 \u5e6b \u4f60 K \u7ffb \u4e00 \u500b \u516d \u64ca \u5605 \u6578 \u64da \u5676 <eos>", 
+                    "rec_tokenid": "20 699 439 1305 933 3599 871 4319 794 4720 632 239 1465 277 36 3709 152 330 434 2011 871 2078 2020 921 5476", 
+                    "shape": [
+                        27, 
+                        5477
+                    ], 
+                    "text": "<D>\u5481\u5176\u5be6\u569f\u7dca\u5605\u8a71\u5566\u90fd\u53ef\u4ee5\u5e6b\u4f60KEEP\u756a\u4e00\u500b\u516dGB\u6578\u64da\u35ce", 
+                    "token": "<D> \u5481 \u5176 \u5be6 \u569f \u7dca \u5605 \u8a71 \u5566 \u90fd \u53ef \u4ee5 \u5e6b \u4f60 K E E P \u756a \u4e00 \u500b \u516d G B \u6578 \u64da \u35ce", 
+                    "tokenid": "20 699 439 1305 933 3599 871 4319 794 4720 632 239 1465 277 36 30 30 41 3083 152 330 434 32 27 2078 2020 142"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_010960-011357": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u554a\u5187\u932f\u554a\u5373\u4fc2\u5305\u516d\u5605\u6578\u64da\u7ffb\u57cb\u55f0\u500b\u56db\u97c6\u5206\u9418\u554a\u561b<eos>", 
+                    "rec_token": "<D> \u4fc2 \u554a \u5187 \u932f \u554a \u5373 \u4fc2 \u5305 \u516d \u5605 \u6578 \u64da \u7ffb \u57cb \u55f0 \u500b \u56db \u97c6 \u5206 \u9418 \u554a \u561b <eos>", 
+                    "rec_tokenid": "20 308 783 445 4842 783 595 308 557 434 871 2078 2020 3709 1014 862 330 956 5066 483 4885 783 882 5476", 
+                    "shape": [
+                        24, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u5440\u7121\u932f\u5440\u5373\u4fc2\u5305\u516dGB\u6578\u64da\u5305\u57cb\u55f0\u500b\u56db\u5343\u5206\u9418\u5440\u561b", 
+                    "token": "<D> \u4fc2 \u5440 \u7121 \u932f \u5440 \u5373 \u4fc2 \u5305 \u516d G B \u6578 \u64da \u5305 \u57cb \u55f0 \u500b \u56db \u5343 \u5206 \u9418 \u5440 \u561b", 
+                    "tokenid": "20 308 672 2816 4842 672 595 308 557 434 32 27 2078 2020 557 1014 862 330 956 1 483 4885 672 882"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_028127-028327": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u5462\u500b\u8a92\u5462\u500b\u5481\u8b1b\u5566<eos>", 
+                    "rec_token": "<D> \u8a92 \u5462 \u500b \u8a92 \u5462 \u500b \u5481 \u8b1b \u5566 <eos>", 
+                    "rec_tokenid": "20 4329 684 330 4329 684 330 699 4373 794 5476", 
+                    "shape": [
+                        9, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>\u54e9\u500b\u54e9\u500b\u5481\u8b1b\u5566", 
+                    "token": "<D> <SPK/> \u54e9 \u500b \u54e9 \u500b \u5481 \u8b1b \u5566", 
+                    "tokenid": "20 23 745 330 745 330 699 4373 794"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_035505-035717": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u771f\u4fc2\u4ffe\u7ffb\u7279\u5225\u4e0b\u6703\u5148\u6703\u6709\u5676\u556b<eos>", 
+                    "rec_token": "<D> \u771f \u4fc2 \u4ffe \u7ffb \u7279 \u5225 \u4e0b \u6703 \u5148 \u6703 \u6709 \u5676 \u556b <eos>", 
+                    "rec_tokenid": "20 3203 308 327 3709 2914 490 158 2197 420 2197 2199 921 797 5476", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>\u90fd\u4fc2\u4ffe\u756a\u7279\u5225\u5ba2\u6236\u5148\u6703\u6709\u5605\u59d0", 
+                    "token": "<D> \u90fd \u4fc2 \u4ffe \u756a \u7279 \u5225 \u5ba2 \u6236 \u5148 \u6703 \u6709 \u5605 \u59d0", 
+                    "tokenid": "20 4720 308 327 3083 2914 490 1278 1757 420 2197 2199 871 1162"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_038085-038260": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u800c\u4e14\u6211\u53ef\u4ee5\u4ffe\u7ffb\u9806\u5fc3\u4f60<eos>", 
+                    "rec_token": "<D> \u800c \u4e14 \u6211 \u53ef \u4ee5 \u4ffe \u7ffb \u9806 \u5fc3 \u4f60 <eos>", 
+                    "rec_tokenid": "20 3716 161 1743 632 239 327 3709 5085 1582 277 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>\u800c\u4e14\u6211\u53ef\u4ee5\u4ffe\u756a\u500b\u4fe1\u5fc3\u4f60", 
+                    "token": "<D> \u800c \u4e14 \u6211 \u53ef \u4ee5 \u4ffe \u756a \u500b \u4fe1 \u5fc3 \u4f60", 
+                    "tokenid": "20 3716 161 1743 632 239 327 3083 330 320 1582 277"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_041742-041857": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5514\u4fc2\u60f3\u52a0\u4fc2<eos>", 
+                    "rec_token": "<D> \u5514 \u4fc2 \u60f3 \u52a0 \u4fc2 <eos>", 
+                    "rec_tokenid": "20 766 308 1667 532 308 5476", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef\u4fc2", 
+                    "token": "<D> \u55ef \u4fc2", 
+                    "tokenid": "20 861 308"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_051950-052007": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5176\u5be6\u554f<eos>", 
+                    "rec_token": "<D> \u5176 \u5be6 \u554f <eos>", 
+                    "rec_tokenid": "20 439 1305 785 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u55ef", 
+                    "token": "<D> \u55ef", 
+                    "tokenid": "20 861"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "3_spk_3_059945-060335": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u7576\u4f60\u5462\u5169\u5e74\u5566\u5148\u5462\u5572\u5169\u500b\u6708\u5481\u4ffe\u5c08\u7d04\u53ef\u4ee5\u77e5\u554a<eos>", 
+                    "rec_token": "<D> \u7576 \u4f60 \u5462 \u5169 \u5e74 \u5566 \u5148 \u5462 \u5572 \u5169 \u500b \u6708 \u5481 \u4ffe \u5c08 \u7d04 \u53ef \u4ee5 \u77e5 \u554a <eos>", 
+                    "rec_tokenid": "20 3086 277 684 431 1467 794 420 684 800 431 330 2198 699 327 1322 3535 632 239 3256 783 5476", 
+                    "shape": [
+                        24, 
+                        5477
+                    ], 
+                    "text": "<D>\u5373\u4fc2\u54e9\u5169\u5373\u4fc2\u54e9\u54e9\u5169\u500b\u6708\u5c31\u5514\u6d17\u7c3d\u7d04\u5481\u5605\u610f\u601d\u4fc2\u54aa\u5440", 
+                    "token": "<D> \u5373 \u4fc2 \u54e9 \u5169 \u5373 \u4fc2 \u54e9 \u54e9 \u5169 \u500b \u6708 \u5c31 \u5514 \u6d17 \u7c3d \u7d04 \u5481 \u5605 \u610f \u601d \u4fc2 \u54aa \u5440", 
+                    "tokenid": "20 595 308 745 431 595 308 745 745 431 330 2198 1336 766 2563 3486 3535 699 871 1673 1606 308 715 672"
+                }
+            ], 
+            "utt2spk": "3_spk"
+        }, 
+        "4_spk_4_022105-022316": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u4f60\u76f4\u63a5\u5481\u7ffb\u569f\u5676\u554a\u9593\u70b8\u5546<eos>", 
+                    "rec_token": "<D> \u8a92 \u4f60 \u76f4 \u63a5 \u5481 \u7ffb \u569f \u5676 \u554a \u9593 \u70b8 \u5546 <eos>", 
+                    "rec_tokenid": "20 4329 277 3193 1898 699 3709 933 921 783 4923 2798 782 5476", 
+                    "shape": [
+                        18, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>\u4f60\u76f4\u63a5\u3a52\u756a\u4f60\u500bACCOUNT\u67e5\u8a62", 
+                    "token": "<D> <SPK/> \u4f60 \u76f4 \u63a5 \u3a52 \u756a \u4f60 \u500b A C C O U N T \u67e5 \u8a62", 
+                    "tokenid": "20 23 277 3193 1898 147 3083 277 330 26 28 28 40 46 39 45 2259 4310"
+                }
+            ], 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_032352-032422": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u5514\u5f97\u554a<eos>", 
+                    "rec_token": "<D> \u5481 \u5514 \u5f97 \u554a <eos>", 
+                    "rec_tokenid": "20 699 766 1567 783 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u5f97\u5514\u5f97\u5440", 
+                    "token": "<D> \u5f97 \u5514 \u5f97 \u5440", 
+                    "tokenid": "20 1567 766 1567 672"
+                }
+            ], 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_072588-072697": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6709\u554a<eos>", 
+                    "rec_token": "<D> \u6709 \u554a <eos>", 
+                    "rec_tokenid": "20 2199 783 5476", 
+                    "shape": [
+                        3, 
+                        5477
+                    ], 
+                    "text": "<D>\u6709\u5440", 
+                    "token": "<D> \u6709 \u5440", 
+                    "tokenid": "20 2199 672"
+                }
+            ], 
+            "utt2spk": "4_spk"
+        }, 
+        "4_spk_4_081312-081377": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6<eos>", 
+                    "rec_token": "<D> \u54e6 <eos>", 
+                    "rec_tokenid": "20 743 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u597d", 
+                    "token": "<D> \u597d", 
+                    "tokenid": "20 1135"
+                }
+            ], 
+            "utt2spk": "4_spk"
+        }, 
+        "8_spk_8_005127-005237": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u54e6OK<eos>", 
+                    "rec_token": "<D> \u54e6 O K <eos>", 
+                    "rec_tokenid": "20 743 40 36 5476", 
+                    "shape": [
+                        4, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6OK", 
+                    "token": "<D> \u54e6 O K", 
+                    "tokenid": "20 743 40 36"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_005972-006120": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u554a\u771f\u4fc2\u6e05\u695a\u5187\u5929<eos>", 
+                    "rec_token": "<D> \u554a \u771f \u4fc2 \u6e05 \u695a \u5187 \u5929 <eos>", 
+                    "rec_tokenid": "20 783 3203 308 2628 2335 445 1102 5476", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/><SPK/>\u807d\u5f97\u5514\u4fc2\u597d\u6e05\u695a\u5514\u597d\u610f\u601d", 
+                    "token": "<D> <SPK/> <SPK/> \u807d \u5f97 \u5514 \u4fc2 \u597d \u6e05 \u695a \u5514 \u597d \u610f \u601d", 
+                    "tokenid": "20 23 23 3741 1567 766 308 1135 2628 2335 766 1135 1673 1606"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_012802-013132": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f46\u4fc2\u6211\u90fd\u5514\u77e5\u5566\u5509\u5481\u6211\u540c\u4f60\u55f0\u5572\u554f\u5566\u540c\u4f60\u540c\u4e00\u6b21<eos>", 
+                    "rec_token": "<D> \u4f46 \u4fc2 \u6211 \u90fd \u5514 \u77e5 \u5566 \u5509 \u5481 \u6211 \u540c \u4f60 \u55f0 \u5572 \u554f \u5566 \u540c \u4f60 \u540c \u4e00 \u6b21 <eos>", 
+                    "rec_tokenid": "20 263 308 1743 4720 766 3256 794 759 699 1743 644 277 862 800 785 794 644 277 644 152 2422 5476", 
+                    "shape": [
+                        20, 
+                        5477
+                    ], 
+                    "text": "<D>\u5c31\u6536\u5514\u5230\u5566\u55f1\u800c\u5bb6\u6211\u540c\u4f60\u8b1b\u96fb\u8a71\u5462\u5c31\u4fc2\u7a97\u908a", 
+                    "token": "<D> \u5c31 \u6536 \u5514 \u5230 \u5566 \u55f1 \u800c \u5bb6 \u6211 \u540c \u4f60 \u8b1b \u96fb \u8a71 \u5462 \u5c31 \u4fc2 \u7a97 \u908a", 
+                    "tokenid": "20 1336 2054 766 494 794 863 3716 1 1743 644 277 4373 5023 4319 684 1336 308 3405 4694"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_021587-021887": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f46\u4fc2\u4e00\u5b9a\u4fc2\u5187\u5187\u5572\u5676\u4f62\u5187\u5481\u6a23\u5462<eos>", 
+                    "rec_token": "<D> \u4f46 \u4fc2 \u4e00 \u5b9a \u4fc2 \u5187 \u5187 \u5572 \u5676 \u4f62 \u5187 \u5481 \u6a23 \u5462 <eos>", 
+                    "rec_tokenid": "20 263 308 152 1275 308 445 445 800 921 279 445 699 2383 684 5476", 
+                    "shape": [
+                        16, 
+                        5477
+                    ], 
+                    "text": "<D>\u5c31\u4e00\u5b9a\u4fc2\u7121\u7121\u54e9\u500b\u8a0a\u865f\u90fd\u5514\u7dca\u8981\u5566", 
+                    "token": "<D> \u5c31 \u4e00 \u5b9a \u4fc2 \u7121 \u7121 \u54e9 \u500b \u8a0a \u865f \u90fd \u5514 \u7dca \u8981 \u5566", 
+                    "tokenid": "20 1336 152 1275 308 2816 2816 745 330 4278 4088 4720 766 3599 4253 794"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_030870-030937": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u4f62\u5514\u5230<eos>", 
+                    "rec_token": "<D> \u4fc2 \u4f62 \u5514 \u5230 <eos>", 
+                    "rec_tokenid": "20 308 279 766 494 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u807d\u5514\u5230", 
+                    "token": "<D> \u4fc2 \u807d \u5514 \u5230", 
+                    "tokenid": "20 308 3741 766 494"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_033307-033472": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u554a\u4eca\u500b\u7a7f\u5f97\u9060<eos>", 
+                    "rec_token": "<D> \u554a \u4eca \u500b \u7a7f \u5f97 \u9060 <eos>", 
+                    "rec_tokenid": "20 783 226 330 3398 1567 4673 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u5fb7\u6717\u90a8\u8ddf\u4f4f\u5462", 
+                    "token": "<D> \u54e6 \u5fb7 \u6717 \u90a8 \u8ddf \u4f4f \u5462", 
+                    "tokenid": "20 743 1579 2204 4702 4511 267 684"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_065650-066215": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u807d\u5230\u98df\u55f0\u500b\u7d50\u9f63\u55f0\u5e74\u90fd\u4fc2\u4e00\u5b9a\u6642\u6703\u4ffe\u4f60\u4eca\u6b21\u4fc2\u5f37\u5605\u5481\u5462\u500b\u58de\u4f60\u5f97\u5b9a\u4fc2\u5566\u56e0\u70ba\u5462\u6b21\u54af<eos>", 
+                    "rec_token": "<D> \u6211 \u807d \u5230 \u98df \u55f0 \u500b \u7d50 \u9f63 \u55f0 \u5e74 \u90fd \u4fc2 \u4e00 \u5b9a \u6642 \u6703 \u4ffe \u4f60 \u4eca \u6b21 \u4fc2 \u5f37 \u5605 \u5481 \u5462 \u500b \u58de \u4f60 \u5f97 \u5b9a \u4fc2 \u5566 \u56e0 \u70ba \u5462 \u6b21 \u54af <eos>", 
+                    "rec_tokenid": "20 1743 3741 494 5129 862 330 3564 5370 862 1467 4720 308 152 1275 2135 2197 327 277 226 2422 308 1535 871 699 684 330 1081 277 1567 1275 308 794 958 2799 684 2422 718 5476", 
+                    "shape": [
+                        34, 
+                        5477
+                    ], 
+                    "text": "<D>\u6216\u8005\u4fc2\u55f0\u500b\u63a5\u6536\u65b9\u9762\u5566\u4e00\u5b9a\u4fc2\u6703\u6bd43G\u4fc2\u5f37\u5605\u5481\u54e9\u500b\u4fc2\u4e00\u5b9a\u35ce\u5566\u56e0\u70ba\u4f60\u59cb\u7d42", 
+                    "token": "<D> \u6216 \u8005 \u4fc2 \u55f0 \u500b \u63a5 \u6536 \u65b9 \u9762 \u5566 \u4e00 \u5b9a \u4fc2 \u6703 \u6bd4 3 G \u4fc2 \u5f37 \u5605 \u5481 \u54e9 \u500b \u4fc2 \u4e00 \u5b9a \u35ce \u5566 \u56e0 \u70ba \u4f60 \u59cb \u7d42", 
+                    "tokenid": "20 1745 3714 308 862 330 1898 2054 2097 1 794 152 1275 308 2197 2475 11 32 308 1535 871 699 745 330 308 152 1275 142 794 958 2799 277 1160 3561"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_066220-066585": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f46\u4fc2\u800c\u50a2\u554a\u4f46\u4fc2\u6211\u54cb\u61c9\u8a72\u5230\u5341\u56db\u4f46\u4fc2\u908a\u500b\u4e0a\u90fd\u4fc2\u666e\u53ca\u5230\u56dbG\u5566<eos>", 
+                    "rec_token": "<D> \u4f46 \u4fc2 \u800c \u50a2 \u554a \u4f46 \u4fc2 \u6211 \u54cb \u61c9 \u8a72 \u5230 \u5341 \u56db \u4f46 \u4fc2 \u908a \u500b \u4e0a \u90fd \u4fc2 \u666e \u53ca \u5230 \u56db G \u5566 <eos>", 
+                    "rec_tokenid": "20 263 308 3716 373 783 263 308 1743 735 1727 4320 494 574 956 263 308 4694 330 157 4720 308 2150 614 494 956 32 794 5476", 
+                    "shape": [
+                        22, 
+                        5477
+                    ], 
+                    "text": "<D><SPK/>\u800c\u5bb6\u5927\u6211\u54cb\u500b\u767c\u5c04\u7ad9\u57fa\u672c\u4e0a\u90fd\u4fc2\u666e\u53ca\u52304G\u5566", 
+                    "token": "<D> <SPK/> \u800c \u5bb6 \u5927 \u6211 \u54cb \u500b \u767c \u5c04 \u7ad9 \u57fa \u672c \u4e0a \u90fd \u4fc2 \u666e \u53ca \u5230 4 G \u5566", 
+                    "tokenid": "20 23 3716 1 1101 1743 735 330 3154 1320 3422 1027 2213 157 4720 308 2150 614 494 12 32 794"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "8_spk_8_084425-084525": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u5481\u6211\u89ba\u5f97\u5481\u4f60\u5c31<eos>", 
+                    "rec_token": "<D> \u5481 \u6211 \u89ba \u5f97 \u5481 \u4f60 \u5c31 <eos>", 
+                    "rec_tokenid": "20 699 1743 4266 1567 699 277 1336 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u5514\u8a72\u4f60\u5148", 
+                    "token": "<D> \u5514 \u8a72 \u4f60 \u5148", 
+                    "tokenid": "20 766 4320 277 420"
+                }
+            ], 
+            "utt2spk": "8_spk"
+        }, 
+        "9_spk_9_001625-001914": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f60\u5230\u7d05\u5622\u5462\u6559\u6211\u6703\u5373\u55f0\u500bSETTIC<eos>", 
+                    "rec_token": "<D> \u4f60 \u5230 \u7d05 \u5622 \u5462 \u6559 \u6211 \u6703 \u5373 \u55f0 \u500b S E T T I C <eos>", 
+                    "rec_tokenid": "20 277 494 3536 886 684 2068 1743 2197 595 862 330 44 30 45 45 34 28 5476", 
+                    "shape": [
+                        22, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f60\u54cb\u540c\u4e8b\u5462\u6559\u6211RESET\u55f0\u500bSETTING", 
+                    "token": "<D> \u4f60 \u54cb \u540c \u4e8b \u5462 \u6559 \u6211 R E S E T \u55f0 \u500b S E T T I N G", 
+                    "tokenid": "20 277 735 644 202 684 2068 1743 43 30 44 30 45 862 330 44 30 45 45 34 39 32"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_002687-003017": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92\u6211\u5514\u4fc2\u554a\u6211\u5df2\u7d93\u5514\u77e5SET\u7ffb\u672a\u554a\u4e09\u5206\u660e\u5605\u72c0\u724c\u5148<eos>", 
+                    "rec_token": "<D> \u8a92 \u6211 \u5514 \u4fc2 \u554a \u6211 \u5df2 \u7d93 \u5514 \u77e5 S E T \u7ffb \u672a \u554a \u4e09 \u5206 \u660e \u5605 \u72c0 \u724c \u5148 <eos>", 
+                    "rec_tokenid": "20 4329 1743 766 308 783 1743 1427 3583 766 3256 44 30 45 3709 2211 783 156 483 2122 871 2923 2902 420 5476", 
+                    "shape": [
+                        25, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u7121\u554f\u984c\u6211\u54e9\u908a<SPK/>\u756a\u4f60\u500bACCOUNT\u65b9\u9762\u500b\u72c0\u614b\u5148", 
+                    "token": "<D> \u4fc2 \u7121 \u554f \u984c \u6211 \u54e9 \u908a <SPK/> \u756a \u4f60 \u500b A C C O U N T \u65b9 \u9762 \u500b \u72c0 \u614b \u5148", 
+                    "tokenid": "20 308 2816 785 5105 1743 745 4694 23 3083 277 330 26 28 28 40 46 39 45 2097 1 330 2923 1686 420"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_008760-008915": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u554a\u660e\u767d\u5605<eos>", 
+                    "rec_token": "<D> \u554a \u660e \u767d \u5605 <eos>", 
+                    "rec_tokenid": "20 783 2122 3155 871 5476", 
+                    "shape": [
+                        5, 
+                        5477
+                    ], 
+                    "text": "<D>\u54e6\u660e\u767d\u5605", 
+                    "token": "<D> \u54e6 \u660e \u767d \u5605", 
+                    "tokenid": "20 743 2122 3155 871"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_014040-014194": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u61c9\u8a72\u5c31\u592a\u4e0a\u5462\u500b\u53ef\u80fd<eos>", 
+                    "rec_token": "<D> \u6211 \u61c9 \u8a72 \u5c31 \u592a \u4e0a \u5462 \u500b \u53ef \u80fd <eos>", 
+                    "rec_tokenid": "20 1743 1727 4320 1336 1103 157 684 330 632 3779 5476", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>\u61c9\u8a72\u5c31\u6392\u9664\u54e9\u500b\u53ef\u80fd\u6027", 
+                    "token": "<D> \u61c9 \u8a72 \u5c31 \u6392 \u9664 \u54e9 \u500b \u53ef \u80fd \u6027", 
+                    "tokenid": "20 1727 4320 1336 1887 4971 745 330 632 3779 1611"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_015300-015360": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u6211\u6703<eos>", 
+                    "rec_token": "<D> \u6211 \u6703 <eos>", 
+                    "rec_tokenid": "20 1743 2197 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u5662", 
+                    "token": "<D> \u5662", 
+                    "tokenid": "20 912"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_021077-021217": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4f60\u4fc2\u54aa\u4e00\u5572\u4fbf\u5514\u8cb4\u5566<eos>", 
+                    "rec_token": "<D> \u4f60 \u4fc2 \u54aa \u4e00 \u5572 \u4fbf \u5514 \u8cb4 \u5566 <eos>", 
+                    "rec_tokenid": "20 277 308 715 152 800 307 766 4440 794 5476", 
+                    "shape": [
+                        12, 
+                        5477
+                    ], 
+                    "text": "<D>\u4f60\u4fc2\u54aa\u500b\u5572\u5e73PLAN\u5440", 
+                    "token": "<D> \u4f60 \u4fc2 \u54aa \u500b \u5572 \u5e73 P L A N \u5440", 
+                    "tokenid": "20 277 308 715 330 800 1466 41 37 26 39 672"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_025045-025105": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u8a92<eos>", 
+                    "rec_token": "<D> \u8a92 <eos>", 
+                    "rec_tokenid": "20 4329 5476", 
+                    "shape": [
+                        2, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2", 
+                    "token": "<D> \u4fc2", 
+                    "tokenid": "20 308"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_027805-028005": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u55ef\u4fc2\u53bbJANILO\u55f0\u5ea6\u554a<eos>", 
+                    "rec_token": "<D> \u55ef \u4fc2 \u53bb J A N I L O \u55f0 \u5ea6 \u554a <eos>", 
+                    "rec_tokenid": "20 861 308 607 35 26 39 34 37 40 862 1484 783 5476", 
+                    "shape": [
+                        14, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u54aa\u53bbGENERAL\u500b\u5230\u5440", 
+                    "token": "<D> \u4fc2 \u54aa \u53bb G E N E R A L \u500b \u5230 \u5440", 
+                    "tokenid": "20 308 715 607 32 30 39 30 43 26 37 330 494 672"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_032200-032297": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u771f\u4fc2\u4ffe\u4eba\u8a71<eos>", 
+                    "rec_token": "<D> \u771f \u4fc2 \u4ffe \u4eba \u8a71 <eos>", 
+                    "rec_tokenid": "20 3203 308 327 221 4319 5476", 
+                    "shape": [
+                        8, 
+                        5477
+                    ], 
+                    "text": "<D>SET\u5497\u5605\u8a71\u5c31", 
+                    "token": "<D> S E T \u5497 \u5605 \u8a71 \u5c31", 
+                    "tokenid": "20 44 30 45 710 871 4319 1336"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_055005-055205": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u800c\u50a2\u53ef\u80fd\u6703\u53bb\u5f97\u6bd4\u8f03\u60f3<eos>", 
+                    "rec_token": "<D> \u800c \u50a2 \u53ef \u80fd \u6703 \u53bb \u5f97 \u6bd4 \u8f03 \u60f3 <eos>", 
+                    "rec_tokenid": "20 3716 373 632 3779 2197 607 1567 2475 4572 1667 5476", 
+                    "shape": [
+                        11, 
+                        5477
+                    ], 
+                    "text": "<D>\u6642\u9593\u53ef\u80fd\u6703\u8017\u5f97\u6bd4\u8f03\u9577", 
+                    "token": "<D> \u6642 \u9593 \u53ef \u80fd \u6703 \u8017 \u5f97 \u6bd4 \u8f03 \u9577", 
+                    "tokenid": "20 2135 4923 632 3779 2197 3720 1567 2475 4572 4913"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_055205-055611": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u7ffb\u5c11\u5c11\u6211\u4ffe\u4eba\u5c31\u8a71\u5f97\u5481\u6211\u4e2d\u5b78\u5730\u9ede\u7559\u7ffb\u4ffe\u4f60\u5605\u96fb\u8a71\u865f\u78bc<eos>", 
+                    "rec_token": "<D> \u7ffb \u5c11 \u5c11 \u6211 \u4ffe \u4eba \u5c31 \u8a71 \u5f97 \u5481 \u6211 \u4e2d \u5b78 \u5730 \u9ede \u7559 \u7ffb \u4ffe \u4f60 \u5605 \u96fb \u8a71 \u865f \u78bc <eos>", 
+                    "rec_tokenid": "20 3709 1330 1330 1743 327 221 1336 4319 1567 699 1743 171 1259 982 5350 3078 3709 327 277 871 5023 4319 4088 3301 5476", 
+                    "shape": [
+                        21, 
+                        5477
+                    ], 
+                    "text": "<D>\u5dee\u5c11\u5c11<SPK/>\u5481\u6216\u8005\u6211\u54cb\u54e9\u908a\u7559\u756a\u4f4e\u4f60\u5605\u96fb\u8a71\u865f\u78bc", 
+                    "token": "<D> \u5dee \u5c11 \u5c11 <SPK/> \u5481 \u6216 \u8005 \u6211 \u54cb \u54e9 \u908a \u7559 \u756a \u4f4e \u4f60 \u5605 \u96fb \u8a71 \u865f \u78bc", 
+                    "tokenid": "20 1425 1330 1330 23 699 1745 3714 1743 735 745 4694 3078 3083 266 277 871 5023 4319 4088 3301"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }, 
+        "9_spk_9_060308-060751": {
+            "output": [
+                {
+                    "name": "target1", 
+                    "rec_text": "<D>\u4fc2\u554a\u5481\u4f62\u54cb\u4f62\u6b7b\u55f0\u9663\u6642\u9593\u53bb\u5230\u5462\u500b\u4fc2\u665a\u4e0a\u5341\u9ede\u90fd\u4fc2\u6b63\u5f0f\u90fd\u4fc2<eos>", 
+                    "rec_token": "<D> \u4fc2 \u554a \u5481 \u4f62 \u54cb \u4f62 \u6b7b \u55f0 \u9663 \u6642 \u9593 \u53bb \u5230 \u5462 \u500b \u4fc2 \u665a \u4e0a \u5341 \u9ede \u90fd \u4fc2 \u6b63 \u5f0f \u90fd \u4fc2 <eos>", 
+                    "rec_tokenid": "20 308 783 699 279 735 279 2450 862 4970 2135 4923 607 494 684 330 308 2141 157 574 5350 4720 308 2438 1520 4720 308 5476", 
+                    "shape": [
+                        30, 
+                        5477
+                    ], 
+                    "text": "<D>\u4fc2\u5566\u5481\u5176\u5be6\u4f62\u54e9\u500b\u71df\u696d\u6642\u9593\u53bb\u5230\u54e9\u500b\u4fc2\u665a\u4e0a\u5341\u9ede\u90fd\u4fc2\u6b63\u5f0f\u90fd\u4fc2\u6b63\u5f0f", 
+                    "token": "<D> \u4fc2 \u5566 \u5481 \u5176 \u5be6 \u4f62 \u54e9 \u500b \u71df \u696d \u6642 \u9593 \u53bb \u5230 \u54e9 \u500b \u4fc2 \u665a \u4e0a \u5341 \u9ede \u90fd \u4fc2 \u6b63 \u5f0f \u90fd \u4fc2 \u6b63 \u5f0f", 
+                    "tokenid": "20 308 794 699 439 1305 279 745 330 2872 2341 2135 4923 607 494 745 330 308 2141 157 574 5350 4720 308 2438 1520 4720 308 2438 1520"
+                }
+            ], 
+            "utt2spk": "9_spk"
+        }
+    }
+}
