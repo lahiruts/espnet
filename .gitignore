@@ -1,8 +1,12 @@
-B*~
+*~
 *.pyc
 \#*\#
 .\#*
 *DS_Store
+slurm-*.out
+.eggs/
+.pytest_cache/
+espnet.egg-info/
 
 doc/_build
 
@@ -13,12 +17,12 @@ egs/*/*/downloads
 egs/*/*/dump
 egs/*/*/exp
 egs/*/*/fbank
+egs/*/*/mfcc
 egs/*/*/stft
 egs/*/*/enhan
 egs/*/*/wav*
 
 # tools related
-src/utils/kaldi_io_py.py
 tools/kaldi
 tools/kaldi-io-for-python/
 tools/kaldi_github/
@@ -32,5 +36,5 @@ tools/nkf*
 tools/chainer_ctc*
 tools/warp-ctc*
 tools/sentencepiece/*
-
-.pytest_cache
+tools/moses
+tools/*.done
