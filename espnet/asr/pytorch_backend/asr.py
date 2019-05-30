@@ -195,7 +195,9 @@ class CustomConverter(object):
         # perform padding and convert to tensor
         xs_pad = pad_list([torch.from_numpy(x).float() for x in xs], 0).to(device)
         ilens = torch.from_numpy(ilens).to(device)
-        ys_pad = pad_list([torch.from_numpy(y).long() for y in ys], self.ignore_id).to(device)
+        # NOTE: this is for multi-task learning (e.g., speech translation)
+        ys_pad = pad_list([torch.from_numpy(np.array(y[0]) if isinstance(y, tuple) else y).long()
+                           for y in ys], self.ignore_id).to(device)
 
         return xs_pad, ilens, ys_pad
 
@@ -412,7 +414,7 @@ def train(args):
     set_early_stop(trainer, args)
 
     if args.tensorboard_dir is not None and args.tensorboard_dir != "":
-        writer = SummaryWriter(log_dir=args.tensorboard_dir)
+        writer = SummaryWriter(args.tensorboard_dir)
         trainer.extend(TensorboardLogger(writer, att_reporter))
     # Run the training
     trainer.run()
