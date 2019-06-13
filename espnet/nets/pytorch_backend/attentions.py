@@ -368,7 +368,7 @@ class AttFactorizedLoc(torch.nn.Module):
         if self.global_attention is None:
             # pre-compute the global attention
             gt_1 = torch.tanh(self.global_attention_mlp_1(self.enc_h))
-            gt_2 = self.global_attention_mlp_2(gt_1)
+            gt_2 = self.global_attention_mlp_2(gt_1).squeeze(2)
             # NOTE consider zero padding when compute gt_3.
             gt_2.masked_fill_(self.mask, -float('inf'))
             global_w = F.softmax(scaling * gt_2, dim=1)
