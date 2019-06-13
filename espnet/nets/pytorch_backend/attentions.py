@@ -408,7 +408,7 @@ class AttFactorizedLoc(torch.nn.Module):
         # utt x hdim
         c = torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
 
-        return c, w, self.global_attention, global_w
+        return c, w, self.global_attention, self.global_w
 
 
 class AttCov(torch.nn.Module):
