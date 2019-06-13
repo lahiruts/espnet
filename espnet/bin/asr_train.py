@@ -77,10 +77,12 @@ def main(cmd_args):
                         choices=['noatt', 'dot', 'add', 'location', 'coverage',
                                  'coverage_location', 'location2d', 'location_recurrent',
                                  'multi_head_dot', 'multi_head_add', 'multi_head_loc',
-                                 'multi_head_multi_res_loc'],
+                                 'multi_head_multi_res_loc', 'factorized_location'],
                         help='Type of attention architecture')
     parser.add_argument('--adim', default=320, type=int,
                         help='Number of attention transformation dimensions')
+    parser.add_argument('--gatt-dim', default=0, type=int,
+                        help='Number of global attention transformation dimensions')
     parser.add_argument('--awin', default=5, type=int,
                         help='Window size for location2d attention')
     parser.add_argument('--aheads', default=4, type=int,
