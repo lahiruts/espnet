@@ -339,6 +339,7 @@ class AttFactorizedLoc(torch.nn.Module):
         self.pre_compute_enc_h = None
         self.mask = None
         self.global_attention = None
+        self.global_w = None
 
     def forward(self, enc_hs_pad, enc_hs_len, dec_z, att_prev, scaling=2.0):
         """AttLoc forward
