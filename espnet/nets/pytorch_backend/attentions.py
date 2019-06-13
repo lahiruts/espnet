@@ -372,8 +372,8 @@ class AttFactorizedLoc(torch.nn.Module):
             gt_2 = self.global_attention_mlp_2(gt_1).squeeze(2)
             # NOTE consider zero padding when compute gt_3.
             gt_2.masked_fill_(self.mask, -float('inf'))
-            global_w = F.softmax(scaling * gt_2, dim=1)
-            self.global_attention = torch.sum(self.enc_h * global_w.view(batch, self.h_length, 1), dim=1)
+            self.global_w = F.softmax(scaling * gt_2, dim=1)
+            self.global_attention = torch.sum(self.enc_h * self.global_w.view(batch, self.h_length, 1), dim=1)
 
         if dec_z is None:
             dec_z = enc_hs_pad.new_zeros(batch, self.dunits)
