@@ -297,6 +297,119 @@ class AttLoc(torch.nn.Module):
         return c, w
 
 
+class AttFactorizedLoc(torch.nn.Module):
+    """location-aware attention
+
+    Reference: Attention-Based Models for Speech Recognition
+        (https://arxiv.org/pdf/1506.07503.pdf)
+
+    :param int eprojs: # projection-units of encoder
+    :param int dunits: # units of decoder
+    :param int att_dim: attention dimension
+    :param int aconv_chans: # channels of attention convolution
+    :param int aconv_filts: filter size of attention convolution
+    """
+
+    def __init__(self, eprojs, dunits, att_dim, aconv_chans, aconv_filts, gatt_dim):
+        super(AttFactorizedLoc, self).__init__()
+        self.mlp_enc = torch.nn.Linear(eprojs, att_dim)
+        self.mlp_dec = torch.nn.Linear(dunits, att_dim, bias=False)
+        self.mlp_att = torch.nn.Linear(aconv_chans, att_dim, bias=False)
+        self.loc_conv = torch.nn.Conv2d(
+            1, aconv_chans, (1, 2 * aconv_filts + 1), padding=(0, aconv_filts), bias=False)
+        self.gvec = torch.nn.Linear(att_dim, 1)
+
+        self.dunits = dunits
+        self.eprojs = eprojs
+        self.att_dim = att_dim
+        self.h_length = None
+        self.enc_h = None
+        self.pre_compute_enc_h = None
+        self.mask = None
+
+        self.global_attention_mlp_1 = torch.nn.Linear(eprojs, gatt_dim, bias=False)
+        self.global_attention_mlp_2 = torch.nn.Linear(gatt_dim, 1, bias=False)
+        self.gatt_dim = gatt_dim
+        self.global_attention = None
+
+    def reset(self):
+        """reset states"""
+        self.h_length = None
+        self.enc_h = None
+        self.pre_compute_enc_h = None
+        self.mask = None
+        self.global_attention = None
+
+    def forward(self, enc_hs_pad, enc_hs_len, dec_z, att_prev, scaling=2.0):
+        """AttLoc forward
+
+        :param torch.Tensor enc_hs_pad: padded encoder hidden state (B x T_max x D_enc)
+        :param list enc_hs_len: padded encoder hidden state length (B)
+        :param torch.Tensor dec_z: decoder hidden state (B x D_dec)
+        :param torch.Tensor att_prev: previous attention weight (B x T_max)
+        :param float scaling: scaling parameter before applying softmax
+        :return: attention weighted encoder state (B, D_enc)
+        :rtype: torch.Tensor
+        :return: previous attention weights (B x T_max)
+        :rtype: torch.Tensor
+        """
+        batch = len(enc_hs_pad)
+
+        # pre-compute all h outside the decoder loop
+        if self.pre_compute_enc_h is None:
+            self.enc_h = enc_hs_pad  # utt x frame x hdim
+            self.h_length = self.enc_h.size(1)
+            # utt x frame x att_dim
+            self.pre_compute_enc_h = self.mlp_enc(self.enc_h)
+
+        if self.mask is None:
+            self.mask = to_device(self, make_pad_mask(enc_hs_len))
+
+        if self.global_attention is None:
+            # pre-compute the global attention
+            gt_1 = torch.tanh(self.global_attention_mlp_1(self.enc_h))
+            gt_2 = self.global_attention_mlp_2(gt_1)
+            # NOTE consider zero padding when compute gt_3.
+            gt_2.masked_fill_(self.mask, -float('inf'))
+            global_w = F.softmax(scaling * gt_2, dim=1)
+            self.global_attention = torch.sum(self.enc_h * global_w.view(batch, self.h_length, 1), dim=1)
+
+        if dec_z is None:
+            dec_z = enc_hs_pad.new_zeros(batch, self.dunits)
+        else:
+            dec_z = dec_z.view(batch, self.dunits)
+
+        # initialize attention weight with uniform dist.
+        if att_prev is None:
+            # if no bias, 0 0-pad goes 0
+            att_prev = to_device(self, (1. - make_pad_mask(enc_hs_len).float()))
+            att_prev = att_prev / att_prev.new(enc_hs_len).unsqueeze(-1)
+
+        # att_prev: utt x frame -> utt x 1 x 1 x frame -> utt x att_conv_chans x 1 x frame
+        att_conv = self.loc_conv(att_prev.view(batch, 1, 1, self.h_length))
+        # att_conv: utt x att_conv_chans x 1 x frame -> utt x frame x att_conv_chans
+        att_conv = att_conv.squeeze(2).transpose(1, 2)
+        # att_conv: utt x frame x att_conv_chans -> utt x frame x att_dim
+        att_conv = self.mlp_att(att_conv)
+
+        # dec_z_tiled: utt x frame x att_dim
+        dec_z_tiled = self.mlp_dec(dec_z).view(batch, 1, self.att_dim)
+
+        # dot with gvec
+        # utt x frame x att_dim -> utt x frame
+        e = self.gvec(torch.tanh(att_conv + self.pre_compute_enc_h + dec_z_tiled)).squeeze(2)
+
+        # NOTE consider zero padding when compute w.
+        e.masked_fill_(self.mask, -float('inf'))
+        w = F.softmax(scaling * e, dim=1)
+
+        # weighted sum over flames
+        # utt x hdim
+        c = torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
+
+        return c, w, self.global_attention, global_w
+
+
 class AttCov(torch.nn.Module):
     """Coverage mechanism attention
 
@@ -1419,6 +1532,9 @@ def att_for(args, num_att=1):
             att = AttMultiHeadMultiResLoc(args.eprojs, args.dunits,
                                           args.aheads, args.adim, args.adim,
                                           args.aconv_chans, args.aconv_filts)
+        elif args.atype == 'factorized_location':
+            att = AttFactorizedLoc(args.eprojs, args.dunits,
+                         args.adim, args.aconv_chans, args.aconv_filts, args.gatt_dim)
         att_list.append(att)
     return att_list
 

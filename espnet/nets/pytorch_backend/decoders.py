@@ -49,7 +49,7 @@ class Decoder(torch.nn.Module):
 
     def __init__(self, eprojs, odim, dtype, dlayers, dunits, sos, eos, att, verbose=0,
                  char_list=None, labeldist=None, lsm_weight=0., sampling_probability=0.0,
-                 dropout=0.0):
+                 dropout=0.0, gatt_dim=0):
         super(Decoder, self).__init__()
         self.dtype = dtype
         self.dunits = dunits
@@ -59,8 +59,14 @@ class Decoder(torch.nn.Module):
 
         self.decoder = torch.nn.ModuleList()
         self.dropout_dec = torch.nn.ModuleList()
-        self.decoder += [
-            torch.nn.LSTMCell(dunits + eprojs, dunits) if self.dtype == "lstm" else torch.nn.GRUCell(dunits + eprojs,
+        if gatt_dim:
+            self.decoder += [
+                torch.nn.LSTMCell(dunits + 2 * eprojs, dunits) if self.dtype == "lstm" else torch.nn.GRUCell(
+                    dunits + 2 * eprojs,
+                    dunits)]
+        else:
+            self.decoder += [
+                torch.nn.LSTMCell(dunits + eprojs, dunits) if self.dtype == "lstm" else torch.nn.GRUCell(dunits + eprojs,
                                                                                                      dunits)]
         self.dropout_dec += [torch.nn.Dropout(p=dropout)]
         for _ in six.moves.range(1, self.dlayers):
@@ -87,6 +93,8 @@ class Decoder(torch.nn.Module):
         self.lsm_weight = lsm_weight
         self.sampling_probability = sampling_probability
         self.dropout = dropout
+
+        self.gatt_dim = gatt_dim
 
         self.logzero = -10000000000.0
 
@@ -159,7 +167,10 @@ class Decoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w = self.att[att_idx](hs_pad, hlens, self.dropout_dec[0](z_list[0]), att_w)
+            if self.gatt_dim == 0:
+                att_c, att_w = self.att[att_idx](hs_pad, hlens, self.dropout_dec[0](z_list[0]), att_w)
+            else:
+                att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hlens, self.dropout_dec[0](z_list[0]), att_w, self.gatt_dim)
             if i > 0 and random.random() < self.sampling_probability:
                 logging.info(' scheduled sampling ')
                 z_out = self.output(z_all[-1])
@@ -168,6 +179,9 @@ class Decoder(torch.nn.Module):
                 ey = torch.cat((z_out, att_c), dim=1)  # utt x (zdim + hdim)
             else:
                 ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
+
+            if self.gatt_dim:   # concat with the global context vector.
+                ey = torch.cat((ey, gatt_c), dim=1)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             z_all.append(self.dropout_dec[-1](z_list[-1]))
 
@@ -639,4 +653,4 @@ class Decoder(torch.nn.Module):
 def decoder_for(args, odim, sos, eos, att, labeldist):
     return Decoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.verbose,
                    args.char_list, labeldist,
-                   args.lsm_weight, args.sampling_probability, args.dropout_rate_decoder)
+                   args.lsm_weight, args.sampling_probability, args.dropout_rate_decoder, args.gatt_dim)
