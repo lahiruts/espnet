@@ -299,7 +299,7 @@ class Decoder(torch.nn.Module):
                 if self.gatt_dim:
                     att_c, att_w, gatt_c, gatt_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
                                                  self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'], self.gatt_dim)
-                    att_c = torch.cat((att_c, att_w), dim=1)
+                    att_c = torch.cat((att_c, gatt_c), dim=1)
 
                 else:
                     att_c, att_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
