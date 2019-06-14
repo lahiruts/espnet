@@ -23,6 +23,7 @@ from espnet.nets.pytorch_backend.nets_utils import mask_by_length
 from espnet.nets.pytorch_backend.nets_utils import pad_list
 from espnet.nets.pytorch_backend.nets_utils import th_accuracy
 from espnet.nets.pytorch_backend.nets_utils import to_device
+from espnet.nets.pytorch_backend.attentions import AttFactorizedLoc
 
 MAX_DECODER_OUTPUT = 5
 CTC_SCORING_RATIO = 1.5
@@ -284,6 +285,7 @@ class Decoder(torch.nn.Module):
         hyps = [hyp]
         ended_hyps = []
 
+
         for i in six.moves.range(maxlen):
             logging.debug('position ' + str(i))
 
@@ -293,8 +295,16 @@ class Decoder(torch.nn.Module):
                 vy[0] = hyp['yseq'][i]
                 ey = self.dropout_emb(self.embed(vy))  # utt list (1) x zdim
                 ey.unsqueeze(0)
-                att_c, att_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
+
+                if self.gatt_dim:
+                    att_c, att_w, gatt_c, gatt_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
+                                                 self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'], self.gatt_dim)
+                    att_c = torch.cat((att_c, att_w), dim=1)
+
+                else:
+                    att_c, att_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
                                                  self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'])
+
                 ey = torch.cat((ey, att_c), dim=1)  # utt(1) x (zdim + hdim)
                 z_list, c_list = self.rnn_forward(ey, z_list, c_list, hyp['z_prev'], hyp['c_prev'])
 
@@ -633,8 +643,11 @@ class Decoder(torch.nn.Module):
             z_list.append(self.zero_state(hs_pad))
         att_w = None
         att_ws = []
+        factorized_att = False
         self.att[att_idx].reset()  # reset pre-computation of h
 
+        if isinstance(self.att[att_idx], AttFactorizedLoc):
+            factorized_att = True  # TODO implement this for AttFactorizedLoc
         # pre-computation of embedding
         eys = self.dropout_emb(self.embed(ys_in_pad))  # utt x olen x zdim
 
