@@ -93,6 +93,10 @@ def main(cmd_args):
     parser.add_argument('--aconv-filts', default=100, type=int,
                         help='Number of attention convolution filters \
                         (negative value indicates no location-aware attention)')
+    parser.add_argument('--att-scale', default=2.0, type=float,
+                        help='Scale factor attention softmax')
+    parser.add_argument('--gatt-scale', default=0.5, type=float,
+                        help='Scale factor global attention softmax')
     parser.add_argument('--spa', action='store_true',
                         help='Enable speaker parallel attention.')
     # decoder

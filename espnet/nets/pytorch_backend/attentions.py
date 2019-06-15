@@ -310,7 +310,7 @@ class AttFactorizedLoc(torch.nn.Module):
     :param int aconv_filts: filter size of attention convolution
     """
 
-    def __init__(self, eprojs, dunits, att_dim, aconv_chans, aconv_filts, gatt_dim):
+    def __init__(self, eprojs, dunits, att_dim, aconv_chans, aconv_filts, gatt_dim, att_scale, gatt_scale):
         super(AttFactorizedLoc, self).__init__()
         self.mlp_enc = torch.nn.Linear(eprojs, att_dim)
         self.mlp_dec = torch.nn.Linear(dunits, att_dim, bias=False)
@@ -331,6 +331,9 @@ class AttFactorizedLoc(torch.nn.Module):
         self.global_attention_mlp_2 = torch.nn.Linear(gatt_dim, 1, bias=False)
         self.gatt_dim = gatt_dim
         self.global_attention = None
+
+        self.att_scale = att_scale
+        self.gatt_scale = gatt_scale
 
     def reset(self):
         """reset states"""
@@ -372,7 +375,7 @@ class AttFactorizedLoc(torch.nn.Module):
             gt_2 = self.global_attention_mlp_2(gt_1).squeeze(2)
             # NOTE consider zero padding when compute gt_3.
             gt_2.masked_fill_(self.mask, -float('inf'))
-            self.global_w = F.softmax(scaling * gt_2, dim=1)
+            self.global_w = F.softmax(self.gatt_scale * gt_2, dim=1)
             self.global_attention = torch.sum(self.enc_h * self.global_w.view(batch, self.h_length, 1), dim=1)
 
         if dec_z is None:
@@ -402,7 +405,7 @@ class AttFactorizedLoc(torch.nn.Module):
 
         # NOTE consider zero padding when compute w.
         e.masked_fill_(self.mask, -float('inf'))
-        w = F.softmax(scaling * e, dim=1)
+        w = F.softmax(self.att_scale * e, dim=1)
 
         # weighted sum over flames
         # utt x hdim
@@ -1535,7 +1538,7 @@ def att_for(args, num_att=1):
                                           args.aconv_chans, args.aconv_filts)
         elif args.atype == 'factorized_location':
             att = AttFactorizedLoc(args.eprojs, args.dunits,
-                         args.adim, args.aconv_chans, args.aconv_filts, args.gatt_dim)
+                         args.adim, args.aconv_chans, args.aconv_filts, args.gatt_dim, args.att_scale, args.gatt_scale)
         att_list.append(att)
     return att_list
 
