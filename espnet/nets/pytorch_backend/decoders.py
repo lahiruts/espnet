@@ -643,17 +643,18 @@ class Decoder(torch.nn.Module):
             z_list.append(self.zero_state(hs_pad))
         att_w = None
         att_ws = []
-        factorized_att = False
         self.att[att_idx].reset()  # reset pre-computation of h
 
-        if isinstance(self.att[att_idx], AttFactorizedLoc):
-            factorized_att = True  # TODO implement this for AttFactorizedLoc
         # pre-computation of embedding
         eys = self.dropout_emb(self.embed(ys_in_pad))  # utt x olen x zdim
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w = self.att[att_idx](hs_pad, hlen, self.dropout_dec[0](z_list[0]), att_w)
+            if self.gatt_dim:
+                att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hlen, self.dropout_dec[0](z_list[0]),
+                                                                 att_w, self.gatt_dim)
+            else:
+                att_c, att_w = self.att[att_idx](hs_pad, hlen, self.dropout_dec[0](z_list[0]), att_w)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             att_ws.append(att_w)
@@ -661,6 +662,68 @@ class Decoder(torch.nn.Module):
         # convert to numpy array with the shape (B, Lmax, Tmax)
         att_ws = att_to_numpy(att_ws, self.att[att_idx])
         return att_ws
+
+    def calculate_all_utterance_attentions(self, hs_pad, hlen, ys_pad, strm_idx=0):
+        """Calculate all of attentions
+
+        :param torch.Tensor hs_pad: batch of padded hidden state sequences (B, Tmax, D)
+        :param torch.Tensor hlen: batch of lengths of hidden state sequences (B)
+        :param torch.Tensor ys_pad: batch of padded character id sequence tensor (B, Lmax)
+        :param int strm_idx: stream index for parallel speaker attention in multi-speaker case
+        :return: attention weights with the following shape,
+            1) multi-head case => attention weights (B, H, Lmax, Tmax),
+            2) other case => attention weights (B, Lmax, Tmax).
+        :rtype: float ndarray
+        """
+        # TODO(kan-bayashi): need to make more smart way
+        ys = [y[y != self.ignore_id] for y in ys_pad]  # parse padded ys
+        att_idx = min(strm_idx, len(self.att) - 1)
+
+        # hlen should be list of integer
+        hlen = list(map(int, hlen))
+
+        self.loss = None
+        # prepare input and output word sequences with sos/eos IDs
+        eos = ys[0].new([self.eos])
+        sos = ys[0].new([self.sos])
+        ys_in = [torch.cat([sos, y], dim=0) for y in ys]
+        ys_out = [torch.cat([y, eos], dim=0) for y in ys]
+
+        # padding for ys with -1
+        # pys: utt x olen
+        ys_in_pad = pad_list(ys_in, self.eos)
+        ys_out_pad = pad_list(ys_out, self.ignore_id)
+
+        # get length info
+        olength = ys_out_pad.size(1)
+
+        # initialization
+        c_list = [self.zero_state(hs_pad)]
+        z_list = [self.zero_state(hs_pad)]
+        for _ in six.moves.range(1, self.dlayers):
+            c_list.append(self.zero_state(hs_pad))
+            z_list.append(self.zero_state(hs_pad))
+        att_w = None
+        gatt_ws = []
+        self.att[att_idx].reset()  # reset pre-computation of h
+
+        # pre-computation of embedding
+        eys = self.dropout_emb(self.embed(ys_in_pad))  # utt x olen x zdim
+
+        # loop for an output sequence
+        for i in six.moves.range(olength):
+            if self.gatt_dim:
+                att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hlen, self.dropout_dec[0](z_list[0]),
+                                                                 att_w, self.gatt_dim)
+            else:
+                att_c, att_w = self.att[att_idx](hs_pad, hlen, self.dropout_dec[0](z_list[0]), att_w)
+            ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
+            z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
+            gatt_ws.append(gatt_w)
+
+        # convert to numpy array with the shape (B, Lmax, Tmax)
+        gatt_ws = att_to_numpy(gatt_ws, self.att[att_idx])
+        return gatt_ws
 
 
 def decoder_for(args, odim, sos, eos, att, labeldist):
