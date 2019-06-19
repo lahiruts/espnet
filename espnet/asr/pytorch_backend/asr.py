@@ -32,6 +32,7 @@ from espnet.asr.asr_utils import torch_resume
 from espnet.asr.asr_utils import torch_save
 from espnet.asr.asr_utils import torch_snapshot
 from espnet.nets.pytorch_backend.e2e_asr import E2E
+from espnet.nets.pytorch_backend.e2e_asr import MultiE2E
 from espnet.nets.pytorch_backend.e2e_asr import pad_list
 from espnet.nets.pytorch_backend.e2e_asr import StreamingE2E
 
@@ -234,7 +235,10 @@ def train(args):
         logging.info('Multitask learning mode')
 
     # specify model architecture
-    model = E2E(idim, odim, args)
+    if args.gunits:
+        model = MultiE2E(idim, odim, args)
+    else:
+        model = E2E(idim, odim, args)
     subsampling_factor = model.subsample[0]
 
     if args.rnnlm is not None:
@@ -355,7 +359,7 @@ def train(args):
 
         if args.gatt_dim != 0:
             gatt_reporter = PlotAttentionReport(
-                att_vis_fn, data, args.outdir + "/gatt_ws",
+                gatt_vis_fn, data, args.outdir + "/gatt_ws",
                 converter=converter, device=device)
             trainer.extend(gatt_reporter, trigger=(1, 'epoch'))
     else:

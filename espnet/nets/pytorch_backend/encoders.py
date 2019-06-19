@@ -262,5 +262,90 @@ class Encoder(torch.nn.Module):
         return xs_pad.masked_fill(mask, 0.0), ilens, current_states
 
 
+class MultiLevelEncoder(torch.nn.Module):
+    """Encoder module
+
+    :param str etype: type of encoder network
+    :param int idim: number of dimensions of encoder network
+    :param int elayers: number of layers of encoder network
+    :param int eunits: number of lstm units of encoder network
+    :param int eprojs: number of projection units of encoder network
+    :param np.ndarray subsample: list of subsampling numbers
+    :param float dropout: dropout rate
+    :param int in_channel: number of input channels
+    """
+
+    def __init__(self, etype, idim, elayers, eunits, eprojs, subsample, dropout, gunits, gprojs, in_channel=1):
+        super(MultiLevelEncoder, self).__init__()
+        typ = etype.lstrip("vgg")
+        if typ not in ['blstm']:
+            logging.error("Error: need to specify an appropriate encoder architecture")
+
+        self.elayers = elayers
+        self.vgg = VGG2L(in_channel)
+        self.nbrnn = torch.nn.LSTM(get_vgg2l_odim(idim, in_channel=in_channel), eunits, elayers - 1, batch_first=True,
+                                   dropout=dropout, bidirectional=True)
+
+        self.ml_brnn_1 = torch.nn.LSTM(2 * eunits, eunits, 1, batch_first=True,
+                                   dropout=dropout, bidirectional=True)
+
+        self.ml_brnn_2 = torch.nn.LSTM(2 * eunits, gunits, 1, batch_first=True,
+                                       dropout=dropout, bidirectional=True)
+
+        self.l_last_1 = torch.nn.Linear(eunits * 2, eprojs)
+
+        self.l_last_2 = torch.nn.Linear(gunits * 2, gprojs)
+
+        logging.info('MultiLevelEncoder with VGG for encoder')
+
+    def forward(self, xs_pad, ilens, prev_states=None):
+        """Encoder forward
+
+        :param torch.Tensor xs_pad: batch of padded input sequences (B, Tmax, D)
+        :param torch.Tensor ilens: batch of lengths of input sequences (B)
+        :param torch.Tensor prev_state: batch of previous encoder hidden states (?, ...)
+        :return: batch of hidden state sequences (B, Tmax, eprojs)
+        :rtype: torch.Tensor
+        """
+        xs_pad, ilens, states = self.vgg(xs_pad, ilens)
+
+        current_states = []
+
+        logging.info(self.__class__.__name__ + ' input lengths: ' + str(ilens))
+        xs_pack = pack_padded_sequence(xs_pad, ilens, batch_first=True)
+        self.nbrnn.flatten_parameters()
+        self.ml_brnn_1.flatten_parameters()
+        self.ml_brnn_2.flatten_parameters()
+
+        ys, states = self.nbrnn(xs_pack)
+        current_states.append(states)
+
+        ys1, states1 = self.ml_brnn_1(ys)
+        ys2, states2 = self.ml_brnn_2(ys)
+
+        current_states.append(states1)
+        current_states.append(states2)
+        # ys: utt list of frame x cdim x 2 (2: means bidirectional)
+        ys_pad1, ilens1 = pad_packed_sequence(ys1, batch_first=True)
+        ys_pad2, ilens2 = pad_packed_sequence(ys2, batch_first=True)
+        # (sum _utt frame_utt) x dim
+        projected1 = torch.tanh(self.l_last_1(
+            ys_pad1.contiguous().view(-1, ys_pad1.size(2))))
+        xs_pad1 = projected1.view(ys_pad1.size(0), ys_pad1.size(1), -1)
+
+        projected2 = torch.tanh(self.l_last_2(
+            ys_pad2.contiguous().view(-1, ys_pad2.size(2))))
+        xs_pad2 = projected2.view(ys_pad2.size(0), ys_pad2.size(1), -1)
+
+        # make mask to remove bias value in padded part
+        mask = to_device(self, make_pad_mask(ilens).unsqueeze(-1))
+
+        return xs_pad1.masked_fill(mask, 0.0), xs_pad2.masked_fill(mask, 0.0), ilens1, states
+
+
 def encoder_for(args, idim, subsample):
-    return Encoder(args.etype, idim, args.elayers, args.eunits, args.eprojs, subsample, args.dropout_rate)
+    if args.gunits:
+        return MultiLevelEncoder(args.etype, idim, args.elayers, args.eunits,
+                                 args.eprojs, subsample, args.dropout_rate, args.gunits, args.gprojs)
+    else:
+        return Encoder(args.etype, idim, args.elayers, args.eunits, args.eprojs, subsample, args.dropout_rate)
