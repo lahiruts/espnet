@@ -1340,7 +1340,7 @@ class MultiLevelDecoder(torch.nn.Module):
             att_c = torch.cat((att_c, gatt_c), dim=1)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
-            att_ws.append(att_w)
+            att_ws.append(gatt_w)
 
         # convert to numpy array with the shape (B, Lmax, Tmax)
         att_ws = att_to_numpy(att_ws, self.att[att_idx])
