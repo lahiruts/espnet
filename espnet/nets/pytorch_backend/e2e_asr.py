@@ -740,7 +740,7 @@ class MultiE2E(torch.nn.Module):
             hpad, ghpad, hlens, _ = self.enc(xs_pad, ilens)
 
             # decoder
-            att_ws = self.dec.calculate_all_attentions(hpad, ghpad, hlens, ys_pad)
+            att_ws = self.dec.calculate_all_utterance_attentions(hpad, ghpad, hlens, ys_pad)
 
         return att_ws
 
