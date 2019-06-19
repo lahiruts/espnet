@@ -861,7 +861,7 @@ class MultiLevelDecoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]), att_w, self.gatt_dim, self.gprojs)
+            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]), att_w)
             if i > 0 and random.random() < self.sampling_probability:
                 logging.info(' scheduled sampling ')
                 z_out = self.output(z_all[-1])
@@ -987,8 +987,7 @@ class MultiLevelDecoder(torch.nn.Module):
                 ey.unsqueeze(0)
 
                 att_c, att_w, gatt_c, gatt_w = self.att[att_idx](h.unsqueeze(0), h1.unsqueeze(0), [h.size(0)],
-                                                self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'],
-                                                                 self.gatt_dim, self.gprojs)
+                                                self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'])
                 att_c = torch.cat((att_c, gatt_c), dim=1)
 
                 ey = torch.cat((ey, att_c), dim=1)  # utt(1) x (zdim + hdim)
@@ -1337,8 +1336,7 @@ class MultiLevelDecoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),
-                                                             att_w, self.gatt_dim, self.gprojs)
+            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),att_w)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             att_ws.append(att_w)
@@ -1396,8 +1394,7 @@ class MultiLevelDecoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),
-                                                                 att_w, self.gatt_dim, self.gprojs)
+            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),att_w)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             gatt_ws.append(gatt_w)
