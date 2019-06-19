@@ -861,8 +861,7 @@ class MultiLevelDecoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]),
-                                                             att_w, self.gatt_dim, self.gprojs)
+            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]), att_w, self.gatt_dim, self.gprojs)
             if i > 0 and random.random() < self.sampling_probability:
                 logging.info(' scheduled sampling ')
                 z_out = self.output(z_all[-1])
