@@ -533,7 +533,7 @@ class AttMultiLoc(torch.nn.Module):
 
         # weighted sum over flames
         # utt x hdim
-        c = self.e_adapt + torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
+        c = self.e_adapt + torch.sum(self.enc_h_1 * w.view(batch, self.h_length, 1), dim=1)
 
         return c, w, self.global_attention, self.global_w
 
