@@ -83,6 +83,10 @@ def main(cmd_args):
                         help='Number of attention transformation dimensions')
     parser.add_argument('--gatt-dim', default=0, type=int,
                         help='Number of global attention transformation dimensions')
+    parser.add_argument('--gunits', default=320, type=int,
+                        help='Number of LSTM units for global attention layer')
+    parser.add_argument('--gprojs', default=320, type=int,
+                        help='Number of global attention encoder projection units')
     parser.add_argument('--awin', default=5, type=int,
                         help='Window size for location2d attention')
     parser.add_argument('--aheads', default=4, type=int,
