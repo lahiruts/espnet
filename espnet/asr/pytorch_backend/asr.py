@@ -446,7 +446,10 @@ def recog(args):
 
     # load trained model parameters
     logging.info('reading model parameters from ' + args.model)
-    model = E2E(idim, odim, train_args)
+    if train_args.gunits:
+        model = MultiE2E(idim, odim, train_args)
+    else:
+        model = E2E(idim, odim, train_args)
     torch_load(args.model, model)
     model.recog_args = args
 
