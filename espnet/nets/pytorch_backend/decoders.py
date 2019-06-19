@@ -1337,6 +1337,7 @@ class MultiLevelDecoder(torch.nn.Module):
         # loop for an output sequence
         for i in six.moves.range(olength):
             att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),att_w)
+            att_c = torch.cat((att_c, gatt_c), dim=1)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             att_ws.append(att_w)
@@ -1395,6 +1396,7 @@ class MultiLevelDecoder(torch.nn.Module):
         # loop for an output sequence
         for i in six.moves.range(olength):
             att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad, hs_pad1, hlen, self.dropout_dec[0](z_list[0]),att_w)
+            att_c = torch.cat((att_c, gatt_c), dim=1)
             ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             gatt_ws.append(gatt_w)
