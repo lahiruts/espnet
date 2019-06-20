@@ -310,6 +310,7 @@ class MultiLevelEncoder(torch.nn.Module):
         :rtype: torch.Tensor
         """
         xs_pad, ilens, states = self.vgg(xs_pad, ilens)
+        xs_pad = self.dropout_1(xs_pad)
 
         current_states = []
 
@@ -322,8 +323,8 @@ class MultiLevelEncoder(torch.nn.Module):
         ys, states = self.nbrnn(xs_pack)
         current_states.append(states)
 
-        ys1, states1 = self.ml_brnn_1(self.dropout_1(ys))  # Adds dropout after the common LSTM layers
-        ys2, states2 = self.ml_brnn_2(self.dropout_1(ys))  # Adds dropout after the common LSTM layers
+        ys1, states1 = self.ml_brnn_1(ys)  # Adds dropout after the common LSTM layers
+        ys2, states2 = self.ml_brnn_2(ys)  # Adds dropout after the common LSTM layers
 
         current_states.append(states1)
         current_states.append(states2)
