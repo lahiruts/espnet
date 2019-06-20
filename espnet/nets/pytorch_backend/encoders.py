@@ -287,12 +287,12 @@ class MultiLevelEncoder(torch.nn.Module):
                                    dropout=dropout, bidirectional=True)
 
         self.ml_brnn_1 = torch.nn.LSTM(2 * eunits, eunits, 1, batch_first=True,
-                                   dropout=dropout, bidirectional=True)
+                                   dropout=0.0, bidirectional=True)
 
         self.dropout_1 = torch.nn.Dropout(p=dropout)
 
         self.ml_brnn_2 = torch.nn.LSTM(2 * eunits, gunits, 1, batch_first=True,
-                                       dropout=dropout, bidirectional=True)
+                                       dropout=0.0, bidirectional=True)
 
         self.l_last_1 = torch.nn.Linear(eunits * 2, eprojs)
 
