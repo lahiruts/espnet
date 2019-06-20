@@ -289,6 +289,8 @@ class MultiLevelEncoder(torch.nn.Module):
         self.ml_brnn_1 = torch.nn.LSTM(2 * eunits, eunits, 1, batch_first=True,
                                    dropout=dropout, bidirectional=True)
 
+        self.dropout_1 = torch.nn.Dropout(p=dropout)
+
         self.ml_brnn_2 = torch.nn.LSTM(2 * eunits, gunits, 1, batch_first=True,
                                        dropout=dropout, bidirectional=True)
 
@@ -317,7 +319,7 @@ class MultiLevelEncoder(torch.nn.Module):
         self.ml_brnn_1.flatten_parameters()
         self.ml_brnn_2.flatten_parameters()
 
-        ys, states = self.nbrnn(xs_pack)
+        ys, states = self.dropout_1(self.nbrnn(xs_pack))  # Adds dropout after the common LSTM layers
         current_states.append(states)
 
         ys1, states1 = self.ml_brnn_1(ys)
