@@ -357,11 +357,11 @@ def train(args):
             converter=converter, device=device)
         trainer.extend(att_reporter, trigger=(1, 'epoch'))
 
-        if args.gatt_dim != 0:
-            gatt_reporter = PlotAttentionReport(
-                gatt_vis_fn, data, args.outdir + "/gatt_ws",
-                converter=converter, device=device)
-            trainer.extend(gatt_reporter, trigger=(1, 'epoch'))
+        # if args.gatt_dim != 0:
+        #     gatt_reporter = PlotAttentionReport(
+        #         gatt_vis_fn, data, args.outdir + "/gatt_ws",
+        #         converter=converter, device=device)
+        #     trainer.extend(gatt_reporter, trigger=(1, 'epoch'))
     else:
         att_reporter = None
 
