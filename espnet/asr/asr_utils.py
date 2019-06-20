@@ -149,14 +149,13 @@ class PlotAttentionReport(extension.Extension):
     :param bool reverse: If True, input and output length are reversed
     """
 
-    def __init__(self, att_vis_fn, data, outdir, converter, device, reverse=False, global_attention = False):
+    def __init__(self, att_vis_fn, data, outdir, converter, device, reverse=False):
         self.att_vis_fn = att_vis_fn
         self.data = copy.deepcopy(data)
         self.outdir = outdir
         self.converter = converter
         self.device = device
         self.reverse = reverse
-        self.global_attention = global_attention
         if not os.path.exists(self.outdir):
             os.makedirs(self.outdir)
 
@@ -165,7 +164,7 @@ class PlotAttentionReport(extension.Extension):
         for idx, att_w in enumerate(att_ws):
             filename = "%s/%s.ep.{.updater.epoch}.png" % (
                 self.outdir, self.data[idx][0])
-            att_w = self.get_attention_weight(idx, att_w, self.global_attention)
+            att_w = self.get_attention_weight(idx, att_w)
             self._plot_and_save_attention(att_w, filename.format(trainer))
 
     def log_attentions(self, logger, step):
@@ -181,7 +180,7 @@ class PlotAttentionReport(extension.Extension):
         att_ws = self.att_vis_fn(*batch)
         return att_ws
 
-    def get_attention_weight(self, idx, att_w, global_attention = False):
+    def get_attention_weight(self, idx, att_w):
         if self.reverse:
             dec_len = int(self.data[idx][1]['input'][0]['shape'][0])
             enc_len = int(self.data[idx][1]['output'][0]['shape'][0])
@@ -189,8 +188,6 @@ class PlotAttentionReport(extension.Extension):
             dec_len = int(self.data[idx][1]['output'][0]['shape'][0])
             enc_len = int(self.data[idx][1]['input'][0]['shape'][0])
 
-        if global_attention:
-            dec_len = 1
         if len(att_w.shape) == 3:
             att_w = att_w[:, :dec_len, :enc_len]
         else:
