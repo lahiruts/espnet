@@ -161,10 +161,13 @@ class PlotAttentionReport(extension.Extension):
 
     def __call__(self, trainer):
         att_ws = self.get_attention_weights()
+        logging.info('att_ws size ' + str(att_ws.size()))
         for idx, att_w in enumerate(att_ws):
+            logging.info('att_w size 2 ' + str(att_w.size()))
             filename = "%s/%s.ep.{.updater.epoch}.png" % (
                 self.outdir, self.data[idx][0])
             att_w = self.get_attention_weight(idx, att_w)
+            logging.info('att_w size 2 ' + str(att_w.size()))
             self._plot_and_save_attention(att_w, filename.format(trainer))
 
     def log_attentions(self, logger, step):
@@ -188,6 +191,8 @@ class PlotAttentionReport(extension.Extension):
             dec_len = int(self.data[idx][1]['output'][0]['shape'][0])
             enc_len = int(self.data[idx][1]['input'][0]['shape'][0])
 
+        logging.info('dec len ' + str(dec_len))
+        logging.info('enc_len  ' + str(enc_len))
         if len(att_w.shape) == 3:
             att_w = att_w[:, :dec_len, :enc_len]
         else:
