@@ -699,30 +699,7 @@ def adapt(args):
     # Evaluate the model with the test dataset for each epoch
     trainer.extend(CustomEvaluator(model, valid_iter, reporter, converter, device))
 
-    # Save attention weight each epoch
-    if args.num_save_attention > 0 and args.mtlalpha != 1.0:
-        data = sorted(list(valid_json.items())[:args.num_save_attention],
-                      key=lambda x: int(x[1]['input'][0]['shape'][1]), reverse=True)
-        if hasattr(model, "module"):
-            att_vis_fn = model.module.calculate_all_attentions
-            if args.gatt_dim != 0:
-                gatt_vis_fn = model.module.calculate_all_utterance_attentions
-        else:
-            att_vis_fn = model.calculate_all_attentions
-            if args.gatt_dim != 0:
-                gatt_vis_fn = model.calculate_all_utterance_attentions
-        att_reporter = PlotAttentionReport(
-            att_vis_fn, data, args.outdir + "/att_ws",
-            converter=converter, device=device)
-        trainer.extend(att_reporter, trigger=(1, 'epoch'))
-
-        if args.gatt_dim != 0:
-            gatt_reporter = PlotAttentionReport(
-                gatt_vis_fn, data, args.outdir + "/gatt_ws",
-                converter=converter, device=device, global_attention=False)
-            trainer.extend(gatt_reporter, trigger=(1, 'epoch'))
-    else:
-        att_reporter = None
+    att_reporter = None
 
     # Make a plot for training and validation values
     trainer.extend(extensions.PlotReport(['main/loss', 'validation/main/loss',
