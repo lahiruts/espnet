@@ -319,8 +319,8 @@ class AttFactorizedLoc(torch.nn.Module):
             1, aconv_chans, (1, 2 * aconv_filts + 1), padding=(0, aconv_filts), bias=False)
         self.gvec = torch.nn.Linear(att_dim, 1)
 
-        self.e_adapt = torch.nn.Parameter(torch.zeros(1, eprojs, requires_grad=False))
-        self.g_adapt = torch.nn.Parameter(torch.zeros(1, eprojs, requires_grad=False))
+        # self.e_adapt = torch.nn.Parameter(torch.zeros(1, eprojs, requires_grad=False))
+        # self.g_adapt = torch.nn.Parameter(torch.zeros(1, eprojs, requires_grad=False))
 
         self.dunits = dunits
         self.eprojs = eprojs
@@ -379,8 +379,7 @@ class AttFactorizedLoc(torch.nn.Module):
             # NOTE consider zero padding when compute gt_3.
             gt_2.masked_fill_(self.mask, -float('inf'))
             self.global_w = F.softmax(self.gatt_scale * gt_2, dim=1)
-            self.global_attention = self.g_adapt + \
-                                    torch.sum(self.enc_h * self.global_w.view(batch, self.h_length, 1), dim=1)
+            self.global_attention = torch.sum(self.enc_h * self.global_w.view(batch, self.h_length, 1), dim=1)
 
         if dec_z is None:
             dec_z = enc_hs_pad.new_zeros(batch, self.dunits)
@@ -413,7 +412,8 @@ class AttFactorizedLoc(torch.nn.Module):
 
         # weighted sum over flames
         # utt x hdim
-        c = self.e_adapt + torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
+        # c = self.e_adapt + torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
+        c = torch.sum(self.enc_h * w.view(batch, self.h_length, 1), dim=1)
 
         return c, w, self.global_attention, self.global_w
 
