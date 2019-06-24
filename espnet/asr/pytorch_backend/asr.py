@@ -625,7 +625,8 @@ def adapt(args):
     model = model.to(device)
 
     for name, param in model.named_parameters():
-        if str(name).__contains__('g_adapt'):
+        # if str(name).__contains__('g_adapt'):
+        if str(name).__contains__('global_attention_mlp_1') or str(name).__contains__('global_attention_mlp_2'):
             param.requires_grad = True
             logging.info(name)
         else:
