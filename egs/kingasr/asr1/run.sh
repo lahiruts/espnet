@@ -8,7 +8,7 @@
 
 # general configuration
 backend=pytorch
-stage=3        # start from 0 if you need to start from data preparation
+stage=4        # start from 0 if you need to start from data preparation
 stop_stage=100
 ngpu=1         # number of gpus ("0" uses cpu, otherwise use gpu)
 debugmode=1
@@ -27,20 +27,32 @@ elayers=3
 eunits=1024
 eprojs=1024
 subsample=1_2_2_1_1 # skip every n frame from input to nth layers
+encoder_dropout=0.2
+decoder_dropout=0.2
 # decoder related
 dlayers=2
 dunits=1024
 # attention related
-atype=location
+#atype=location
+#atype=multi_location
+atype=factorized_location
 adim=1024
 aconv_chans=10
 aconv_filts=100
+gatt_dim=256
+att_scale=3.0
+gatt_scale=0.7
+#gatt_dim=0
 
+gunits=0
+gprojs=1024
+
+num_save_attention=10
 # hybrid CTC/attention
 mtlalpha=0.5
 
 # minibatch related
-batchsize=30
+batchsize=20
 maxlen_in=800  # if input length  > maxlen_in, batchsize is automatically reduced
 maxlen_out=150 # if output length > maxlen_out, batchsize is automatically reduced
 
@@ -48,7 +60,7 @@ maxlen_out=150 # if output length > maxlen_out, batchsize is automatically reduc
 sortagrad=0 # Feed samples from shortest to longest ; -1: enabled for all epochs, 0: disabled, other: enabled for 'other' epochs
 opt=adadelta
 epochs=15
-patience=3
+patience=0
 
 # rnnlm related
 lm_layers=2
@@ -226,7 +238,7 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
 fi
 
 if [ -z ${tag} ]; then
-    expname=${train_set}_${backend}_${etype}_e${elayers}_subsample${subsample}_unit${eunits}_proj${eprojs}_d${dlayers}_unit${dunits}_${atype}_aconvc${aconv_chans}_aconvf${aconv_filts}_mtlalpha${mtlalpha}_${opt}_sampprob${samp_prob}_bs${batchsize}_mli${maxlen_in}_mlo${maxlen_out}
+    expname=gatt_dim_${gatt_dim}_edropout_${encoder_dropout}_dec_dropout_${decoder_dropout}_patience_${patience}_gunits_${gunits}_gprojs_${gprojs}_${gatt_scale}_${att_scale}_${train_set}_${backend}_${etype}_e${elayers}_subsample${subsample}_unit${eunits}_proj${eprojs}_d${dlayers}_unit${dunits}_${atype}_aconvc${aconv_chans}_aconvf${aconv_filts}_mtlalpha${mtlalpha}_${opt}_sampprob${samp_prob}_bs${batchsize}_mli${maxlen_in}_mlo${maxlen_out}
     if ${do_delta}; then
         expname=${expname}_delta
     fi
@@ -256,11 +268,17 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
         --elayers ${elayers} \
         --eunits ${eunits} \
         --eprojs ${eprojs} \
+        --gunits ${gunits} \
+        --gprojs ${gprojs} \
         --subsample ${subsample} \
         --dlayers ${dlayers} \
         --dunits ${dunits} \
         --atype ${atype} \
         --adim ${adim} \
+        --num-save-attention ${num_save_attention} \
+        --gatt-dim ${gatt_dim} \
+        --att-scale ${att_scale} \
+        --gatt-scale ${gatt_scale} \
         --aconv-chans ${aconv_chans} \
         --aconv-filts ${aconv_filts} \
         --mtlalpha ${mtlalpha} \
@@ -269,6 +287,8 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
         --maxlen-out ${maxlen_out} \
         --sampling-probability ${samp_prob} \
         --opt ${opt} \
+        --dropout-rate ${encoder_dropout} \
+        --dropout-rate-decoder ${decoder_dropout} \
         --sortagrad ${sortagrad} \
         --epochs ${epochs} \
         --patience ${patience}
@@ -276,7 +296,7 @@ fi
 
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
     echo "stage 5: Decoding"
-    nj=5
+    nj=25
 
     pids=() # initialize pids
     for rtask in ${recog_set}; do
