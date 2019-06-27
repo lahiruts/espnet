@@ -528,7 +528,7 @@ class MultiE2E(torch.nn.Module):
         :rtype: float
         """
         # 1. encoder
-        hs_pad, gs_pad, hlens, _ = self.enc(xs_pad, ilens)
+        hs_pad, hlens, gs_pad = self.enc(xs_pad, ilens)
 
         # 2. CTC loss
         if self.mtlalpha == 0:
@@ -652,7 +652,7 @@ class MultiE2E(torch.nn.Module):
 
         # 1. encoder
         # make a utt list (1) to use the same interface for encoder
-        h, gh, _, _ = self.enc(h.unsqueeze(0), ilen)
+        h, hlens, gh = self.enc(h.unsqueeze(0), ilen)
 
         # calculate log P(z_t|X) for CTC scores
         if recog_args.ctc_weight > 0.0:

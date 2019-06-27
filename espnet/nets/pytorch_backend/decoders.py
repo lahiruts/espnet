@@ -726,7 +726,7 @@ class Decoder(torch.nn.Module):
         return gatt_ws
 
 
-class MultiLevelDecoder(torch.nn.Module):
+class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
     """Decoder module
 
     :param int eprojs: # encoder projection units
@@ -748,7 +748,7 @@ class MultiLevelDecoder(torch.nn.Module):
     def __init__(self, eprojs, odim, dtype, dlayers, dunits, sos, eos, att, gprojs, verbose=0,
                  char_list=None, labeldist=None, lsm_weight=0., sampling_probability=0.0,
                  dropout=0.0, gatt_dim=0):
-        super(MultiLevelDecoder, self).__init__()
+        super(MultiLayerGlobalAttentionEncoder, self).__init__()
         self.dtype = dtype
         self.dunits = dunits
         self.dlayers = dlayers
@@ -861,7 +861,8 @@ class MultiLevelDecoder(torch.nn.Module):
 
         # loop for an output sequence
         for i in six.moves.range(olength):
-            att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]), att_w)
+            # att_c, att_w, gatt_c, gatt_w = self.att[att_idx](hs_pad1, hs_pad2, hlens, self.dropout_dec[0](z_list[0]), att_w)
+            att_c, att_w = self.att[att_idx](hs_pad1, hlens, self.dropout_dec[0](z_list[0]), att_w)
             if i > 0 and random.random() < self.sampling_probability:
                 logging.info(' scheduled sampling ')
                 z_out = self.output(z_all[-1])
@@ -872,7 +873,7 @@ class MultiLevelDecoder(torch.nn.Module):
                 ey = torch.cat((eys[:, i, :], att_c), dim=1)  # utt x (zdim + hdim)
 
             if self.gatt_dim:   # concat with the global context vector.
-                ey = torch.cat((ey, gatt_c), dim=1)
+                ey = torch.cat((ey, hs_pad2), dim=1)
             z_list, c_list = self.rnn_forward(ey, z_list, c_list, z_list, c_list)
             z_all.append(self.dropout_dec[-1](z_list[-1]))
 
@@ -986,9 +987,9 @@ class MultiLevelDecoder(torch.nn.Module):
                 ey = self.dropout_emb(self.embed(vy))  # utt list (1) x zdim
                 ey.unsqueeze(0)
 
-                att_c, att_w, gatt_c, gatt_w = self.att[att_idx](h.unsqueeze(0), h1.unsqueeze(0), [h.size(0)],
+                att_c, att_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
                                                 self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'])
-                att_c = torch.cat((att_c, gatt_c), dim=1)
+                att_c = torch.cat((att_c, h1), dim=1)
 
                 ey = torch.cat((ey, att_c), dim=1)  # utt(1) x (zdim + hdim)
                 z_list, c_list = self.rnn_forward(ey, z_list, c_list, hyp['z_prev'], hyp['c_prev'])
@@ -1408,7 +1409,7 @@ class MultiLevelDecoder(torch.nn.Module):
 
 def decoder_for(args, odim, sos, eos, att, labeldist):
     if args.gunits:
-        return MultiLevelDecoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.gprojs,
+        return MultiLayerGlobalAttentionEncoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.gprojs,
                        args.verbose, args.char_list, labeldist,
                        args.lsm_weight, args.sampling_probability, args.dropout_rate_decoder, args.gatt_dim)
     else:
