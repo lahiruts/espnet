@@ -989,7 +989,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
 
                 att_c, att_w = self.att[att_idx](h.unsqueeze(0), [h.size(0)],
                                                 self.dropout_dec[0](hyp['z_prev'][0]), hyp['a_prev'])
-                att_c = torch.cat((att_c, h1), dim=1)
+                att_c = torch.cat((att_c, h1.unsqueeze(0)), dim=1)
 
                 ey = torch.cat((ey, att_c), dim=1)  # utt(1) x (zdim + hdim)
                 z_list, c_list = self.rnn_forward(ey, z_list, c_list, hyp['z_prev'], hyp['c_prev'])

@@ -385,6 +385,8 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         self.weight_3 = torch.nn.Parameter(torch.Tensor([0.333]))
 
     def forward(self, xs_pad, ilens):
+        logging.info(self.__class__.__name__ + ' Forward is called ')
+
         xs_pad, ilens, states = self.vgg(xs_pad, ilens)
         xs_pad = self.dropout_cnn(xs_pad)
 
