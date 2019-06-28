@@ -522,7 +522,7 @@ def recog(args):
                 else:
                     # nbest_hyps = model.recognize(feat, args, train_args.char_list, rnnlm)
                     nbest_hyps, embedding = model.recognize(feat, args, train_args.char_list, rnnlm)
-                new_js[name] = add_results_to_json_embedding(js[name], nbest_hyps, train_args.char_list, embedding)
+                new_js[name] = add_results_to_json_embedding(js[name], nbest_hyps, train_args.char_list, embedding.squeeze().tolist())
                 # new_js[name] = add_results_to_json(js[name], nbest_hyps, train_args.char_list)
     else:
         try:
