@@ -789,7 +789,6 @@ class MultiLayerGlobalAttentionDecoder(torch.nn.Module):
         self.dropout = dropout
 
         self.gatt_dim = gatt_dim
-        self.gprojs = gprojs
 
         self.logzero = -10000000000.0
 
