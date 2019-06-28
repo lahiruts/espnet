@@ -366,7 +366,6 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         self.layer_3 = torch.nn.LSTM(2 * hid + self.gproj, hid, 1, batch_first=True, bidirectional=True)
 
         self.l_last = torch.nn.Linear(2 * hid + self.gproj, hid)
-        self.l_gt_last = torch.nn.Linear(self.gproj, hid)
 
         self.dropout_1 = torch.nn.Dropout(0.2)
         self.dropout_2 = torch.nn.Dropout(0.2)
@@ -481,8 +480,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         h3 = torch.cat((h3, ga3_projected_exp), dim=2)
 
         global_attention = self.weight_0 * ga0_projected + self.weight_1 * ga1_projected + self.weight_2 * ga2_projected + self.weight_3 * ga3_projected
-        ga_projected = torch.tanh(self.l_gt_last(
-            global_attention.contiguous()))
+        ga_projected = torch.tanh(global_attention.contiguous())
 
         projected = torch.tanh(self.l_last(
             h3.contiguous().view(-1, h3.size(2))))

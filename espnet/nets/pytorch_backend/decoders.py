@@ -1409,7 +1409,7 @@ class MultiLayerGlobalAttentionDecoder(torch.nn.Module):
 
 def decoder_for(args, odim, sos, eos, att, labeldist):
     if args.gunits:
-        return MultiLayerGlobalAttentionDecoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.gprojs,
+        return MultiLayerGlobalAttentionDecoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, 128,
                        args.verbose, args.char_list, labeldist,
                        args.lsm_weight, args.sampling_probability, args.dropout_rate_decoder, args.gatt_dim)
     else:
