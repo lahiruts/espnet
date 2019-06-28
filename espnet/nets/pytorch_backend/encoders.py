@@ -347,16 +347,19 @@ class MultiLevelEncoder(torch.nn.Module):
 
 
 class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
-    def __init__(self, in_dim, hid, in_channel=1):
+    def __init__(self, in_dim, hid, out_dim, in_channel=1):
         super(MultiLayerGlobalAttentionEncoder, self).__init__()
 
         self.vgg = VGG2L(in_channel)
         self.dropout_cnn = torch.nn.Dropout(0.2)
 
+        self.cnnout_dim = get_vgg2l_odim(in_dim, in_channel=in_channel)
+        self.cnn_proj = torch.nn.Linear(self.cnnout_dim, 2 * hid)
+
         self.gatt_scale = 0.7
         self.h_length = None
 
-        self.layer_1 = torch.nn.LSTM(get_vgg2l_odim(in_dim, in_channel=in_channel), hid, 1, batch_first=True,
+        self.layer_1 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True,
                                      bidirectional=True)
         self.layer_2 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True, bidirectional=True)
         self.layer_3 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True, bidirectional=True)
@@ -367,6 +370,9 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         self.dropout_1 = torch.nn.Dropout(0.2)
         self.dropout_2 = torch.nn.Dropout(0.2)
 
+        self.global_attention_mlp_01 = torch.nn.Linear(2 * hid, hid, bias=False)
+        self.global_attention_mlp_02 = torch.nn.Linear(hid, 1, bias=False)
+
         self.global_attention_mlp_11 = torch.nn.Linear(2 * hid, hid, bias=False)
         self.global_attention_mlp_12 = torch.nn.Linear(hid, 1, bias=False)
 
@@ -376,28 +382,38 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         self.global_attention_mlp_31 = torch.nn.Linear(2 * hid, hid, bias=False)
         self.global_attention_mlp_32 = torch.nn.Linear(hid, 1, bias=False)
 
+        self.g_adapt_0 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
         self.g_adapt_1 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
         self.g_adapt_2 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
         self.g_adapt_3 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
 
-        self.weight_1 = torch.nn.Parameter(torch.Tensor([0.333]))
-        self.weight_2 = torch.nn.Parameter(torch.Tensor([0.333]))
-        self.weight_3 = torch.nn.Parameter(torch.Tensor([0.333]))
+        self.weight_0 = torch.nn.Parameter(torch.Tensor([0.25]))
+        self.weight_1 = torch.nn.Parameter(torch.Tensor([0.25]))
+        self.weight_2 = torch.nn.Parameter(torch.Tensor([0.25]))
+        self.weight_3 = torch.nn.Parameter(torch.Tensor([0.25]))
 
     def forward(self, xs_pad, ilens):
-        logging.info(self.__class__.__name__ + ' Forward is called ')
-
         xs_pad, ilens, states = self.vgg(xs_pad, ilens)
         xs_pad = self.dropout_cnn(xs_pad)
+        xs_pad = self.cnn_proj(xs_pad)
 
         self.h_length = xs_pad.size(1)
         batch = len(ilens)
+
         self.mask = to_device(self, make_pad_mask(ilens))
+
+        gt_01 = torch.tanh(self.global_attention_mlp_01(xs_pad))
+        gt_02 = self.global_attention_mlp_02(gt_01).squeeze(2)
+        # NOTE consider zero padding when compute gt_02.
+        gt_02.masked_fill_(self.mask, -float('inf'))
+        gw0 = F.softmax(self.gatt_scale * gt_02, dim=1)
+        ga0 = self.g_adapt_0 + torch.sum(xs_pad * gw0.view(batch, self.h_length, 1), dim=1)
+
+        xs_pad = ga0.view(batch, 1, -1) + xs_pad
 
         self.layer_1.flatten_parameters()
         self.layer_2.flatten_parameters()
         self.layer_3.flatten_parameters()
-        #         self.layer_4.flatten_parameters()
 
         xs_pack = pack_padded_sequence(xs_pad, ilens, batch_first=True)
 
@@ -413,6 +429,8 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         gw1 = F.softmax(self.gatt_scale * gt_12, dim=1)
         ga1 = self.g_adapt_1 + torch.sum(h1 * gw1.view(batch, self.h_length, 1), dim=1)
 
+        h1 = ga1.view(batch, 1, -1) + h1
+
         xs_pack = pack_padded_sequence(h1, ilens, batch_first=True)
 
         # Second BLSTM Layer
@@ -427,6 +445,8 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         gw2 = F.softmax(self.gatt_scale * gt_22, dim=1)
         ga2 = self.g_adapt_2 + torch.sum(h2 * gw2.view(batch, self.h_length, 1), dim=1)
 
+        h2 = ga2.view(batch, 1, -1) + h2
+
         xs_pack = pack_padded_sequence(h2, ilens, batch_first=True)
 
         # Third BLSTM Layer
@@ -437,19 +457,129 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         gt_31 = torch.tanh(self.global_attention_mlp_31(h3))
         gt_32 = self.global_attention_mlp_32(gt_31).squeeze(2)
         # NOTE consider zero padding when compute gt_12.
-        gt_32.masked_fill_(self.mask, -float('inf'))
+        # gt_32.masked_fill_(self.mask, -float('inf'))
         gw3 = F.softmax(self.gatt_scale * gt_32, dim=1)
         ga3 = self.g_adapt_3 + torch.sum(h3 * gw3.view(batch, self.h_length, 1), dim=1)
 
-        global_attention = self.weight_1 * ga1 + self.weight_2 * ga2 + self.weight_3 * ga3
+        h3 = ga3.view(batch, 1, -1) + h3
+
+        global_attention = self.weight_0 * ga0 + self.weight_1 * ga1 + self.weight_2 * ga2 + self.weight_3 * ga3
+        #         global_attention = self.weight_1 * ga1 + self.weight_2 * ga2 + self.weight_3 * ga3 + self.weight_4 * ga4
         ga_projected = torch.tanh(self.l_gt_last(
             global_attention.contiguous()))
+        # ga_projected = ga_projected.view(global_attention.size(0), global_attention.size(1), -1)
 
         projected = torch.tanh(self.l_last(
             h3.contiguous().view(-1, h3.size(2))))
         projected = projected.view(h3.size(0), h3.size(1), -1)
 
         return projected, ilens, ga_projected
+
+
+# class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
+#     def __init__(self, in_dim, hid, in_channel=1):
+#         super(MultiLayerGlobalAttentionEncoder, self).__init__()
+#
+#         self.vgg = VGG2L(in_channel)
+#         self.dropout_cnn = torch.nn.Dropout(0.2)
+#
+#         self.gatt_scale = 0.7
+#         self.h_length = None
+#
+#         self.layer_1 = torch.nn.LSTM(get_vgg2l_odim(in_dim, in_channel=in_channel), hid, 1, batch_first=True,
+#                                      bidirectional=True)
+#         self.layer_2 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True, bidirectional=True)
+#         self.layer_3 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True, bidirectional=True)
+#
+#         self.l_last = torch.nn.Linear(2 * hid, hid)
+#         self.l_gt_last = torch.nn.Linear(2 * hid, hid)
+#
+#         self.dropout_1 = torch.nn.Dropout(0.2)
+#         self.dropout_2 = torch.nn.Dropout(0.2)
+#
+#         self.global_attention_mlp_11 = torch.nn.Linear(2 * hid, hid, bias=False)
+#         self.global_attention_mlp_12 = torch.nn.Linear(hid, 1, bias=False)
+#
+#         self.global_attention_mlp_21 = torch.nn.Linear(2 * hid, hid, bias=False)
+#         self.global_attention_mlp_22 = torch.nn.Linear(hid, 1, bias=False)
+#
+#         self.global_attention_mlp_31 = torch.nn.Linear(2 * hid, hid, bias=False)
+#         self.global_attention_mlp_32 = torch.nn.Linear(hid, 1, bias=False)
+#
+#         self.g_adapt_1 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
+#         self.g_adapt_2 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
+#         self.g_adapt_3 = torch.nn.Parameter(torch.zeros(1, 2 * hid, requires_grad=False))
+#
+#         self.weight_1 = torch.nn.Parameter(torch.Tensor([0.333]))
+#         self.weight_2 = torch.nn.Parameter(torch.Tensor([0.333]))
+#         self.weight_3 = torch.nn.Parameter(torch.Tensor([0.333]))
+#
+#     def forward(self, xs_pad, ilens):
+#         logging.info(self.__class__.__name__ + ' Forward is called ')
+#
+#         xs_pad, ilens, states = self.vgg(xs_pad, ilens)
+#         xs_pad = self.dropout_cnn(xs_pad)
+#
+#         self.h_length = xs_pad.size(1)
+#         batch = len(ilens)
+#         self.mask = to_device(self, make_pad_mask(ilens))
+#
+#         self.layer_1.flatten_parameters()
+#         self.layer_2.flatten_parameters()
+#         self.layer_3.flatten_parameters()
+#         #         self.layer_4.flatten_parameters()
+#
+#         xs_pack = pack_padded_sequence(xs_pad, ilens, batch_first=True)
+#
+#         # first BLSTM Layer
+#         h1, _ = self.layer_1(xs_pack)
+#         h1, ilens = pad_packed_sequence(h1, batch_first=True)
+#         h1 = self.dropout_1(h1)  # Take the global attention over this.
+#
+#         gt_11 = torch.tanh(self.global_attention_mlp_11(h1))
+#         gt_12 = self.global_attention_mlp_12(gt_11).squeeze(2)
+#         # NOTE consider zero padding when compute gt_12.
+#         gt_12.masked_fill_(self.mask, -float('inf'))
+#         gw1 = F.softmax(self.gatt_scale * gt_12, dim=1)
+#         ga1 = self.g_adapt_1 + torch.sum(h1 * gw1.view(batch, self.h_length, 1), dim=1)
+#
+#         xs_pack = pack_padded_sequence(h1, ilens, batch_first=True)
+#
+#         # Second BLSTM Layer
+#         h2, _ = self.layer_2(xs_pack)
+#         h2, ilens = pad_packed_sequence(h2, batch_first=True)
+#         h2 = self.dropout_2(h2)  # Take the global attention over this.
+#
+#         gt_21 = torch.tanh(self.global_attention_mlp_21(h2))
+#         gt_22 = self.global_attention_mlp_22(gt_21).squeeze(2)
+#         # NOTE consider zero padding when compute gt_12.
+#         gt_22.masked_fill_(self.mask, -float('inf'))
+#         gw2 = F.softmax(self.gatt_scale * gt_22, dim=1)
+#         ga2 = self.g_adapt_2 + torch.sum(h2 * gw2.view(batch, self.h_length, 1), dim=1)
+#
+#         xs_pack = pack_padded_sequence(h2, ilens, batch_first=True)
+#
+#         # Third BLSTM Layer
+#         h3, _ = self.layer_3(xs_pack)
+#         h3, ilens = pad_packed_sequence(h3, batch_first=True)
+#         #         h3 = self.dropout_3(h3)   #Take the global attention over this.
+#
+#         gt_31 = torch.tanh(self.global_attention_mlp_31(h3))
+#         gt_32 = self.global_attention_mlp_32(gt_31).squeeze(2)
+#         # NOTE consider zero padding when compute gt_12.
+#         gt_32.masked_fill_(self.mask, -float('inf'))
+#         gw3 = F.softmax(self.gatt_scale * gt_32, dim=1)
+#         ga3 = self.g_adapt_3 + torch.sum(h3 * gw3.view(batch, self.h_length, 1), dim=1)
+#
+#         global_attention = self.weight_1 * ga1 + self.weight_2 * ga2 + self.weight_3 * ga3
+#         ga_projected = torch.tanh(self.l_gt_last(
+#             global_attention.contiguous()))
+#
+#         projected = torch.tanh(self.l_last(
+#             h3.contiguous().view(-1, h3.size(2))))
+#         projected = projected.view(h3.size(0), h3.size(1), -1)
+#
+#         return projected, ilens, ga_projected
 
 
 def encoder_for(args, idim, subsample):
