@@ -347,7 +347,7 @@ class MultiLevelEncoder(torch.nn.Module):
 
 
 class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
-    def __init__(self, in_dim, hid, out_dim, in_channel=1):
+    def __init__(self, in_dim, hid, in_channel=1):
         super(MultiLayerGlobalAttentionEncoder, self).__init__()
 
         self.vgg = VGG2L(in_channel)
