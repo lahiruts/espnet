@@ -666,7 +666,8 @@ class MultiE2E(torch.nn.Module):
 
         if prev:
             self.train()
-        return y
+        # return y
+        return y, gh
 
     def recognize_batch(self, xs, recog_args, char_list, rnnlm=None):
         """E2E beam search

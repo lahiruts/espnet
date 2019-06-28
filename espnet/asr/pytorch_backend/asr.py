@@ -22,6 +22,7 @@ import torch
 # espnet related
 from espnet.asr.asr_utils import adadelta_eps_decay
 from espnet.asr.asr_utils import add_results_to_json
+from espnet.asr.asr_utils import add_results_to_json_embedding
 from espnet.asr.asr_utils import CompareValueTrigger
 from espnet.asr.asr_utils import get_model_conf
 from espnet.asr.asr_utils import make_batchset
@@ -519,8 +520,10 @@ def recog(args):
                     logging.info('Offline attention decoder finished')
                     nbest_hyps = se2e.retrieve_recognition()
                 else:
-                    nbest_hyps = model.recognize(feat, args, train_args.char_list, rnnlm)
-                new_js[name] = add_results_to_json(js[name], nbest_hyps, train_args.char_list)
+                    # nbest_hyps = model.recognize(feat, args, train_args.char_list, rnnlm)
+                    nbest_hyps, embedding = model.recognize(feat, args, train_args.char_list, rnnlm)
+                new_js[name] = add_results_to_json_embedding(js[name], nbest_hyps, train_args.char_list, embedding)
+                # new_js[name] = add_results_to_json(js[name], nbest_hyps, train_args.char_list)
     else:
         try:
             from itertools import zip_longest as zip_longest
