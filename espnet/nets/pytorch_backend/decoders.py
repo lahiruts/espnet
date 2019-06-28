@@ -754,12 +754,13 @@ class MultiLayerGlobalAttentionDecoder(torch.nn.Module):
         self.dlayers = dlayers
         self.embed = torch.nn.Embedding(odim, dunits)
         self.dropout_emb = torch.nn.Dropout(p=dropout)
+        self.gprojs = 128
 
         self.decoder = torch.nn.ModuleList()
         self.dropout_dec = torch.nn.ModuleList()
         self.decoder += [
-                torch.nn.LSTMCell(dunits + eprojs + gprojs, dunits) if self.dtype == "lstm" else torch.nn.GRUCell(
-                    dunits + eprojs + gprojs,
+                torch.nn.LSTMCell(dunits + eprojs + self.gprojs, dunits) if self.dtype == "lstm" else torch.nn.GRUCell(
+                    dunits + eprojs + self.gprojs,
                     dunits)]
         self.dropout_dec += [torch.nn.Dropout(p=dropout)]
         for _ in six.moves.range(1, self.dlayers):
