@@ -727,11 +727,11 @@ def adapt(args):
     if args.opt == 'adadelta':
         trainer.extend(restore_snapshot(model, args.outdir + '/model.loss.best', load_fn=torch_load),
                        trigger=CompareValueTrigger(
-                           'validation/main/loss_att',
+                           'validation/main/loss',
                            lambda best_value, current_value: best_value < current_value))
         trainer.extend(adadelta_eps_decay(args.eps_decay),
                        trigger=CompareValueTrigger(
-                           'validation/main/loss_att',
+                           'validation/main/loss',
                            lambda best_value, current_value: best_value < current_value))
 
         # if args.criterion == 'acc' and mtl_mode is not 'ctc':
