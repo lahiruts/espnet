@@ -488,6 +488,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
 
         self.gatt_scale = 0.7
         self.h_length = None
+        self.mask = None
 
         self.layer_1 = torch.nn.LSTM(2 * hid, hid, 1, batch_first=True,
                                      bidirectional=True)
@@ -531,7 +532,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         self.h_length = xs_pad.size(1)
         batch = len(ilens)
 
-        # self.mask = to_device(self, make_pad_mask(ilens))
+        self.mask = to_device(self, make_pad_mask(ilens))
 
         gt_01 = torch.tanh(self.global_attention_mlp_01(xs_pad))
         gt_02 = self.global_attention_mlp_02(gt_01).squeeze(2)
