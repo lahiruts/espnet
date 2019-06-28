@@ -476,7 +476,7 @@ class MultiLevelEncoder(torch.nn.Module):
 #         return projected, ilens, ga_projected
 
 
-class MultiLayerGlobalAttentionEncoder(nn.Module):
+class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
     def __init__(self, in_dim, hid, out_dim, in_channel=1):
         super(MultiLayerGlobalAttentionEncoder, self).__init__()
 
