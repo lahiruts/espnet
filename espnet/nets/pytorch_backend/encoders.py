@@ -544,6 +544,8 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
         # xs_pad = ga0.view(batch, 1, -1) + xs_pad
         xs_pad = torch.cat((xs_pad, ga0.view(batch, 1, -1)), dim=1)
         ilens = [val + 1 for val in ilens]
+        self.mask = to_device(self, make_pad_mask(ilens))
+
         self.h_length = self.h_length + 1
 
         self.layer_1.flatten_parameters()
