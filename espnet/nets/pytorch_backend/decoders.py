@@ -726,7 +726,7 @@ class Decoder(torch.nn.Module):
         return gatt_ws
 
 
-class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
+class MultiLayerGlobalAttentionDecoder(torch.nn.Module):
     """Decoder module
 
     :param int eprojs: # encoder projection units
@@ -748,7 +748,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
     def __init__(self, eprojs, odim, dtype, dlayers, dunits, sos, eos, att, gprojs, verbose=0,
                  char_list=None, labeldist=None, lsm_weight=0., sampling_probability=0.0,
                  dropout=0.0, gatt_dim=0):
-        super(MultiLayerGlobalAttentionEncoder, self).__init__()
+        super(MultiLayerGlobalAttentionDecoder, self).__init__()
         self.dtype = dtype
         self.dunits = dunits
         self.dlayers = dlayers
@@ -1409,7 +1409,7 @@ class MultiLayerGlobalAttentionEncoder(torch.nn.Module):
 
 def decoder_for(args, odim, sos, eos, att, labeldist):
     if args.gunits:
-        return MultiLayerGlobalAttentionEncoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.gprojs,
+        return MultiLayerGlobalAttentionDecoder(args.eprojs, odim, args.dtype, args.dlayers, args.dunits, sos, eos, att, args.gprojs,
                        args.verbose, args.char_list, labeldist,
                        args.lsm_weight, args.sampling_probability, args.dropout_rate_decoder, args.gatt_dim)
     else:
