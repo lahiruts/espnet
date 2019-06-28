@@ -725,24 +725,33 @@ def adapt(args):
 
     # epsilon decay in the optimizer
     if args.opt == 'adadelta':
-        if args.criterion == 'acc' and mtl_mode is not 'ctc':
-            trainer.extend(restore_snapshot(model, args.outdir + '/model.acc.best', load_fn=torch_load),
-                           trigger=CompareValueTrigger(
-                               'validation/main/acc',
-                               lambda best_value, current_value: best_value > current_value))
-            trainer.extend(adadelta_eps_decay(args.eps_decay),
-                           trigger=CompareValueTrigger(
-                               'validation/main/acc',
-                               lambda best_value, current_value: best_value > current_value))
-        elif args.criterion == 'loss':
-            trainer.extend(restore_snapshot(model, args.outdir + '/model.loss.best', load_fn=torch_load),
-                           trigger=CompareValueTrigger(
-                               'validation/main/loss',
-                               lambda best_value, current_value: best_value < current_value))
-            trainer.extend(adadelta_eps_decay(args.eps_decay),
-                           trigger=CompareValueTrigger(
-                               'validation/main/loss',
-                               lambda best_value, current_value: best_value < current_value))
+        trainer.extend(restore_snapshot(model, args.outdir + '/model.loss.best', load_fn=torch_load),
+                       trigger=CompareValueTrigger(
+                           'validation/main/loss_att',
+                           lambda best_value, current_value: best_value < current_value))
+        trainer.extend(adadelta_eps_decay(args.eps_decay),
+                       trigger=CompareValueTrigger(
+                           'validation/main/loss_att',
+                           lambda best_value, current_value: best_value < current_value))
+
+        # if args.criterion == 'acc' and mtl_mode is not 'ctc':
+        #     trainer.extend(restore_snapshot(model, args.outdir + '/model.acc.best', load_fn=torch_load),
+        #                    trigger=CompareValueTrigger(
+        #                        'validation/main/acc',
+        #                        lambda best_value, current_value: best_value > current_value))
+        #     trainer.extend(adadelta_eps_decay(args.eps_decay),
+        #                    trigger=CompareValueTrigger(
+        #                        'validation/main/acc',
+        #                        lambda best_value, current_value: best_value > current_value))
+        # elif args.criterion == 'loss':
+        #     trainer.extend(restore_snapshot(model, args.outdir + '/model.loss.best', load_fn=torch_load),
+        #                    trigger=CompareValueTrigger(
+        #                        'validation/main/loss',
+        #                        lambda best_value, current_value: best_value < current_value))
+        #     trainer.extend(adadelta_eps_decay(args.eps_decay),
+        #                    trigger=CompareValueTrigger(
+        #                        'validation/main/loss',
+        #                        lambda best_value, current_value: best_value < current_value))
 
     # Write a log of evaluation statistics for each epoch
     trainer.extend(extensions.LogReport(trigger=(REPORT_INTERVAL, 'iteration')))
