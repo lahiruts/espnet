@@ -629,7 +629,7 @@ def adapt(args):
 
     for name, param in model.named_parameters():
         # if str(name).__contains__('g_adapt'):
-        if str(name).__contains__('g_adapt_1') or str(name).__contains__('g_adapt_2') or str(name).__contains__('g_adapt_3'):
+        if str(name).__contains__('g_adapt_0') or str(name).__contains__('g_adapt_1') or str(name).__contains__('g_adapt_2') or str(name).__contains__('g_adapt_3'):
         # if str(name).__contains__('global_attention_mlp_1') or str(name).__contains__('global_attention_mlp_2'):
             param.requires_grad = True
             logging.info(name)
