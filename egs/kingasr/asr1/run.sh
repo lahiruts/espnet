@@ -2,7 +2,6 @@
 
 # Copyright 2017 Johns Hopkins University (Shinji Watanabe)
 #  Apache 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
-
 . ./path.sh
 . ./cmd.sh
 
@@ -28,24 +27,24 @@ eunits=1024
 eprojs=1024
 subsample=1_2_2_1_1 # skip every n frame from input to nth layers
 encoder_dropout=0.2
-decoder_dropout=0.2
+decoder_dropout=0.0
 # decoder related
 dlayers=2
 dunits=1024
 # attention related
-#atype=location
+atype=location
 #atype=multi_location
-atype=factorized_location
+#atype=factorized_location
 adim=1024
 aconv_chans=10
 aconv_filts=100
-gatt_dim=256
+gatt_dim=1024
 att_scale=3.0
 gatt_scale=0.7
 #gatt_dim=0
 
-gunits=0
-gprojs=1024
+gunits=1024
+gprojs=128
 
 num_save_attention=10
 # hybrid CTC/attention
@@ -82,6 +81,7 @@ maxlenratio=0.0
 minlenratio=0.0
 ctc_weight=0.6
 recog_model=model.acc.best # set a model to be used for decoding: 'model.acc.best' or 'model.loss.best'
+nbest=20
 
 # scheduled sampling option
 samp_prob=0.0
@@ -238,7 +238,7 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
 fi
 
 if [ -z ${tag} ]; then
-    expname=gatt_dim_${gatt_dim}_edropout_${encoder_dropout}_dec_dropout_${decoder_dropout}_patience_${patience}_gunits_${gunits}_gprojs_${gprojs}_${gatt_scale}_${att_scale}_${train_set}_${backend}_${etype}_e${elayers}_subsample${subsample}_unit${eunits}_proj${eprojs}_d${dlayers}_unit${dunits}_${atype}_aconvc${aconv_chans}_aconvf${aconv_filts}_mtlalpha${mtlalpha}_${opt}_sampprob${samp_prob}_bs${batchsize}_mli${maxlen_in}_mlo${maxlen_out}
+    expname=temp_gat_${gatt_dim}_edr_${encoder_dropout}_decdr_${decoder_dropout}_patience_${patience}_gunits_${gunits}_gprojs_${gprojs}_${gatt_scale}_${att_scale}_${train_set}_${backend}_${etype}_e${elayers}_subsample${subsample}_unit${eunits}_proj${eprojs}_d${dlayers}_unit${dunits}_${atype}_aconvc${aconv_chans}_aconvf${aconv_filts}_mtlalpha${mtlalpha}_${opt}_sampprob${samp_prob}_bs${batchsize}_mli${maxlen_in}_mlo${maxlen_out}
     if ${do_delta}; then
         expname=${expname}_delta
     fi
@@ -319,6 +319,51 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
             --result-label ${expdir}/${decode_dir}/data.JOB.json \
             --model ${expdir}/results/${recog_model}  \
             --beam-size ${beam_size} \
+            --penalty ${penalty} \
+            --maxlenratio ${maxlenratio} \
+            --minlenratio ${minlenratio} \
+            --ctc-weight ${ctc_weight} \
+            --rnnlm ${lmexpdir}/rnnlm.model.best \
+            --lm-weight ${lm_weight}
+
+        score_sclite.sh --nlsyms ${nlsyms} ${expdir}/${decode_dir} ${dict}
+
+    ) &
+    pids+=($!) # store background pids
+    done
+    i=0; for pid in "${pids[@]}"; do wait ${pid} || ((++i)); done
+    [ ${i} -gt 0 ] && echo "$0: ${i} background jobs are failed." && false
+    echo "Finished"
+fi
+
+
+exit 0
+if [ ${stage} -le 6 ] && [ ${stop_stage} -ge 6 ]; then
+    echo "stage 6: Dumping N-best list"
+    nj=25
+
+    pids=() # initialize pids
+    for rtask in ${recog_set}; do
+    (
+        decode_dir=dump_${rtask}_beam${beam_size}_e${recog_model}_p${penalty}_len${minlenratio}-${maxlenratio}_ctcw${ctc_weight}_rnnlm${lm_weight}_${lmtag}
+        feat_recog_dir=${dumpdir}/${rtask}/delta${do_delta}
+
+        # split data
+        splitjson.py --parts ${nj} ${feat_recog_dir}/data.json
+
+        #### use CPU for decoding
+        ngpu=0
+
+        ${decode_cmd} JOB=1:${nj} ${expdir}/${decode_dir}/log/decode.JOB.log \
+            asr_recog.py \
+            --ngpu ${ngpu} \
+            --backend ${backend} \
+            --batchsize 0 \
+            --recog-json ${feat_recog_dir}/split${nj}utt/data.JOB.json \
+            --result-label ${expdir}/${decode_dir}/data.JOB.json \
+            --model ${expdir}/results/${recog_model}  \
+            --beam-size ${beam_size} \
+            --nbest ${nbest} \
             --penalty ${penalty} \
             --maxlenratio ${maxlenratio} \
             --minlenratio ${minlenratio} \

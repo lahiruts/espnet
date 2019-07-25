@@ -8,13 +8,13 @@
 
 # general configuration
 backend=pytorch
-stage=3       # start from 0 if you need to start from data preparation
+stage=2        # start from 0 if you need to start from data preparation
 stop_stage=100
 ngpu=1         # number of gpus ("0" uses cpu, otherwise use gpu)
 debugmode=1
 dumpdir=dump   # directory to dump full features
 N=0            # number of minibatches to be used (mainly for debugging). "0" uses all minibatches.
-verbose=0      # verbose option
+verbose=3      # verbose option
 resume=        # Resume the training from snapshot
 
 # feature configuration
@@ -28,25 +28,24 @@ eunits=1024
 eprojs=1024
 subsample=1_2_2_1_1 # skip every n frame from input to nth layers
 encoder_dropout=0.2
-decoder_dropout=0.0
+decoder_dropout=0.2
 # decoder related
 dlayers=2
 dunits=1024
 # attention related
-atype=location
-#atype=multi_location
+#atype=location
+atype=multi_location
 #atype=factorized_location
 adim=1024
 aconv_chans=10
 aconv_filts=100
-gatt_dim=1024
+gatt_dim=256
 att_scale=3.0
 gatt_scale=0.7
 #gatt_dim=0
 
 gunits=1024
-#gunits=0
-gprojs=1024
+gprojs=512
 
 num_save_attention=10
 # hybrid CTC/attention
@@ -60,9 +59,8 @@ maxlen_out=150 # if output length > maxlen_out, batchsize is automatically reduc
 # optimization related
 sortagrad=0 # Feed samples from shortest to longest ; -1: enabled for all epochs, 0: disabled, other: enabled for 'other' epochs
 opt=adadelta
-epochs=10
+epochs=5
 patience=0
-eps=1e-4
 
 # rnnlm related
 lm_layers=2
@@ -124,59 +122,42 @@ else
 fi
 expdir=exp/${expname}
 #expdir=exp/edropout_0.2_dec_dropout_0.0_patience_0_gunits_1024_gprojs_512_0.7_3.0_train_tr90_sp_pytorch_vggblstm_e3_subsample1_2_2_1_1_unit1024_proj1024_d2_unit1024_multi_location_aconvc10_aconvf100_mtlalpha0.5_adadelta_sampprob0.0_bs20_mli800_mlo150
-
-#expdir=exp/gatt_dim_768_edropout_0.2_dec_dropout_0.0_patience_0_gunits_0_gprojs_1024_0.7_3.0_train_tr90_sp_pytorch_vggblstm_e3_subsample1_2_2_1_1_unit1024_proj1024_d2_unit1024_factorized_location_aconvc10_aconvf100_mtlalpha0.5_adadelta_sampprob0.0_bs20_mli800_mlo150
-#expdir=exp/gatt_1024_edropout_0.2_dec_dropout_0.0_patience_0_gunits_1024_gprojs_1024_0.7_3.0_train_tr90_sp_pytorch_vggblstm_e3_subsample1_2_2_1_1_unit1024_proj1024_d2_unit1024_location_aconvc10_aconvf100_mtlalpha0.5_adadelta_sampprob0.0_bs20_mli800_mlo150
-#expdir=exp/temp_gat_1024_edr_0.2_decdr_0.0_patience_0_gunits_1024_gprojs_128_0.7_3.0_train_tr90_sp_pytorch_vggblstm_e3_subsample1_2_2_1_1_unit1024_proj1024_d2_unit1024_location_aconvc10_aconvf100_mtlalpha0.5_adadelta_sampprob0.0_bs20_mli800_mlo151
-expdir=exp/temp_gat_1024_edr_0.2_decdr_0.0_patience_0_gunits_1024_gprojs_128_0.7_3.0_train_tr90_sp_pytorch_vggblstm_e3_subsample1_2_2_1_1_unit1024_proj1024_d2_unit1024_location_aconvc10_aconvf100_mtlalpha0.5_adadelta_sampprob0.0_bs20_mli800_mlo150
 decode_dir=decode_test_beam20_emodel.acc.best_p0.0_len0.0-0.0_ctcw0.6_rnnlm0.3_2layer_unit650_sgd_bs64
 num_test_speakers=5
 
 lmexpdir=exp/train_rnnlm_pytorch_2layer_unit650_sgd_bs64
-main_data_dir=$expdir/data
-main_oracle_data=$expdir/data_oracle
-
 
 if [ ${stage} -le 2 ]; then
         echo "stage 1: Process the firstpass decoding outputs"
 
+        main_data_dir=$expdir/data
         mkdir -p $main_data_dir
-        cp -r data/$recog_set/{wav.scp,spk2utt,spk2gender,segments}  $main_data_dir/
-        cp -r dump/test/deltafalse/feats.scp  $main_data_dir/
-        python create_spk_data_dir.py ${expdir}/${decode_dir} $main_data_dir
-        #grep "asr:489" ${expdir}/${decode_dir}/log/decode.* | awk '{print $7}' | sed 's/\[//' | sed 's/\]//' | sed 's/://' > $main_data_dir/temp_utts
-        #grep "asr:507" ${expdir}/${decode_dir}/log/decode.* | awk '{print $7}' | sed 's/\[//' | sed 's/\]//' | sed 's/://' > $main_data_dir/temp_utts
-        #grep "prediction" ${expdir}/${decode_dir}/log/decode.* | awk '{print $NF}' | sed 's/<eos>//' > $main_data_dir/temp_predictions
-        #paste $main_data_dir/temp_utts $main_data_dir/temp_predictions | sort | uniq > $main_data_dir/outputs
-        
-        #cp -r data/$recog_set/* $main_data_dir/
-        #rm -rf $main_data_dir/split*
-        #rm -rf $main_data_dir/log
-        #rm -rf $main_data_dir/dump_feats
-        #cp dump/test/deltafalse/feats.scp $main_data_dir/
-        #grep -v "*" $main_data_dir/outputs > $main_data_dir/text
+        grep "asr:507" ${expdir}/${decode_dir}/log/decode.* | awk '{print $7}' | sed 's/\[//' | sed 's/\]//' | sed 's/://' > $main_data_dir/temp_utts
+        grep "prediction" ${expdir}/${decode_dir}/log/decode.* | awk '{print $NF}' | sed 's/<eos>//' > $main_data_dir/temp_predictions
+        paste $main_data_dir/temp_utts $main_data_dir/temp_predictions | sort | uniq > $main_data_dir/outputs
+        cp -r data/$recog_set/* $main_data_dir/
+        rm -rf $main_data_dir/split*
+        rm -rf $main_data_dir/log
+        rm -rf $main_data_dir/dump_feats
+        cp dump/test/deltafalse/feats.scp $main_data_dir/
+        grep -v "*" $main_data_dir/outputs > $main_data_dir/text
      
         ./utils/fix_data_dir.sh $main_data_dir 
         ./utils/split_data.sh $main_data_dir $num_test_speakers
  
-        mkdir -p $main_oracle_data
-        cp -r data/$recog_set/*  $main_oracle_data/
-        cp dump/test/deltafalse/feats.scp $main_oracle_data/
-        ./utils/fix_data_dir.sh $main_oracle_data
-        ./utils/split_data.sh $main_oracle_data $num_test_speakers
 
         for val in `seq 1 ${num_test_speakers}`; do 
               working_dir=$expdir/${val}
               echo $working_dir
     	      data_unsup=$working_dir/data
-              data_oracle=$main_oracle_data/split${num_test_speakers}/${val}
-              #mkdir -p $data_oracle
+              data_oracle=$working_dir/data_oracle
+              mkdir -p $data_oracle
               mkdir -p $data_unsup
               cp -r $main_data_dir/split${num_test_speakers}/${val}/* $data_unsup/
-              #cp -r $data_unsup/* $data_oracle/
+              cp -r $data_unsup/* $data_oracle/
 
               ./utils/fix_data_dir.sh $data_unsup
-              #cp data/$recog_set/text $data_oracle/    # has the oracle transcripts for second pass decode scoring.
+              cp data/$recog_set/text $data_oracle/    # has the oracle transcripts for second pass decode scoring.
               ./utils/fix_data_dir.sh $data_oracle
 
  
@@ -185,6 +166,58 @@ if [ ${stage} -le 2 ]; then
 	done
 fi
 
+if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 2 ]; then
+    echo "stage 2: Network Adaptation"
+
+for val in `seq 1 ${num_test_speakers}`; do
+
+    working_dir=$expdir/${val}
+    
+    ${cuda_cmd} --gpu ${ngpu} ${working_dir}/train.log \
+        asr_adapt.py \
+        --ngpu ${ngpu} \
+        --backend ${backend} \
+        --outdir ${working_dir}/results \
+        --model ${expdir}/results/${recog_model}  \
+        --tensorboard-dir ${working_dir}/tensorboard/${expdir} \
+        --debugmode ${debugmode} \
+        --dict ${dict} \
+        --debugdir ${working_dir} \
+        --minibatches ${N} \
+        --verbose ${verbose} \
+        --resume ${resume} \
+        --train-json ${working_dir}/data/data.json \
+        --valid-json ${working_dir}/data/data.json \
+        --etype ${etype} \
+        --elayers ${elayers} \
+        --eunits ${eunits} \
+        --eprojs ${eprojs} \
+        --gunits ${gunits} \
+        --gprojs ${gprojs} \
+        --subsample ${subsample} \
+        --dlayers ${dlayers} \
+        --dunits ${dunits} \
+        --atype ${atype} \
+        --adim ${adim} \
+        --num-save-attention ${num_save_attention} \
+        --gatt-dim ${gatt_dim} \
+        --att-scale ${att_scale} \
+        --gatt-scale ${gatt_scale} \
+        --aconv-chans ${aconv_chans} \
+        --aconv-filts ${aconv_filts} \
+        --mtlalpha ${mtlalpha} \
+        --batch-size ${batchsize} \
+        --maxlen-in ${maxlen_in} \
+        --maxlen-out ${maxlen_out} \
+        --sampling-probability ${samp_prob} \
+        --opt ${opt} \
+        --dropout-rate ${encoder_dropout} \
+        --dropout-rate-decoder ${decoder_dropout} \
+        --sortagrad ${sortagrad} \
+        --epochs ${epochs} \
+        --patience ${patience}
+done
+fi
 
 if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
     echo "stage 3: Decoding after adaptation"
@@ -194,8 +227,7 @@ mkdir -p $second_pass_decode
 
 for val in `seq 1 ${num_test_speakers}`; do
    (
-   
-    data_oracle=$main_oracle_data/split${num_test_speakers}/${val} 
+    
     export CUDA_VISIBLE_DEVICES=${val}    
     working_dir=$expdir/${val}
 
@@ -241,15 +273,13 @@ for val in `seq 1 ${num_test_speakers}`; do
         --dropout-rate-decoder ${decoder_dropout} \
         --sortagrad ${sortagrad} \
         --epochs ${epochs} \
-        --eps ${eps} \
         --patience ${patience}
 
-        nj=10
+        nj=1
         decode_dir=decode_secondpass_beam${beam_size}_e${recog_model}_p${penalty}_len${minlenratio}-${maxlenratio}_ctcw${ctc_weight}_rnnlm${lm_weight}_${lmtag}
 
         # split data
-        splitjson.py --parts ${nj} ${data_oracle}/data.json
- 
+
         #### use CPU for decoding
         ngpu=0
 
@@ -258,9 +288,9 @@ for val in `seq 1 ${num_test_speakers}`; do
             --ngpu ${ngpu} \
             --backend ${backend} \
             --batchsize 0 \
-            --recog-json ${data_oracle}/split${nj}utt/data.JOB.json \
-            --result-label ${working_dir}/${decode_dir}/data.${val}.JOB.json \
-            --model ${working_dir}/results/${recog_model}  \
+            --recog-json ${working_dir}/data_oracle/data.json \
+            --result-label ${working_dir}/${decode_dir}/data.json \
+            --model ${expdir}/results/${recog_model}  \
             --beam-size ${beam_size} \
             --penalty ${penalty} \
             --maxlenratio ${maxlenratio} \
@@ -269,7 +299,7 @@ for val in `seq 1 ${num_test_speakers}`; do
             --rnnlm ${lmexpdir}/rnnlm.model.best \
             --lm-weight ${lm_weight}
 
-       #cp ${working_dir}/${decode_dir}/data.json $second_pass_decode/data.${val}.json
+       cp ${working_dir}/${decode_dir}/data.json $second_pass_decode/data.${val}.json
 
      ) &
      pids+=($!) # store background pids
@@ -277,14 +307,6 @@ done
 i=0; for pid in "${pids[@]}"; do wait ${pid} || ((++i)); done
     [ ${i} -gt 0 ] && echo "$0: ${i} background jobs are failed." && false
     echo "Second Pass Decoding Finished"
-
-for val in `seq 1 ${num_test_speakers}`; do
-  working_dir=$expdir/${val}
-  decode_dir=decode_secondpass_beam${beam_size}_e${recog_model}_p${penalty}_len${minlenratio}-${maxlenratio}_ctcw${ctc_weight}_rnnlm${lm_weight}_${lmtag}
-  second_pass_decode=$expdir/decode_second_pass
-  cp ${working_dir}/${decode_dir}/data.* $second_pass_decode/
-done
-
 score_sclite.sh --nlsyms ${nlsyms} $second_pass_decode ${dict}
 
 fi
