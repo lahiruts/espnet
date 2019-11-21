@@ -122,6 +122,15 @@ class GuidedAttentionLoss(torch.nn.Module):
     def _make_masks(ilens, olens):
         """Make masks indicating non-padded part.
 
+        Args:
+            ilens (LongTensor or List): Batch of lengths (B,).
+            olens (LongTensor or List): Batch of lengths (B,).
+
+        Returns:
+            Tensor: Mask tensor indicating non-padded part.
+                    dtype=torch.uint8 in PyTorch 1.2-
+                    dtype=torch.bool in PyTorch 1.2+ (including 1.2)
+
         Examples:
             >>> ilens, olens = [5, 2], [8, 5]
             >>> _make_mask(ilens, olens)
@@ -290,6 +299,8 @@ class Tacotron2(TTSInterface, torch.nn.Module):
                            help="Number of speaker embedding dimensions")
         group.add_argument("--spc-dim", default=None, type=int,
                            help="Number of spectrogram dimensions")
+        group.add_argument("--pretrained-model", default=None, type=str,
+                           help="Pretrained model path")
         # loss related
         group.add_argument('--use-masking', default=False, type=strtobool,
                            help='Whether to use masking in calculation of loss')
@@ -453,6 +464,10 @@ class Tacotron2(TTSInterface, torch.nn.Module):
                              highway_units=args.cbhg_highway_units,
                              gru_units=args.cbhg_gru_units)
             self.cbhg_loss = CBHGLoss(use_masking=args.use_masking)
+
+        # load pretrained model
+        if args.pretrained_model is not None:
+            self.load_pretrained_model(args.pretrained_model)
 
     def forward(self, xs, ilens, ys, labels, olens, spembs=None, spcs=None, *args, **kwargs):
         """Calculate forward propagation.
