@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # E2E_mgb2
 # Copyright (C) 2020 Kanari AI  (Amir Hussein)
 
@@ -250,7 +250,10 @@ fi
 
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
     echo "stage 5: Decoding"
-    if [[ $(get_yaml.py ${train_config} model-module) = *transformer* ]]; then
+    if [[ $(get_yaml.py ${train_config} model-module) = *transformer* ]] || \
+           [[ $(get_yaml.py ${train_config} model-module) = *conformer* ]] || \
+           [[ $(get_yaml.py ${train_config} etype) = custom ]] || \
+           [[ $(get_yaml.py ${train_config} dtype) = custom ]]; then 
         # Average ASR models
         if ${use_valbest_average}; then
             recog_model=model.val${n_average}.avg.best

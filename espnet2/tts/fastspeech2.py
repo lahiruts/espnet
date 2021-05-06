@@ -3,6 +3,8 @@
 
 """Fastspeech2 related modules for ESPnet2."""
 
+import logging
+
 from typing import Dict
 from typing import Sequence
 from typing import Tuple
@@ -69,19 +71,21 @@ class FastSpeech2(AbsTTS):
         positionwise_conv_kernel_size: int = 1,
         use_scaled_pos_enc: bool = True,
         use_batch_norm: bool = True,
-        encoder_normalize_before: bool = False,
-        decoder_normalize_before: bool = False,
+        encoder_normalize_before: bool = True,
+        decoder_normalize_before: bool = True,
         encoder_concat_after: bool = False,
         decoder_concat_after: bool = False,
         reduction_factor: int = 1,
         encoder_type: str = "transformer",
         decoder_type: str = "transformer",
         # only for conformer
+        conformer_rel_pos_type: str = "legacy",
         conformer_pos_enc_layer_type: str = "rel_pos",
         conformer_self_attn_layer_type: str = "rel_selfattn",
         conformer_activation_type: str = "swish",
         use_macaron_style_in_conformer: bool = True,
         use_cnn_in_conformer: bool = True,
+        zero_triu: bool = False,
         conformer_enc_kernel_size: int = 7,
         conformer_dec_kernel_size: int = 31,
         # duration predictor
@@ -159,6 +163,30 @@ class FastSpeech2(AbsTTS):
             ScaledPositionalEncoding if self.use_scaled_pos_enc else PositionalEncoding
         )
 
+        # check relative positional encoding compatibility
+        if "conformer" in [encoder_type, decoder_type]:
+            if conformer_rel_pos_type == "legacy":
+                if conformer_pos_enc_layer_type == "rel_pos":
+                    conformer_pos_enc_layer_type = "legacy_rel_pos"
+                    logging.warning(
+                        "Fallback to conformer_pos_enc_layer_type = 'legacy_rel_pos' "
+                        "due to the compatibility. If you want to use the new one, "
+                        "please use conformer_pos_enc_layer_type = 'latest'."
+                    )
+                if conformer_self_attn_layer_type == "rel_selfattn":
+                    conformer_self_attn_layer_type = "legacy_rel_selfattn"
+                    logging.warning(
+                        "Fallback to "
+                        "conformer_self_attn_layer_type = 'legacy_rel_selfattn' "
+                        "due to the compatibility. If you want to use the new one, "
+                        "please use conformer_pos_enc_layer_type = 'latest'."
+                    )
+            elif conformer_rel_pos_type == "latest":
+                assert conformer_pos_enc_layer_type != "legacy_rel_pos"
+                assert conformer_self_attn_layer_type != "legacy_rel_selfattn"
+            else:
+                raise ValueError(f"Unknown rel_pos_type: {conformer_rel_pos_type}")
+
         # define encoder
         encoder_input_layer = torch.nn.Embedding(
             num_embeddings=idim, embedding_dim=adim, padding_idx=self.padding_idx
@@ -201,6 +229,7 @@ class FastSpeech2(AbsTTS):
                 activation_type=conformer_activation_type,
                 use_cnn_module=use_cnn_in_conformer,
                 cnn_module_kernel=conformer_enc_kernel_size,
+                zero_triu=zero_triu,
             )
         else:
             raise ValueError(f"{encoder_type} is not supported.")
@@ -500,14 +529,14 @@ class FastSpeech2(AbsTTS):
             p_embs = self.pitch_embed(p_outs.transpose(1, 2)).transpose(1, 2)
             e_embs = self.energy_embed(e_outs.transpose(1, 2)).transpose(1, 2)
             hs = hs + e_embs + p_embs
-            hs = self.length_regulator(hs, d_outs, ilens, alpha)  # (B, Lmax, adim)
+            hs = self.length_regulator(hs, d_outs, alpha)  # (B, Lmax, adim)
         else:
             d_outs = self.duration_predictor(hs, d_masks)
             # use groundtruth in training
             p_embs = self.pitch_embed(ps.transpose(1, 2)).transpose(1, 2)
             e_embs = self.energy_embed(es.transpose(1, 2)).transpose(1, 2)
             hs = hs + e_embs + p_embs
-            hs = self.length_regulator(hs, ds, ilens)  # (B, Lmax, adim)
+            hs = self.length_regulator(hs, ds)  # (B, Lmax, adim)
 
         # forward decoder
         if olens is not None and not is_inference:

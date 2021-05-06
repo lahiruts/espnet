@@ -3,10 +3,14 @@
 
 AISHELL=downloads
 AN4=downloads
+DIRHA_ENGLISH_PHDEV=
+DIRHA_WSJ=
+DIRHA_WSJ_PROCESSED="${PWD}/data/local/dirha_wsj_processed"  # Output file path
 WSJ0=
 WSJ1=
 WSJCAM0=
 REVERB=
+REVERB_OUT="${PWD}/REVERB"  # Output file path
 CHIME3=
 CHIME4=
 CSJDATATOP=
@@ -22,10 +26,18 @@ CSJVER=dvd  ## Set your CSJ format (dvd or usb).
 CSMSC=downloads
 HKUST1=
 HKUST2=
+LABOROTV=
+TEDXJP=
 LIBRISPEECH=
+MINI_LIBRISPEECH=downloads
+LIBRITTS=
 LJSPEECH=downloads
+NSC=
+JSSS=downloads
 JSUT=downloads
-TIMIT=
+JVS=downloads
+SPGISPEECH=
+TIMIT=$(realpath ../../../../TIMIT)
 VOXFORGE=downloads
 AMI=
 COMMONVOICE=downloads
@@ -54,20 +66,28 @@ BABEL_401=
 BABEL_402=
 BABEL_403=
 BABEL_404=
+TEDLIUM3=downloads
+VCTK=downloads
 VIVOS=downloads
 YESNO=downloads
 HOW2_TEXT=downloads/how2-300h-v1
 HOW2_FEATS=downloads/fbank_pitch_181516
 ZEROTH_KOREAN=downloads
+RU_OPEN_STT=downloads
+GIGASPEECH=
 
-
+# For only JHU environment
 if [[ "$(hostname -d)" == clsp.jhu.edu ]]; then
     AISHELL=
     AN4=
+    DIRHA_ENGLISH_PHDEV=
+    DIRHA_WSJ=
+    DIRHA_WSJ_PROCESSED="${PWD}/data/local/dirha_wsj_processed"  # Output file path
     WSJ0=
     WSJ1=
-    WSJCAM0=
-    REVERB=
+    WSJCAM0=/export/corpora3/LDC/LDC95S24/wsjcam0
+    REVERB=/export/corpora5/REVERB_2014/REVERB
+    REVERB_OUT="${PWD}/REVERB"  # Output file path
     CHIME3=
     CHIME4=
     CSJDATATOP=/export/corpora5/CSJ/USB
@@ -80,12 +100,18 @@ if [[ "$(hostname -d)" == clsp.jhu.edu ]]; then
                 ## Case USB : Neccesary directory is MORPH/SDB and WAV
                 ##            e.g. $ ls $CSJDATATOP(USB) => 00README.txt DOC MORPH ... WAV fileList.csv
                 ## Case merl :MERL setup. Neccesary directory is WAV and sdb
-    CSMSC=
+    CSMSC=downloads
     HKUST1=
     HKUST2=
+    LABOROTV=
+    TEDXJP=
     LIBRISPEECH=
-    LJSPEECH=
-    JSUT=
+    MINI_LIBRISPEECH=downloads
+    LIBRITTS=
+    LJSPEECH=downloads
+    JSSS=downloads
+    JSUT=downloads
+    JVS=downloads
     TIMIT=
     VOXFORGE=
     AMI=/export/corpora4/ami/amicorpus
@@ -115,6 +141,8 @@ if [[ "$(hostname -d)" == clsp.jhu.edu ]]; then
     BABEL_402=/export/babel/data/402-javanese/IARPA-babel402b-v1.0b-build/BABEL_OP3_402
     BABEL_403=/export/babel/data/403-dholuo/IARPA-babel403b-v1.0b-build/BABEL_OP3_403
     BABEL_404=/export/corpora/LDC/LDC2016S12/IARPA_BABEL_OP3_404
+    TEDLIUM3=downloads
+    VCTK=downloads
     VIVOS=
     YESNO=
     HOW2_TEXT=
